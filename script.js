@@ -257,15 +257,43 @@ document.querySelectorAll(".btn-gold2,.btn-outline2,.tt-nav-cta,.tt-mobile-cta")
 
 
 /* ─── TakeThat.com nav — hamburger toggle ─────── */
-const toggle = document.querySelector('.menu-toggle');
-const menu = document.querySelector('.mobile-menu');
 
-toggle.addEventListener('click', () => {
-  const isOpen = toggle.classList.toggle('active');
-  menu.classList.toggle('active');
+/* ─── TakeThat.com nav — hamburger toggle ─────── */
+(function(){
+  const hamburger  = document.getElementById("tt-hamburger");
+  const mobileMenu = document.getElementById("tt-mobile-menu");
+  let isOpen = false;
 
-  toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-});
+  function openMenu(){
+    isOpen = true;
+    hamburger.classList.add("open");
+    hamburger.setAttribute("aria-expanded","true");
+    mobileMenu.classList.add("open");
+    document.body.style.overflow="hidden";
+  }
+  function closeMenu(){
+    isOpen = false;
+    hamburger.classList.remove("open");
+    hamburger.setAttribute("aria-expanded","false");
+    mobileMenu.classList.remove("open");
+    document.body.style.overflow="";
+  }
+
+  hamburger.addEventListener("click",()=>isOpen?closeMenu():openMenu());
+
+  // Close on Escape
+  document.addEventListener("keydown",e=>{
+    if(e.key==="Escape"&&isOpen) closeMenu();
+  });
+
+  // Close when a mobile link is clicked
+  document.querySelectorAll(".tt-mobile-link").forEach(link=>{
+    link.addEventListener("click",closeMenu);
+  });
+  const mCta = document.querySelector(".tt-mobile-cta");
+  if(mCta) mCta.addEventListener("click",closeMenu);
+})();
+
 
 
 
