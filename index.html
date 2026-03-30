@@ -1,28 +1,38 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
-
-  <head>
-    <meta charset="UTF-8">
-    <title>veil home page</title>
-    <link rel="stylesheet" href="./style.css">
-
-  </head>
-    
-  <body>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VEIL — Where Brands Become Legends</title>
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://slater.app/10324/23333.css">
   <link rel="stylesheet" href="https://webflow-assets.papertigerhq.com/Paper-Tiger-Website/build/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.4/tailwind.min.css">
-  <style>
-
-  </style>
 </head>
 <body>
 
+
+
+  
+  
+  
+  
+  
+
+<!-- ════════════════════════════════════
+     NAV
+════════════════════════════════════ -->
+<!-- ════════════════════════════════════
+     HERO — DRAFT HISTORY IN REAL TIME
+════════════════════════════════════ -->
+
+<!-- ════════════════════════════════════════════
+     ╔══════════════════════════════════════════╗
+     ║   nav    ║ header
+     ╚══════════════════════════════════════════╝
+════════════════════════════════════════════ -->
 
 
 <header class="tt-header" id="tt-header">
@@ -48,85 +58,51 @@
       </ul>
       <a href="veil-contact.html" class="tt-nav-cta">File a Brief</a>
     </div>
-    <button class="menu-button hamburger-btn" type="button" data-menu-toggle="" aria-label="Open menu" aria-expanded="false">
-      <span class="hamburger" aria-hidden="true">
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
+    <button class="menu-button hamburger-btn" type="button" data-menu-toggle="" aria-label="Open menu" aria-expanded="false" style="display:flex !important;align-items:center;justify-content:center;background:transparent;border:none;cursor:pointer;padding:.75em;margin-right:-.5em;color:#c4a46b;z-index:10002;position:relative;">
+      <span class="hamburger" aria-hidden="true" style="display:flex;flex-direction:column;justify-content:space-between;width:1.6em;height:1.15em;pointer-events:none;">
+        <span class="hamburger-line" style="display:block;height:2px;width:100%;background:currentColor;border-radius:2px;transition:transform .35s,opacity .25s;"></span>
+        <span class="hamburger-line" style="display:block;height:2px;width:100%;background:currentColor;border-radius:2px;transition:transform .35s,opacity .25s;"></span>
+        <span class="hamburger-line" style="display:block;height:2px;width:100%;background:currentColor;border-radius:2px;transition:transform .35s,opacity .25s;"></span>
       </span>
-      </button>
-
- 
-        
-
-
-      <section class="cloneable">
-        <div data-nav="closed" class="nav">
-          <div data-menu-toggle="" class="overlay"></div>
-          <nav class="menu">
-            <div class="menu-bg">
-              <div class="bg-panel first"></div>
-              <div class="bg-panel second"></div>
-              <div class="bg-panel"></div>
-            </div>
-            <div class="menu-inner">
-              <ul class="menu-list">
-                <li class="menu-list-item"><a href="#opening" class="menu-link"><p class="menu-link-heading">Studio</p><p class="eyebrow">01</p><div class="menu-link-bg"></div></a></li>
-                <li class="menu-list-item"><a href="#gallery" class="menu-link"><p class="menu-link-heading">Work</p><p class="eyebrow">02</p><div class="menu-link-bg"></div></a></li>
-                <li class="menu-list-item"><a href="#services" class="menu-link"><p class="menu-link-heading">Services</p><p class="eyebrow">03</p><div class="menu-link-bg"></div></a></li>
-                <li class="menu-list-item"><a href="#process" class="menu-link"><p class="menu-link-heading">Process</p><p class="eyebrow">04</p><div class="menu-link-bg"></div></a></li>
-                <li class="menu-list-item"><a href="#contact" class="menu-link"><p class="menu-link-heading">Contact</p><p class="eyebrow">05</p><div class="menu-link-bg"></div></a></li>
-              </ul>
-              <div class="menu-details">
-                <p data-menu-fade="" class="p-small">Follow the obsession</p>
-                <div class="socials-row">
-                  <a data-menu-fade="" href="#" class="p-large text-link">Instagram</a>
-                  <a data-menu-fade="" href="#" class="p-large text-link">LinkedIn</a>
-                  <a data-menu-fade="" href="#" class="p-large text-link">X</a>
-                  <a data-menu-fade="" href="#" class="p-large text-link">Awwwards</a>
-                </div>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </section>
-
-    </div>
-  </div>
-</div>
+    </button>
+    
+  </nav>
 </header>
-  
 
-<!-- FULL-SCREEN MOBILE MENU OVERLAY -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- FULL-SCREEN MOBILE MENU OVERLAY — direct <body> child, outside all stacking contexts -->
+<div data-nav="closed" class="nav-menu">
+  <div data-menu-toggle="" class="overlay"></div>
+  <nav class="menu">
+    <div class="menu-bg">
+      <div class="bg-panel first"></div><div class="bg-panel second"></div><div class="bg-panel"></div>
+    </div>
+    <div class="menu-inner">
+      <ul class="menu-list">
+        <li class="menu-list-item"><a href="veil-v3.html"    class="menu-link"><p class="menu-link-heading">Home</p>    <p class="eyebrow">00</p><div class="menu-link-bg"></div></a></li>
+        <li class="menu-list-item"><a href="#"               class="menu-link"><p class="menu-link-heading">Work</p>    <p class="eyebrow">01</p><div class="menu-link-bg"></div></a></li>
+        <li class="menu-list-item"><a href="#"               class="menu-link"><p class="menu-link-heading">Services</p><p class="eyebrow">02</p><div class="menu-link-bg"></div></a></li>
+        <li class="menu-list-item"><a href="veil-about.html" class="menu-link"><p class="menu-link-heading">About</p>   <p class="eyebrow">03</p><div class="menu-link-bg"></div></a></li>
+        <li class="menu-list-item"><a href="#complaint"      class="menu-link"><p class="menu-link-heading">Contact</p> <p class="eyebrow">04</p><div class="menu-link-bg"></div></a></li>
+      </ul>
+      <div class="menu-details">
+        <p data-menu-fade="" class="p-small">Follow the obsession</p>
+        <div class="socials-row">
+          <a data-menu-fade="" href="#" class="p-large text-link">Instagram</a>
+          <a data-menu-fade="" href="#" class="p-large text-link">LinkedIn</a>
+          <a data-menu-fade="" href="#" class="p-large text-link">Awwwards</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
 
 
 
+<!-- ════════════════════════════════════════════
+     ╔══════════════════════════════════════════╗
+     ║   end     ║
+     ╚══════════════════════════════════════════╝
+════════════════════════════════════════════ -->
 
 
 
@@ -184,8 +160,6 @@
 
 
 
-      
-         
       
 
 
@@ -795,40 +769,18 @@
     </div>
   </div>
 </footer>
+  
+  
 
 <!-- ═══════════════════════════════════════
      SCRIPTS
 ═══════════════════════════════════════ -->
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js"></script>
-
-<!-- ✅ Updated SplitText (official free version) -->
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
-
-<script>
-  gsap.registerPlugin(CustomEase, ScrollTrigger, SplitText);
-
-  // hide nav initially
-  gsap.set(".nav", { display: "none" });
-
-  // custom easing
-  CustomEase.create("main", "0.65,0.01,0.05,0.99");
-
-  // global defaults
-  gsap.defaults({
-    ease: "main",
-    duration: 0.7
-  });
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/SplitText3.min.js"></script>
+ 
 </script>
-
-
-
-</script>
+<script src="script.js"></script>
 </body>
-</html>
-    <script  src="./script.js"></script>
-
-  </body>
-  
 </html>
