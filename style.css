@@ -1,4 +1,6 @@
+  
 
+    
 /* ═══════════════════════════════════════════════
    DESIGN TOKENS
 ═══════════════════════════════════════════════ */
@@ -115,9 +117,17 @@ body::after {
 
 
 
-.nav          { z-index:100; width:100%; height:100vh; display:block; position:fixed; inset:0; }
+/* nav-menu: positioned fixed as direct <body> child — no stacking context confinement */
+.nav-menu {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 9999;
+  display: none; /* GSAP will toggle to block/none */
+}
 .overlay      { z-index:0; background:rgba(12,11,9,.75); width:100%; height:100%; position:absolute; inset:0; backdrop-filter:blur(4px); }
-.menu         { padding-bottom:var(--menu-padding); padding-top:calc(3 * var(--menu-padding)); flex-flow:column; justify-content:space-between; align-items:flex-start; width:35em; height:100%; margin-left:auto; position:relative; overflow:auto; }
+.menu         { display:flex; padding-bottom:var(--menu-padding); padding-top:calc(3 * var(--menu-padding)); flex-flow:column; justify-content:space-between; align-items:flex-start; width:35em; height:100%; margin-left:auto; position:relative; overflow:auto; }
 .menu-bg      { z-index:0; position:absolute; inset:0; }
 .menu-inner   { z-index:1; flex-flow:column; justify-content:space-between; align-items:flex-start; height:100%; display:flex; position:relative; overflow:auto; }
 .bg-panel     { z-index:0; background:var(--bg); border-top-left-radius:1.25em; border-bottom-left-radius:1.25em; position:absolute; inset:0; }
@@ -196,6 +206,17 @@ margin-bottom:0;
 }
 
 
+@media screen and (max-width:767px){
+   .t-d2-fluid {
+  letter-spacing: 0.01em;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align:center;
+  font-size: 3.0vw;
+  line-height: 1.25;
+
+}
+}
 
 
 
@@ -306,7 +327,7 @@ margin-bottom:0;
 ═══════════════════════════════════════════════ */
 .tt-header{
   position:sticky;
-  top:0;left:0;right:0;z-index:200;
+  top:0;left:0;right:0;z-index:10001;
   background:rgba(12,11,9,.92);
   backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
   border-bottom:1px solid var(--rule);
@@ -451,13 +472,11 @@ margin-bottom:0;
 @media screen and (max-width:1200px){
   /* Hide desktop nav items, show hamburger */
   .tt-nav-left,.tt-nav-right-links,.tt-nav-cta{display:none}
-  .tt-hamburger{display:flex}
-}
+  .tt-hamburger,.menu-button.hamburger-btn{display:flex}
 }
 
 @media screen and (max-width:991px){
   .tt-nav{padding:0 1.5em}
-}
 }
 
 
@@ -476,19 +495,26 @@ margin-bottom:0;
 
 /* Replace plus icon + text with hamburger */
 .hamburger-btn{
+  display:flex !important;
   gap:0;
-  color:var(--gold);
+  color:var(--cream);
+  cursor:pointer;
+  background:transparent;
+  border:none;
+  padding:.75em;
+  margin:-.75em -.75em -.75em 0;
 }
 
 /* hide old stacked Menu/Close text if it still exists anywhere */
 .menu-button-text{display:none !important;}
 
 .hamburger{
-  width:1.4em;
-  height:1.05em;
+  width:1.6em;
+  height:1.2em;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
+  pointer-events:none;
 }
 
 .hamburger-line{
@@ -497,6 +523,7 @@ margin-bottom:0;
   background:currentColor;
   border-radius:2px;
   transform-origin:center;
+  display:block;
   transition:transform .35s var(--ease-out), opacity .25s var(--ease-out);
 }
 
@@ -515,26 +542,7 @@ margin-bottom:0;
 }
 
 
-.cloneable {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    position: relative;
-    --menu-padding: 2em;
-}
 
-
-@media screen and (max-width:1200px){
-  /* Hide desktop nav items, show hamburger */
-  .tt-nav-left,.tt-nav-right-links,.tt-nav-cta{display:none}
-  .tt-hamburger{display:flex}
-}
-}
-
-@media screen and (max-width:991px){
-  .tt-nav{padding:0 1.5em}
-}
-}
 
 
 
@@ -1097,7 +1105,7 @@ margin-bottom:0;
   .footer-top { grid-template-columns:1fr 1fr; }
 }
 @media screen and (max-width:991px) {
-  body { perspective:2000px; font-size:15px; }
+  body { font-size:15px; } /* perspective removed — it breaks position:fixed */
   .t-d1-fluid.ticker-line { white-space:normal; font-size:16vw; }
   .c-ticker { margin-bottom:2em; }
   .c-ticker_title { width:100%; flex:0 auto; order:-1; padding-top:14vw; }
@@ -1122,7 +1130,7 @@ margin-bottom:0;
   .t-d1-fluid.ticker-line { white-space:normal; font-size:25vw; }
   .c-ticker { margin-bottom:1em; }
   .c-ticker_title { padding-top:43vw; }
-  .cloneable { --menu-padding:1em; }
+  .nav-menu { --menu-padding:1em; }
   .menu { padding-top:calc(6 * var(--menu-padding)); width:100%; }
   .bg-panel { border-top-left-radius:0; border-bottom-left-radius:0; }
   .menu-list-item { height:4.5em; }
@@ -1160,3 +1168,4 @@ margin-bottom:0;
   .cta-word-stack { font-size:clamp(3.5rem,15vw,6rem); }
 }
 
+ 
