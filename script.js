@@ -1,41 +1,91 @@
 
+gsap.registerPlugin(CustomEase, ScrollTrigger, SplitText);
+CustomEase.create("main","0.65,0.01,0.05,0.99");
+gsap.defaults({ ease:"main", duration:.7 });
+  
+  
+  
 
 
 
-/* ─ Menu ─────────────────────────────────────── */
+/* ── Menu (hamburger open / close) ───────────── */
 (function(){
-  const nav=document.querySelector(".nav"),
-        overlay=nav.querySelector(".overlay"),
-        menu=nav.querySelector(".menu"),
-        panels=nav.querySelectorAll(".bg-panel"),
-        toggles=document.querySelectorAll("[data-menu-toggle]"),
-        links=nav.querySelectorAll(".menu-link"),
-        fades=nav.querySelectorAll("[data-menu-fade]"),
-        btn=document.querySelector(".menu-button"),
-        txts=btn.querySelectorAll("p"),
-        icon=btn.querySelector(".menu-button-icon"),
-        tl=gsap.timeline();
+  const nav = document.querySelector(".nav-menu");
+  const btn = document.querySelector(".hamburger-btn") || document.querySelector(".menu-button");
+  if (!nav || !btn) { console.warn("nav or btn not found"); return; }
 
-  const open=()=>{
-    nav.setAttribute("data-nav","open");
-    tl.clear()
-      .set(nav,{display:"block"}).set(menu,{xPercent:0},"<")
-      .fromTo(txts,{yPercent:0},{yPercent:-100,stagger:.2})
-      .fromTo(icon,{rotate:0},{rotate:315},"<")
-      .fromTo(overlay,{autoAlpha:0},{autoAlpha:1},"<")
-      .fromTo(panels,{xPercent:101},{xPercent:0,stagger:.12,duration:.575},"<")
-      .fromTo(links,{yPercent:140,rotate:10},{yPercent:0,rotate:0,stagger:.05},"<+=.35")
-      .fromTo(fades,{autoAlpha:0,yPercent:50},{autoAlpha:1,yPercent:0,stagger:.04},"<+=.2");
+  // ── CRITICAL: move nav-menu to direct body child at the very end ──
+  // This escapes ALL stacking contexts (transforms, backdrop-filter,
+  // perspective, etc.) that would confine position:fixed to a sub-area.
+  document.body.appendChild(nav);
+
+  // ── Force nav-menu positioning via inline style (beats any CSS) ──
+  Object.assign(nav.style, {
+    position: "fixed",
+    inset: "0",
+    top: "0",
+    left: "0",
+    right: "0",
+    bottom: "0",
+    width: "100%",
+    height: "100%",
+    zIndex: "9999",
+    display: "none"
+  });
+
+  const overlay   = nav.querySelector(".overlay");
+  const menu      = nav.querySelector(".menu");
+  const panels    = nav.querySelectorAll(".bg-panel");
+  const links     = nav.querySelectorAll(".menu-link");
+  const fades     = nav.querySelectorAll("[data-menu-fade]");
+  const icon      = btn.querySelector(".hamburger");
+  const closeBtn  = document.getElementById("nav-close-btn");
+  const tl        = gsap.timeline();
+
+  const setAria = (open) => {
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+    btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
   };
-  const close=()=>{
-    nav.setAttribute("data-nav","closed");
+
+  const openMenu = () => {
+    nav.setAttribute("data-nav", "open");
+    setAria(true);
+    document.body.style.overflow = "hidden";
     tl.clear()
-      .to(overlay,{autoAlpha:0}).to(menu,{xPercent:120},"<")
-      .to(txts,{yPercent:0},"<").to(icon,{rotate:0},"<")
-      .set(nav,{display:"none"});
+      .set(nav, { display:"block" })
+      .fromTo(overlay, { autoAlpha:0 }, { autoAlpha:1, duration:.4 }, "<")
+      .fromTo(panels, { xPercent:101 }, { xPercent:0, stagger:.12, duration:.575 }, "<")
+      .fromTo(menu, { xPercent:120 }, { xPercent:0, duration:.575 }, "<")
+      .fromTo(links, { yPercent:140, rotate:10 }, { yPercent:0, rotate:0, stagger:.05 }, "<+=.35")
+      .fromTo(fades, { autoAlpha:0, yPercent:50 }, { autoAlpha:1, yPercent:0, stagger:.04 }, "<+=.2");
+    if (icon) tl.fromTo(icon, { rotate:0 }, { rotate:315 }, "<");
   };
-  toggles.forEach(t=>t.addEventListener("click",()=>nav.getAttribute("data-nav")==="open"?close():open()));
-  document.addEventListener("keydown",e=>e.key==="Escape"&&nav.getAttribute("data-nav")==="open"&&close());
+
+  const closeMenu = () => {
+    nav.setAttribute("data-nav", "closed");
+    setAria(false);
+    document.body.style.overflow = "";
+    tl.clear()
+      .to(overlay, { autoAlpha:0, duration:.35 })
+      .to(menu, { xPercent:120, duration:.4 }, "<")
+      .set(nav, { display:"none" });
+    if (icon) tl.to(icon, { rotate:0 }, "<");
+  };
+
+  // All [data-menu-toggle] elements open/close
+  document.querySelectorAll("[data-menu-toggle]").forEach(t =>
+    t.addEventListener("click", () =>
+      nav.getAttribute("data-nav") === "open" ? closeMenu() : openMenu()
+    )
+  );
+
+  // The X close button inside the menu
+  if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+
+  // Escape key
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && nav.getAttribute("data-nav") === "open") closeMenu();
+  });
 })();
 
 /* ─ Hero ticker ──────────────────────────────── */
@@ -74,33 +124,34 @@
   const wrap     = document.getElementById("gallery-pin-wrap");
   const inner    = document.getElementById("gallery-pin-inner");
   const scroller = document.getElementById("gallery-scroller");
+  if (!wrap || !inner || !scroller) return;
+
   const progress = document.getElementById("gal-progress");
   const countEl  = document.getElementById("gal-count");
   const cards    = scroller.querySelectorAll(".gcard");
 
-  if (!wrap || !inner || !scroller) return;
-
   gsap.matchMedia().add("(min-width:768px)", () => {
-    // Distance the scroller needs to travel horizontally
     const getTravel = () => scroller.scrollWidth - inner.offsetWidth;
 
     const tween = gsap.to(scroller, {
       x: () => -getTravel(),
       ease: "none",
       scrollTrigger: {
-        trigger: wrap,          // trigger on the outer wrapper
-        start: "top top",       // pin when wrap's top hits viewport top
-        end: () => "+=" + getTravel(), // scroll distance = horizontal travel
-        pin: inner,             // GSAP pins this element (sets position:fixed)
+        trigger: wrap,
+        start: "top top",
+        end: () => "+=" + getTravel(),
+        pin: inner,
         anticipatePin: 1,
         scrub: 1,
         invalidateOnRefresh: true,
         onUpdate(self) {
-          progress.style.width = (self.progress * 100) + "%";
+          if (progress) progress.style.width = (self.progress * 100) + "%";
           const idx = Math.min(Math.round(self.progress * (cards.length - 1)), cards.length - 1);
-          countEl.textContent =
-            String(idx + 1).padStart(2, "0") + " / " +
-            String(cards.length).padStart(2, "0");
+          if (countEl) {
+            countEl.textContent =
+              String(idx + 1).padStart(2, "0") + " / " +
+              String(cards.length).padStart(2, "0");
+          }
         }
       }
     });
@@ -162,16 +213,28 @@
   });
 })();
 
+/* ─ Optional: pill nav + floating menu button (only if present) ─ */
+(function(){
+  const pillWrap  = document.querySelector(".pill-nav-wrap");
+  const scrollBtn = document.getElementById("scroll-menu-btn");
+  if (!pillWrap || !scrollBtn) return;
+  const THRESHOLD = 80;
+  function onScroll(){
+    const past = window.scrollY > THRESHOLD;
+    pillWrap.classList.toggle("scrolled", past);
+    scrollBtn.classList.toggle("visible", past);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+})();
 
-
-
-
-/* ─── TakeThat.com nav — hamburger toggle ─────── */
+/* ─ Optional: TakeThat-style tt-hamburger + mobile overlay (only if present) ─ */
 (function(){
   const hamburger  = document.getElementById("tt-hamburger");
   const mobileMenu = document.getElementById("tt-mobile-menu");
-  let isOpen = false;
+  if (!hamburger || !mobileMenu) return;
 
+  let isOpen = false;
   function openMenu(){
     isOpen = true;
     hamburger.classList.add("open");
@@ -188,13 +251,9 @@
   }
 
   hamburger.addEventListener("click",()=>isOpen?closeMenu():openMenu());
-
-  // Close on Escape
   document.addEventListener("keydown",e=>{
     if(e.key==="Escape"&&isOpen) closeMenu();
   });
-
-  // Close when a mobile link is clicked
   document.querySelectorAll(".tt-mobile-link").forEach(link=>{
     link.addEventListener("click",closeMenu);
   });
@@ -202,86 +261,40 @@
   if(mCta) mCta.addEventListener("click",closeMenu);
 })();
 
-
-
-/* ─── TakeThat.com nav — hamburger toggle ─────── */
+/* ─ Optional: anatomy layers (other pages) ───── */
 (function(){
-  const hamburger  = document.getElementById("tt-hamburger");
-  const mobileMenu = document.getElementById("tt-mobile-menu");
-  let isOpen = false;
-
-  function openMenu(){
-    isOpen = true;
-    hamburger.classList.add("open");
-    hamburger.setAttribute("aria-expanded","true");
-    mobileMenu.classList.add("open");
-    document.body.style.overflow="hidden";
-  }
-  function closeMenu(){
-    isOpen = false;
-    hamburger.classList.remove("open");
-    hamburger.setAttribute("aria-expanded","false");
-    mobileMenu.classList.remove("open");
-    document.body.style.overflow="";
-  }
-
-  hamburger.addEventListener("click",()=>isOpen?closeMenu():openMenu());
-
-  // Close on Escape
-  document.addEventListener("keydown",e=>{
-    if(e.key==="Escape"&&isOpen) closeMenu();
-  });
-
-  // Close when a mobile link is clicked
-  document.querySelectorAll(".tt-mobile-link").forEach(link=>{
-    link.addEventListener("click",closeMenu);
-  });
-  const mCta = document.querySelector(".tt-mobile-cta");
-  if(mCta) mCta.addEventListener("click",closeMenu);
-})();
-
-/* ─── Scroll reveals ──────────────────────────── */
-const io=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}
-  });
-},{threshold:.05,rootMargin:"0px 0px -48px 0px"});
-
-/* ─── Count-up ────────────────────────────────── */
-(function(){
-  function countUp(el){
-    const target=+el.dataset.count,dur=1600,t0=performance.now();
-    (function tick(now){
-      const p=Math.min((now-t0)/dur,1),v=ease(p);
-      el.textContent=Math.floor(v*target);
-      if(p<1)requestAnimationFrame(tick);
-    })(t0);
-  }
-  const cIo=new IntersectionObserver(e=>{e.forEach(v=>{
-    if(v.isIntersecting){countUp(v.target);cIo.unobserve(v.target);}
-  });},{threshold:.5});
-  document.querySelectorAll("[data-count]").forEach(el=>cIo.observe(el));
-})();
-
-/* ─── Anatomy accordion ───────────────────────── */
-document.querySelectorAll("[data-layer]").forEach(layer=>{
-  layer.querySelector(".anat-head").addEventListener("click",()=>{
-    const isOpen=layer.classList.contains("open");
-    document.querySelectorAll("[data-layer].open").forEach(l=>{
-      l.classList.remove("open");l.querySelector(".anat-icon").textContent="+";
+  document.querySelectorAll("[data-layer]").forEach(layer=>{
+    const head = layer.querySelector(".anat-head");
+    if (!head) return;
+    head.addEventListener("click",()=>{
+      const isOpen=layer.classList.contains("open");
+      document.querySelectorAll("[data-layer].open").forEach(l=>{
+        l.classList.remove("open");
+        const ic = l.querySelector(".anat-icon");
+        if (ic) ic.textContent="+";
+      });
+      if(!isOpen){
+        layer.classList.add("open");
+        const ic = layer.querySelector(".anat-icon");
+        if (ic) ic.textContent="×";
+      }
     });
-    if(!isOpen){layer.classList.add("open");layer.querySelector(".anat-icon").textContent="×";}
   });
-});
+})();
 
-
-
-/* ─── Magnetic buttons two ────────────────────────── */
-document.querySelectorAll(".btn-gold2,.btn-outline2,.tt-nav-cta,.tt-mobile-cta").forEach(el=>{
-  el.addEventListener("mousemove",e=>{
-    const r=el.getBoundingClientRect();
-    el.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.22}px,${(e.clientY-r.top-r.height/2)*.22}px)`;
+/* ─ Magnetic buttons (CTAs + nav) ─────────────── */
+(function(){
+  document.querySelectorAll(".btn-gold2,.btn-outline2,.tt-nav-cta,.tt-mobile-cta").forEach(el=>{
+    el.addEventListener("mousemove",e=>{
+      const r=el.getBoundingClientRect();
+      el.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.22}px,${(e.clientY-r.top-r.height/2)*.22}px)`;
+    });
+    el.addEventListener("mouseleave",()=>{el.style.transform="";});
   });
-  el.addEventListener("mouseleave",()=>{el.style.transform="";});
-});
+})();
+  
+  
+  
+
+
 
