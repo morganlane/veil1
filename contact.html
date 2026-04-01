@@ -11,8 +11,8 @@
      NOTE: External stylesheets (Tailwind, Webflow, Slater) removed;
      all styles are now self-contained in these two files.
 ═══════════════════════════════════════════════════════ -->
-<link rel="stylesheet" href="css/shared.css">
-<link rel="stylesheet" href="css/contact.css">
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="contact.css">
 </head>
 <body id="page-contact">
 
@@ -26,25 +26,27 @@
 <header class="tt-header" id="tt-header">
   <nav class="tt-nav">
 
-    <!-- ═══ LEFT NAV LINKS ═══ -->
-    <ul class="tt-nav-left">
-      <li><a href="about.html">About</a></li>
-      <li><a href="services.html">Services</a></li>
-    </ul>
-
-    <!-- ═══ CENTER LOGO (absolute positioned) ═══ -->
-    <a href="index.html" class="tt-logo">
-      <span class="tt-logo-mark" aria-hidden="true"></span>
-      VEIL
-    </a>
-
-    <!-- ═══ RIGHT NAV LINKS + CTA ═══ -->
-    <div class="tt-nav-right">
-      <ul class="tt-nav-right-links">
-        <li><a href="contact.html" class="tt-active">Contact</a></li>
+      <!-- ═══ LEFT NAV LINKS ═══ -->
+      <ul class="tt-nav-left">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
-      <a href="contact.html" class="tt-nav-cta">File a Brief</a>
-    </div>
+  
+      <!-- ═══ CENTER LOGO (absolute positioned) ═══ -->
+      <a href="index.html" class="tt-logo">
+        <span class="tt-logo-mark" aria-hidden="true"></span>
+        VEIL
+      </a>
+  
+      <!-- ═══ RIGHT NAV LINKS + CTA ═══ -->
+      <div class="tt-nav-right">
+        <ul class="tt-nav-right-links">
+         
+        </ul>
+        <a href="contact.html" class="tt-nav-cta">Film Production</a>
+      </div>
 
     <!-- ═══ HAMBURGER BUTTON (mobile) — inline styles override any external stylesheet ═══ -->
     <button class="menu-button hamburger-btn" type="button" data-menu-toggle=""
@@ -71,47 +73,15 @@
   <div data-menu-toggle="" class="overlay"></div>
   <nav class="menu">
     <div class="menu-bg">
-      <div class="bg-panel first"></div>
-      <div class="bg-panel second"></div>
-      <div class="bg-panel"></div>
+      <div class="bg-panel first"></div><div class="bg-panel second"></div><div class="bg-panel"></div>
     </div>
     <div class="menu-inner">
       <ul class="menu-list">
-        <li class="menu-list-item">
-          <a href="index.html" class="menu-link">
-            <p class="menu-link-heading">Home</p>
-            <p class="eyebrow">00</p>
-            <div class="menu-link-bg"></div>
-          </a>
-        </li>
-        <li class="menu-list-item">
-          <a href="#" class="menu-link">
-            <p class="menu-link-heading">Work</p>
-            <p class="eyebrow">01</p>
-            <div class="menu-link-bg"></div>
-          </a>
-        </li>
-        <li class="menu-list-item">
-          <a href="services.html" class="menu-link">
-            <p class="menu-link-heading">Services</p>
-            <p class="eyebrow">02</p>
-            <div class="menu-link-bg"></div>
-          </a>
-        </li>
-        <li class="menu-list-item">
-          <a href="about.html" class="menu-link">
-            <p class="menu-link-heading">About</p>
-            <p class="eyebrow">03</p>
-            <div class="menu-link-bg"></div>
-          </a>
-        </li>
-        <li class="menu-list-item">
-          <a href="contact.html" class="menu-link">
-            <p class="menu-link-heading">Contact</p>
-            <p class="eyebrow">04</p>
-            <div class="menu-link-bg"></div>
-          </a>
-        </li>
+        <li class="menu-list-item"><a href="index.html"    class="menu-link"><p class="menu-link-heading">Home</p>    <p class="eyebrow">00</p><div class="menu-link-bg"></div></a></li>
+        <li class="menu-list-item"><a href="about.html"               class="menu-link"><p class="menu-link-heading">Story</p>    <p class="eyebrow">01</p><div class="menu-link-bg"></div></a></li>
+        <li class="menu-list-item"><a href="services.html"               class="menu-link"><p class="menu-link-heading">Services</p><p class="eyebrow">02</p><div class="menu-link-bg"></div></a></li>
+        <li class="menu-list-item"><a href="about.html" class="menu-link"><p class="menu-link-heading">Film</p>   <p class="eyebrow">03</p><div class="menu-link-bg"></div></a></li>
+        <li class="menu-list-item"><a href="contact.html"      class="menu-link"><p class="menu-link-heading">Contact</p> <p class="eyebrow">04</p><div class="menu-link-bg"></div></a></li>
       </ul>
       <div class="menu-details">
         <p data-menu-fade="" class="p-small">Follow the obsession</p>
@@ -591,8 +561,8 @@
 ═══════════════════════════════════════════════════════ -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
-<script src="js/shared.js"></script>
-<script src="js/contact.js"></script>
+<script src="shared.js"></script>
+<script src="contact.js"></script>
 
 </body>
 </html>
