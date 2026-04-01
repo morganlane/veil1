@@ -793,13 +793,9 @@
 ═══════════════════════════════════════ -->
 
 <script>
-
 gsap.registerPlugin(CustomEase, ScrollTrigger, SplitText);
 CustomEase.create("main","0.65,0.01,0.05,0.99");
 gsap.defaults({ ease:"main", duration:.7 });
-  
-  
-  
 </script>
 
 <!-- ═══════════════════════════════════════════════════════
@@ -809,10 +805,16 @@ gsap.defaults({ ease:"main", duration:.7 });
      · ScrollTrigger — scroll-based animations
      · SplitText  — character/word splitting (home only)
 ═══════════════════════════════════════════════════════ -->
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/SplitText3.min.js"></script>
+
+<!-- ═══════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js"></script>
+
+<!-- ✅ Updated SplitText (official free version) -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
 <script src="js/shared.js"></script>
 <script src="js/home.js"></script>
 
