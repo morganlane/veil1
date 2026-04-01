@@ -3,25 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VEIL — About (Draft 7)</title>
+  <title>VEIL — Services</title>
   <!-- ═══════════════════════════════════════════════════════
      STYLESHEETS
      · shared.css — design tokens, reset, fonts, nav, footer
-     · about.css  — page-specific styles
+     · service.css  — page-specific styles
      NOTE: External stylesheets (Tailwind, Webflow, Slater) removed;
      all styles are now self-contained in these two files.
 ═══════════════════════════════════════════════════════ -->
 <link rel="stylesheet" href="shared.css">
-<link rel="stylesheet" href="about.css">
+<link rel="stylesheet" href="service.css">
 </head>
-<body id="page-about">
-
-
-  <!-- ════════════════════════════════════════════
-     ╔══════════════════════════════════════════╗
-     ║   nav    ║ header
-     ╚══════════════════════════════════════════╝
-════════════════════════════════════════════ -->
+<body id="page-services">
 
 <header class="tt-header" id="tt-header">
   <nav class="tt-nav">
@@ -48,6 +41,8 @@
       <a href="contact.html" class="tt-nav-cta">Film Production</a>
     </div>
 
+
+    
     <!-- ═══ HAMBURGER BUTTON (mobile) — inline styles override any external stylesheet ═══ -->
     <button class="menu-button hamburger-btn" type="button" data-menu-toggle=""
       aria-label="Open menu" aria-expanded="false"
@@ -103,892 +98,653 @@
   </button>
 </div>
 
-<!-- ════════════════════════════════════
-     PRELOADER — Document revision history
-════════════════════════════════════ -->
-<div id="preloader">
-  <p class="pre-doc-label">Document in progress</p>
-  <div class="pre-filename" id="pre-filename">about_us_draft_1.doc</div>
-  <div class="pre-revisions" id="pre-revisions">
-    <span class="pre-rev struck">draft_1</span>
-    <span class="pre-rev struck">draft_2</span>
-    <span class="pre-rev struck">draft_3</span>
-    <span class="pre-rev struck">draft_4</span>
-    <span class="pre-rev struck">draft_5</span>
-    <span class="pre-rev struck">draft_6</span>
-    <span class="pre-rev active" id="pre-rev-final">draft_7 ✓</span>
+
+
+
+<!-- ═══════════════════════════════════════
+     PAGE HERO
+═══════════════════════════════════════ -->
+<section class="page-hero">
+  <div class="hero-ring-wrap">
+    <div class="hero-ring"><div class="hero-ring-dot"></div></div>
+    <div class="hero-ring"></div>
+    <div class="hero-ring"></div>
   </div>
-  <div class="pre-bar-wrap"><div class="pre-bar" id="pre-bar"></div></div>
-  <p class="pre-status" id="pre-status">Loading draft_1.doc…</p>
-</div>
+  <div class="hero-glow"></div>
 
-
-
-
-
-
-<!-- ════════════════════════════════════════════
-     ╔══════════════════════════════════════════╗
-     ║   end   ║ header
-     ╚══════════════════════════════════════════╝
-════════════════════════════════════════════ -->
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-  <!-- The failed attempts — shown by JS after preloader -->
-  <div class="hero-stage" id="hero-stage">
-    <div id="attempts-container" style="display: none;"><span class="attempt-line show struck strike-fire" style="translate: none; rotate: none; scale: none; transform: translate(0px, -12px); opacity: 0;">We are an award-winning creative—</span><span class="attempt-line show struck strike-fire" style="translate: none; rotate: none; scale: none; transform: translate(0px, -12px); opacity: 0;">We're not your typical agenc—</span><span class="attempt-line show struck strike-fire" style="translate: none; rotate: none; scale: none; transform: translate(0px, -12px); opacity: 0;">Our approach is obsessively craf—</span><span class="attempt-line show struck strike-fire" style="translate: none; rotate: none; scale: none; transform: translate(0px, -12px); opacity: 0;">We make brands people—</span></div>
-    <div class="hero-final" id="hero-final" style="display: flex; margin-top: 0.15em;">
-      <span class="hero-final-line c-cream reveal" id="fl-1">We exist</span>
-      <span class="hero-final-line c-gold reveal" id="fl-2">because doing less</span>
-      <span class="hero-final-line c-outline reveal" id="fl-3">was unacceptable.</span>
-    </div>
-  </div>
-
-  <div class="hero-bottom">
-    <div class="hero-bottom-left rv in">
-      <p class="hero-desc"><strong>Seven attempts to write this page.</strong> The first six were technically accurate and completely dishonest. This one — the one you're reading now — is what we actually believe, stripped of everything we thought we were supposed to say. It took eight years of studio work and one very long conversation at midnight in August 2016 to get here.</p>
-    </div>
-    <div class="hero-bottom-right rv d2 in">
-      
-      <div class="hero-scroll-hint">
-        <span class="hero-scroll-line"></span>
-        Scroll to read the case
-      </div>
-      <div class="hero-btns">
-        <a href="services.html" class="btn-gold">Read the case ↗</a>
-        <a href="#brief" class="btn-outline">File a brief</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- Ticker strip -->
-<div class="ticker-wrap">
-  <div class="ticker-track">
-    <div class="ticker-item gold">Veil Studio</div>
-    <div class="ticker-item">Brand Identity<span class="ticker-sep">·</span>140+ Projects</div>
-    <div class="ticker-item">Web Design &amp; Build<span class="ticker-sep">·</span>98 Lighthouse, minimum</div>
-    <div class="ticker-item gold">Doing less is unacceptable</div>
-    <div class="ticker-item">Motion &amp; 3D<span class="ticker-sep">·</span>Awwwards 2022, 2023</div>
-    <div class="ticker-item">Strategy<span class="ticker-sep">·</span>64 briefs declined</div>
-    <div class="ticker-item gold">New York · Paris · Tokyo</div>
-    <div class="ticker-item">Campaign Creation<span class="ticker-sep">·</span>12 clients who couldn't speak</div>
-    <div class="ticker-item">Creative Direction<span class="ticker-sep">·</span>Since 2016</div>
-    <div class="ticker-item gold">Veil Studio</div>
-    <div class="ticker-item">Brand Identity<span class="ticker-sep">·</span>140+ Projects</div>
-    <div class="ticker-item">Web Design &amp; Build<span class="ticker-sep">·</span>98 Lighthouse, minimum</div>
-    <div class="ticker-item gold">Doing less is unacceptable</div>
-    <div class="ticker-item">Motion &amp; 3D<span class="ticker-sep">·</span>Awwwards 2022, 2023</div>
-    <div class="ticker-item">Strategy<span class="ticker-sep">·</span>64 briefs declined</div>
-    <div class="ticker-item gold">New York · Paris · Tokyo</div>
-    <div class="ticker-item">Campaign Creation<span class="ticker-sep">·</span>12 clients who couldn't speak</div>
-    <div class="ticker-item">Creative Direction<span class="ticker-sep">·</span>Since 2016</div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════
-     THE WALL — full-bleed struck-through grid
-══════════════════════════════════════════ -->
-
-
-
-
-
-
-
-
-
-<!-- ════════════════════════════════════
-     SECTION I — DRAFT HISTORY
-     Showing every version that was rejected
-════════════════════════════════════ -->
-<section class="sec-drafts" id="drafts">
-  <div class="sec-annotation"></div>
-
-  <div style="margin-bottom:3.5em">
-    <div class="sec-label rv">
-      <span class="sec-label-num">I</span>
-      <span class="sec-label-line"></span>
-      <span>Draft History</span>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4em;align-items:end;flex-wrap:wrap;margin-bottom:0">
-      <h2 class="sec-head rv">Every attempt<br>we <em>rejected.</em></h2>
-      <p class="sec-note rv d2">Before a brief lands on a client's desk, it's been torn apart by us first. The same applies to this page. Here is the wreckage. Read it as the only honest summary of how agencies think about themselves — and why we couldn't accept any of it.</p>
-    </div>
-  </div>
-
-  <div class="drafts-grid">
-
-    <div class="draft-block is-rejected rv">
-      <div class="draft-num">01</div>
-      <div class="draft-main">
-        <span class="draft-tag reject">Rejected — Draft 1</span>
-        <div class="draft-text">Veil is a full-service creative agency specialising in brand, digital, and strategy for ambitious companies.</div>
-      </div>
-      <div class="draft-reason">
-        <p class="draft-reason-label">Why it was crossed out</p>
-        <p class="draft-reason-text">Every agency in the world could have written this. <em>"Full-service." "Ambitious companies."</em> These are words that mean nothing because they cost nothing to say. Draft 1 gets deleted in sixty seconds flat.</p>
-      </div>
-    </div>
-
-    <div class="draft-block is-rejected rv">
-      <div class="draft-num">02</div>
-      <div class="draft-main">
-        <span class="draft-tag reject">Rejected — Draft 2</span>
-        <div class="draft-text">We're not your typical agency. We're a studio that lives at the intersection of art and commerce.</div>
-      </div>
-      <div class="draft-reason">
-        <p class="draft-reason-label">Why it was crossed out</p>
-        <p class="draft-reason-text"><em>"We're not your typical agency"</em> is what every typical agency writes. "Intersection of art and commerce" appears on approximately 4,000 agency websites. This draft lasted four minutes.</p>
-      </div>
-    </div>
-
-    <div class="draft-block is-rejected rv">
-      <div class="draft-num">03</div>
-      <div class="draft-main">
-        <span class="draft-tag reject">Rejected — Draft 3</span>
-        <div class="draft-text">We make brands people fall in love with. Obsessively crafted. Relentlessly refined.</div>
-      </div>
-      <div class="draft-reason">
-        <p class="draft-reason-label">Why it was crossed out</p>
-        <p class="draft-reason-text">Getting warmer. The adverbs are doing too much work. <em>"Obsessively" and "relentlessly"</em> are easy to claim and hard to prove. Crossed out because it's more adjective than argument.</p>
-      </div>
-    </div>
-
-    <div class="draft-block is-rejected rv">
-      <div class="draft-num">04</div>
-      <div class="draft-main">
-        <span class="draft-tag reject">Rejected — Draft 4</span>
-        <div class="draft-text">Founded in 2016 by Marcus Osei and Elena Brandt with a simple mission: to do the best creative work in the world.</div>
-      </div>
-      <div class="draft-reason">
-        <p class="draft-reason-label">Why it was crossed out</p>
-        <p class="draft-reason-text">We didn't start with a mission. We started with a refusal. There's a difference. <em>A mission implies a plan. A refusal implies a standard.</em> This draft missed the point of the whole story.</p>
-      </div>
-    </div>
-
-    <div class="draft-block is-rejected rv">
-      <div class="draft-num">05</div>
-      <div class="draft-main">
-        <span class="draft-tag reject">Rejected — Draft 5</span>
-        <div class="draft-text">Veil is where brands stop performing and start meaning something.</div>
-      </div>
-      <div class="draft-reason">
-        <p class="draft-reason-label">Why it was crossed out</p>
-        <p class="draft-reason-text">Actually good. Almost kept. Crossed out because it sounds like we wrote it, not because it isn't true. <em>The best line is the one that sounds like it was discovered, not authored.</em></p>
-      </div>
-    </div>
-
-    <div class="draft-block is-final rv">
-      <div class="draft-num">07</div>
-      <div class="draft-main">
-        <span class="draft-tag approved">Final — Draft 7</span>
-        <div class="draft-text">We exist because doing <em>less</em> was unacceptable to us. Everything else is detail.</div>
-      </div>
-      <div class="draft-reason">
-        <p class="draft-reason-label">Why this one stayed</p>
-        <p class="draft-reason-text">It arrived at midnight. Elena typed it into a Slack message. Neither of us could argue with it. <em>It didn't try to describe what we do — it described why we couldn't stop.</em> That's the real about page. The rest is evidence.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ════════════════════════════════════
-     SECTION II — THE MIDNIGHT THREAD
-     The actual conversation that started it
-════════════════════════════════════ -->
-<section class="sec-thread">
-  <div class="sec-label rv">
-    <span class="sec-label-num">II</span>
-    <span class="sec-label-line"></span>
-    <span>The Founding Argument</span>
-  </div>
-
-  <div class="thread-split">
-    <div class="thread-context rv">
-      <h2 class="thread-context-hed">August 14<em>,</em><br>2016.<br>11:47pm.</h2>
-      <div class="thread-context-body">
-        <p>Marcus and Elena had been in the same Slack channel for three hours. They'd both just resigned from their respective agencies — neither knew the other had. They were supposed to be commiserating. Instead, they were doing this.</p>
-        <p>This is the conversation that replaced six drafts of an about page. The entire studio's reason for existing is in seventeen messages sent between 11:47pm and 12:03am on a Tuesday in August.</p>
-        <p>It hasn't changed since.</p>
-      </div>
-      <div class="thread-context-note">
-        <em>"This is the only about page document we ever needed. Everything else we've written since is an annotation on this thread."</em>
-        — Studio archive note, 2019
-      </div>
-    </div>
-
-    <div class="messenger rv d2">
-      <div class="messenger-header">
-        <div class="messenger-dots">
-          <div class="messenger-dot"></div>
-          <div class="messenger-dot"></div>
-          <div class="messenger-dot"></div>
-        </div>
-        <p class="messenger-title">#studio-name — Veil Workspace</p>
-      </div>
-      <div class="messenger-body">
-
-        <div class="thread-date-divider">Aug 14, 2016</div>
-
-        <div class="msg them">
-          <span class="msg-sender">Marcus Osei</span>
-          <div class="msg-bubble">okay I wrote the about page. pasting it now</div>
-          <span class="msg-time">11:47pm</span>
-        </div>
-
-        <div class="msg them">
-          <span class="msg-sender">Marcus Osei</span>
-          <div class="msg-bubble">"Veil is a full-service creative studio delivering brand, digital, and campaign work for forward-thinking companies worldwide."</div>
-          <span class="msg-time">11:48pm</span>
-        </div>
-
-        <div class="msg us">
-          <span class="msg-sender">Elena Brandt</span>
-          <div class="msg-bubble">that's the worst thing I've ever read</div>
-          <span class="msg-time">11:48pm</span>
-        </div>
-
-        <div class="msg them">
-          <span class="msg-sender">Marcus Osei</span>
-          <div class="msg-bubble">I KNOW. I typed it and hated myself immediately</div>
-          <span class="msg-time">11:49pm</span>
-        </div>
-
-        <div class="msg us">
-          <span class="msg-sender">Elena Brandt</span>
-          <div class="msg-bubble">why did we leave our jobs again</div>
-          <span class="msg-time">11:51pm</span>
-        </div>
-
-        <div class="msg them">
-          <span class="msg-sender">Marcus Osei</span>
-          <div class="msg-bubble">because we kept doing work that was good enough when we knew it could be better</div>
-          <span class="msg-time">11:52pm</span>
-        </div>
-
-        <div class="msg us">
-          <span class="msg-sender">Elena Brandt</span>
-          <div class="msg-bubble">okay so why don't we just say that</div>
-          <span class="msg-time">11:58pm</span>
-        </div>
-
-        <div class="msg them">
-          <span class="msg-sender">Marcus Osei</span>
-          <div class="msg-bubble">say what exactly</div>
-          <span class="msg-time">11:58pm</span>
-        </div>
-
-        <div class="msg us">
-          <span class="msg-sender">Elena Brandt</span>
-          <div class="msg-bubble">that we exist because doing less was unacceptable to us. that's the whole thing</div>
-          <span class="msg-time">12:01am</span>
-        </div>
-
-        <div class="thread-date-divider">Aug 15, 2016</div>
-
-        <div class="msg them">
-          <span class="msg-sender">Marcus Osei</span>
-          <div class="msg-bubble">...that's the about page</div>
-          <span class="msg-time">12:02am</span>
-        </div>
-
-        <div class="msg us">
-          <span class="msg-sender">Elena Brandt</span>
-          <div class="msg-bubble">yeah</div>
-          <span class="msg-time">12:03am</span>
-        </div>
-
-        <div class="msg them">
-          <span class="msg-sender">Marcus Osei</span>
-          <div class="msg-bubble">eight years later this is still the only thing we've ever needed to say</div>
-          <span class="msg-time">12:03am</span>
-        </div>
-
-        <div class="msg us">
-          <span class="msg-sender">Elena Brandt</span>
-          <div class="msg-bubble">go to sleep</div>
-          <span class="msg-time">12:04am</span>
-        </div>
-
-      </div>
-      <div class="messenger-footer">
-        <div class="messenger-input-mock">Message #studio-name</div>
-        <div class="messenger-send">↑</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════
-     SECTION III — PERSONNEL DOSSIERS
-════════════════════════════════════ -->
-<section class="sec-dossiers" id="team">
-  <div class="dossier-header">
-    <div>
-      <div class="sec-label rv" style="border-bottom:none;padding-bottom:0;margin-bottom:1em">
-        <span class="sec-label-num">III</span>
-        <span class="sec-label-line"></span>
-        <span>Personnel Files</span>
-      </div>
-      <h2 class="sec-head rv d1">28 files.<br>All <em>classified.</em><br>Until now.</h2>
-    </div>
-    <div class="rv d2">
-      <p class="sec-note">We don't do LinkedIn bios. Every person here has two things: what they'd put on a presentation deck, and what they'd never say out loud but think constantly. Hover each file to unseal the redaction.</p>
-    </div>
-  </div>
-
-  <div class="dossier-grid">
-
-    <!-- Dossier 1: Marcus -->
-    <div class="dossier-card rv">
-      <div class="dossier-file-header">
-        <span class="dossier-file-stamp">Personnel File</span>
-        <span class="dossier-file-num">VL-001</span>
-      </div>
-      <div class="dossier-body">
-        <div style="display:flex;align-items:center;gap:1em">
-          <div class="dossier-avatar"><div class="dossier-avatar-ring"></div><span class="dossier-avatar-initials">MO</span></div>
-          <div><div class="dossier-name">Marcus Osei</div><div class="dossier-role">Co-Founder · Creative Director</div></div>
-        </div>
-        <div class="dossier-redact-row">
-          <p class="dossier-redact-label">Classified — hover to reveal</p>
-          <div class="dossier-redact">
-            <div class="dossier-redact-bar"></div>
-            <p class="dossier-redact-text">Has never presented the first idea. Not once in eight years. Believes the first idea is the one that occurs to every agency, and therefore the one that loses every pitch. <em>The fourth idea, born at 2am after the third has been fully exhausted — that's the one.</em></p>
-          </div>
-        </div>
-        <div>
-          <p class="dossier-statement-label">Official statement</p>
-          <p class="dossier-statement">"The brief is always a symptom. I look for the disease."</p>
-        </div>
-      </div>
-      <div class="dossier-footer">
-        <span class="dossier-footer-status">Classified</span>
-        <span class="dossier-footer-hint">Hover to unseal ↑</span>
-      </div>
-    </div>
-
-    <!-- Dossier 2: Elena -->
-    <div class="dossier-card rv d1">
-      <div class="dossier-file-header">
-        <span class="dossier-file-stamp">Personnel File</span>
-        <span class="dossier-file-num">VL-002</span>
-      </div>
-      <div class="dossier-body">
-        <div style="display:flex;align-items:center;gap:1em">
-          <div class="dossier-avatar"><div class="dossier-avatar-ring"></div><span class="dossier-avatar-initials">EB</span></div>
-          <div><div class="dossier-name">Elena Brandt</div><div class="dossier-role">Co-Founder · Strategy Director</div></div>
-        </div>
-        <div class="dossier-redact-row">
-          <p class="dossier-redact-label">Classified — hover to reveal</p>
-          <div class="dossier-redact">
-            <div class="dossier-redact-bar"></div>
-            <p class="dossier-redact-text">Has talked clients out of projects worth a combined €400K+ because <em>the work wasn't right for their brand</em>. Every one of those clients came back with a larger brief within a year. This is not a strategy. It's a standard. She considers the difference important.</p>
-          </div>
-        </div>
-        <div>
-          <p class="dossier-statement-label">Official statement</p>
-          <p class="dossier-statement">"Strategy without discomfort isn't strategy. It's decoration."</p>
-        </div>
-      </div>
-      <div class="dossier-footer">
-        <span class="dossier-footer-status">Classified</span>
-        <span class="dossier-footer-hint">Hover to unseal ↑</span>
-      </div>
-    </div>
-
-    <!-- Dossier 3: Riku -->
-    <div class="dossier-card rv d2">
-      <div class="dossier-file-header">
-        <span class="dossier-file-stamp">Personnel File</span>
-        <span class="dossier-file-num">VL-009</span>
-      </div>
-      <div class="dossier-body">
-        <div style="display:flex;align-items:center;gap:1em">
-          <div class="dossier-avatar"><div class="dossier-avatar-ring"></div><span class="dossier-avatar-initials">RN</span></div>
-          <div><div class="dossier-name">Riku Nakamura</div><div class="dossier-role">Motion Director · Tokyo</div></div>
-        </div>
-        <div class="dossier-redact-row">
-          <p class="dossier-redact-label">Classified — hover to reveal</p>
-          <div class="dossier-redact">
-            <div class="dossier-redact-bar"></div>
-            <p class="dossier-redact-text">Rewrote an entire animation system at 11pm the night before a major launch because it was <em>2% less smooth on mid-range Android</em>. The client never knew. The launch was on time. He would do it again without hesitation, which is either inspiring or alarming depending on your perspective.</p>
-          </div>
-        </div>
-        <div>
-          <p class="dossier-statement-label">Official statement</p>
-          <p class="dossier-statement">"20ms is the difference between premium and acceptable."</p>
-        </div>
-      </div>
-      <div class="dossier-footer">
-        <span class="dossier-footer-status">Classified</span>
-        <span class="dossier-footer-hint">Hover to unseal ↑</span>
-      </div>
-    </div>
-
-    <!-- Dossier 4: Camille -->
-    <div class="dossier-card rv d3">
-      <div class="dossier-file-header">
-        <span class="dossier-file-stamp">Personnel File</span>
-        <span class="dossier-file-num">VL-014</span>
-      </div>
-      <div class="dossier-body">
-        <div style="display:flex;align-items:center;gap:1em">
-          <div class="dossier-avatar"><div class="dossier-avatar-ring"></div><span class="dossier-avatar-initials">CL</span></div>
-          <div><div class="dossier-name">Camille Laurent</div><div class="dossier-role">Design Director · Paris</div></div>
-        </div>
-        <div class="dossier-redact-row">
-          <p class="dossier-redact-label">Classified — hover to reveal</p>
-          <div class="dossier-redact">
-            <div class="dossier-redact-bar"></div>
-            <p class="dossier-redact-text">Has printed competitor work and taped it to the studio wall with <em>"unacceptable"</em> written underneath. Not as aggression — as a reminder. Also holds the studio record for most consecutive hours arguing about a single typeface: 11hrs, 22min, for a luxury skincare brand in 2023. The typeface was changed. She was right.</p>
-          </div>
-        </div>
-        <div>
-          <p class="dossier-statement-label">Official statement</p>
-          <p class="dossier-statement">"The grid is a philosophy. I've never met a bad grid that didn't reveal something else that was wrong."</p>
-        </div>
-      </div>
-      <div class="dossier-footer">
-        <span class="dossier-footer-status">Classified</span>
-        <span class="dossier-footer-hint">Hover to unseal ↑</span>
-      </div>
-    </div>
-
-    <!-- Dossier 5: Jonas -->
-    <div class="dossier-card rv d4">
-      <div class="dossier-file-header">
-        <span class="dossier-file-stamp">Personnel File</span>
-        <span class="dossier-file-num">VL-006</span>
-      </div>
-      <div class="dossier-body">
-        <div style="display:flex;align-items:center;gap:1em">
-          <div class="dossier-avatar"><div class="dossier-avatar-ring"></div><span class="dossier-avatar-initials">JK</span></div>
-          <div><div class="dossier-name">Jonas Klein</div><div class="dossier-role">Technical Director · New York</div></div>
-        </div>
-        <div class="dossier-redact-row">
-          <p class="dossier-redact-label">Classified — hover to reveal</p>
-          <div class="dossier-redact">
-            <div class="dossier-redact-bar"></div>
-            <p class="dossier-redact-text">Maintains a private document titled <em>"things developers do that ruin good design."</em> It is 22 pages long. He has never shown it to anyone outside the studio. He has fixed every item on the list at least once, always quietly, always without being asked, always without billing for it.</p>
-          </div>
-        </div>
-        <div>
-          <p class="dossier-statement-label">Official statement</p>
-          <p class="dossier-statement">"A 98 Lighthouse score is the floor, not the goal."</p>
-        </div>
-      </div>
-      <div class="dossier-footer">
-        <span class="dossier-footer-status">Classified</span>
-        <span class="dossier-footer-hint">Hover to unseal ↑</span>
-      </div>
-    </div>
-
-    <!-- Dossier 6: Amara -->
-    <div class="dossier-card rv d5">
-      <div class="dossier-file-header">
-        <span class="dossier-file-stamp">Personnel File</span>
-        <span class="dossier-file-num">VL-019</span>
-      </div>
-      <div class="dossier-body">
-        <div style="display:flex;align-items:center;gap:1em">
-          <div class="dossier-avatar"><div class="dossier-avatar-ring"></div><span class="dossier-avatar-initials">AS</span></div>
-          <div><div class="dossier-name">Amara Sol</div><div class="dossier-role">Head of Copy · New York</div></div>
-        </div>
-        <div class="dossier-redact-row">
-          <p class="dossier-redact-label">Classified — hover to reveal</p>
-          <div class="dossier-redact">
-            <div class="dossier-redact-bar"></div>
-            <p class="dossier-redact-text">Keeps a living document titled <em>"words agencies have murdered."</em> Current length: 6 pages. "Elevate," "seamless," "best-in-class," and "storytelling" are on page one. Uses it as an exclusion list for every brief. Every Veil headline is checked against it before it leaves the building.</p>
-          </div>
-        </div>
-        <div>
-          <p class="dossier-statement-label">Official statement</p>
-          <p class="dossier-statement">"The best headline sounds discovered, not written. I'm looking for the discovered ones."</p>
-        </div>
-      </div>
-      <div class="dossier-footer">
-        <span class="dossier-footer-status">Classified</span>
-        <span class="dossier-footer-hint">Hover to unseal ↑</span>
-      </div>
-    </div>
-
-    <!-- Dossier 7: Dario -->
-    <div class="dossier-card rv d2">
-      <div class="dossier-file-header">
-        <span class="dossier-file-stamp">Personnel File</span>
-        <span class="dossier-file-num">VL-023</span>
-      </div>
-      <div class="dossier-body">
-        <div style="display:flex;align-items:center;gap:1em">
-          <div class="dossier-avatar"><div class="dossier-avatar-ring"></div><span class="dossier-avatar-initials">DM</span></div>
-          <div><div class="dossier-name">Dario Moretti</div><div class="dossier-role">Senior Strategist · Paris</div></div>
-        </div>
-        <div class="dossier-redact-row">
-          <p class="dossier-redact-label">Classified — hover to reveal</p>
-          <div class="dossier-redact">
-            <div class="dossier-redact-bar"></div>
-            <p class="dossier-redact-text">Former academic (semiotics, Paris VII). Left academia because <em>"I wanted to see if theory was actually true in the wild."</em> It was. Uses Roland Barthes to win arguments about logos. Has not yet lost one of these arguments. Tracks the streak privately. Currently at 31.</p>
-          </div>
-        </div>
-        <div>
-          <p class="dossier-statement-label">Official statement</p>
-          <p class="dossier-statement">"A brand that tries to speak to everyone is a brand that's afraid of something."</p>
-        </div>
-      </div>
-      <div class="dossier-footer">
-        <span class="dossier-footer-status">Classified</span>
-        <span class="dossier-footer-hint">Hover to unseal ↑</span>
-      </div>
-    </div>
-
-    <!-- Dossier 8: Yoko -->
-    <div class="dossier-card rv d3">
-      <div class="dossier-file-header">
-        <span class="dossier-file-stamp">Personnel File</span>
-        <span class="dossier-file-num">VL-027</span>
-      </div>
-      <div class="dossier-body">
-        <div style="display:flex;align-items:center;gap:1em">
-          <div class="dossier-avatar"><div class="dossier-avatar-ring"></div><span class="dossier-avatar-initials">YT</span></div>
-          <div><div class="dossier-name">Yoko Tanaka</div><div class="dossier-role">Client Partner · Tokyo</div></div>
-        </div>
-        <div class="dossier-redact-row">
-          <p class="dossier-redact-label">Classified — hover to reveal</p>
-          <div class="dossier-redact">
-            <div class="dossier-redact-bar"></div>
-            <p class="dossier-redact-text">Has never missed a single deadline in four years at Veil. Has caused the rest of the studio to miss sleep on at least 14 occasions in order to maintain this record. <em>Considers this a fair trade.</em> The studio has never publicly agreed with her. Privately, they all do.</p>
-          </div>
-        </div>
-        <div>
-          <p class="dossier-statement-label">Official statement</p>
-          <p class="dossier-statement">"Complete trust from a client is a responsibility, not a comfort."</p>
-        </div>
-      </div>
-      <div class="dossier-footer">
-        <span class="dossier-footer-status">Classified</span>
-        <span class="dossier-footer-hint">Hover to unseal ↑</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ════════════════════════════════════
-     SECTION IV — EVIDENCE WALL
-     The numbers no agency publishes
-════════════════════════════════════ -->
-<section class="sec-evidence">
-  <div class="evidence-header">
-    <div>
-      <div class="sec-label rv" style="border-bottom:none;padding-bottom:0;margin-bottom:1em">
-        <span class="sec-label-num">IV</span>
-        <span class="sec-label-line"></span>
-        <span>Submitted Evidence</span>
-      </div>
-      <h2 class="sec-head rv d1">The numbers<br>they <em>never</em><br>put in the deck.</h2>
-    </div>
-    <p class="sec-note rv d2"><strong>Every agency has statistics.</strong> The ones below are the ones we're not supposed to share — the metrics that explain the work better than any case study.</p>
-  </div>
-
-  <div class="evidence-grid">
-
-    <div class="exhibit rv">
-      <div class="exhibit-tag-wrap">
-        <span class="exhibit-tag">Exhibit A</span>
-        <span class="exhibit-category">Output</span>
-      </div>
-      <div class="exhibit-body">
-        <div>
-          <div class="exhibit-val"><span data-count="140">0</span><span class="unit">+ Projects</span></div>
-          <div class="exhibit-descriptor">Shipped to perfection</div>
-        </div>
-        <p class="exhibit-testimony">Every one began with someone in the room saying <em>"we've never made anything quite like this."</em> That's not a warning sign. It's how we know we haven't done it before — which is the only reason to do it at all.</p>
-      </div>
-      <span class="exhibit-watermark">A</span>
-    </div>
-
-    <div class="exhibit rv d1">
-      <div class="exhibit-tag-wrap">
-        <span class="exhibit-tag">Exhibit B</span>
-        <span class="exhibit-category">Restraint</span>
-      </div>
-      <div class="exhibit-body">
-        <div>
-          <div class="exhibit-val"><span data-count="64">0</span><span class="unit"> Declined</span></div>
-          <div class="exhibit-descriptor">Briefs turned down</div>
-        </div>
-        <p class="exhibit-testimony">Not because the budget was wrong. Because the brief didn't deserve our best thinking, and <em>we'd rather have a gap in the calendar than a piece of work we're ashamed of at 2am.</em> Both have happened. We prefer the gap.</p>
-      </div>
-      <span class="exhibit-watermark">B</span>
-    </div>
-
-    <div class="exhibit rv d2">
-      <div class="exhibit-tag-wrap">
-        <span class="exhibit-tag">Exhibit C</span>
-        <span class="exhibit-category">Obsession</span>
-      </div>
-      <div class="exhibit-body">
-        <div>
-          <div class="exhibit-val"><span data-count="847">0</span><span class="unit">hrs</span></div>
-          <div class="exhibit-descriptor">Argued over one typeface</div>
-        </div>
-        <p class="exhibit-testimony">2022 brand identity project. Three senior designers in philosophical standoff. The <em>final choice was option four, introduced on day eighteen</em>. The client called the brand "instantly iconic." The argument was worth it. It usually is.</p>
-      </div>
-      <span class="exhibit-watermark">C</span>
-    </div>
-
-    <div class="exhibit rv d3">
-      <div class="exhibit-tag-wrap">
-        <span class="exhibit-tag">Exhibit D</span>
-        <span class="exhibit-category">Impact</span>
-      </div>
-      <div class="exhibit-body">
-        <div>
-          <div class="exhibit-val"><span data-count="12">0</span><span class="unit"> Clients</span></div>
-          <div class="exhibit-descriptor">Who cried at the reveal</div>
-        </div>
-        <p class="exhibit-testimony">Twelve times in eight years. A client has seen their new brand and been unable to speak for a moment. <em>That silence is the metric we optimise for.</em> No award jury has ever scored it. It's the only one that counts.</p>
-      </div>
-      <span class="exhibit-watermark">D</span>
-    </div>
-
-    <div class="exhibit rv d4">
-      <div class="exhibit-tag-wrap">
-        <span class="exhibit-tag">Exhibit E</span>
-        <span class="exhibit-category">Standards</span>
-      </div>
-      <div class="exhibit-body">
-        <div>
-          <div class="exhibit-val"><span data-count="98">0</span><span class="unit">%</span></div>
-          <div class="exhibit-descriptor">Client return rate</div>
-        </div>
-        <p class="exhibit-testimony">One client didn't come back. We still think about that project. Not with regret — <em>with the specific curiosity of wondering what we'd do differently.</em> 98% is the number. That 2% is the education.</p>
-      </div>
-      <span class="exhibit-watermark">E</span>
-    </div>
-
-    <div class="exhibit rv d5">
-      <div class="exhibit-tag-wrap">
-        <span class="exhibit-tag">Exhibit F</span>
-        <span class="exhibit-category">Integrity</span>
-      </div>
-      <div class="exhibit-body">
-        <div>
-          <div class="exhibit-val">3<span class="unit"> Times</span></div>
-          <div class="exhibit-descriptor">Work redone after final approval</div>
-        </div>
-        <p class="exhibit-testimony">After client sign-off. After handoff. Three times we spotted something wrong and fixed it at our own cost. <em>Clients weren't billed. They were never told.</em> We're telling you now because it explains everything else about how we work.</p>
-      </div>
-      <span class="exhibit-watermark">F</span>
-    </div>
-
-  </div>
-</section>
-
-<!-- ════════════════════════════════════
-     SECTION V — THE STANDARD
-     Not a values list. One argument.
-════════════════════════════════════ -->
-<section class="sec-standard" id="standard">
-  <div class="standard-layout">
-    <div class="standard-left">
+  <div class="hero-content">
+    <div class="hero-top">
       <div>
-        <div class="sec-label rv" style="border-bottom:none;padding-bottom:0;margin-bottom:1em">
-          <span class="sec-label-num">V</span>
-          <span class="sec-label-line"></span>
-          <span>The Standard</span>
+        <div class="hero-eyecap rv"><span class="cap">Capabilities</span></div>
+        <p class="hero-kicker rv d1">Six weapons, sharpened to different edges.<br>One studio obsessed with using every one of them perfectly.</p>
+      </div>
+      <div class="hero-breadcrumb rv d1">
+        <a href="index.html">Home</a>
+        <span class="hero-breadcrumb-sep">/</span>
+        <span>Services</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="hero-hed-wrap rv d1"><span class="hero-hed fill">What</span></div>
+      <div class="hero-hed-wrap rv d2"><span class="hero-hed gold">we do</span></div>
+      <div class="hero-hed-wrap rv d3"><span class="hero-hed outline">& how.</span></div>
+    </div>
+
+    <div class="hero-bottom rv d4">
+      <div class="hero-bottom-left">
+        <div>
+          <div class="hero-stat-val">6<sup>Services</sup></div>
+          <div class="hero-stat-label">Complete offerings</div>
         </div>
-        <h2 class="standard-headline rv d1">Not a list<br>of <em>values.</em><br>One argument.</h2>
+        <div>
+          <div class="hero-stat-val">3<sup>Modes</sup></div>
+          <div class="hero-stat-label">Engagement styles</div>
+        </div>
+        <div>
+          <div class="hero-stat-val">1<sup>Standard</sup></div>
+          <div class="hero-stat-label">Uncompromising craft</div>
+        </div>
       </div>
-      <p class="standard-footnote rv d3">Most agency values pages are aspirational. Ours is operational — the logic we use to make actual decisions. If you disagree with any of it, we're probably not the right fit. That's not a warning. It's a filter.</p>
-    </div>
-    <div class="standard-right">
-
-      <div class="standard-para rv">
-        <span class="standard-para-num">01</span>
-        <p class="standard-para-body">The only brief we've ever received that was complete was the three-sentence one. The forty-seven-page brief was a wall of anxiety disguised as clarity. <strong>We've learned that the length of a brief is inversely correlated with the client's confidence in what they actually need.</strong> Our first job on every project is to find the real question underneath the stated one.
-        <em class="standard-pull">The brief is never the brief. The brief is the symptom.</em>
-        We don't solve for the symptom. We look for the condition.</p>
-      </div>
-
-      <div class="standard-para rv d1">
-        <span class="standard-para-num">02</span>
-        <p class="standard-para-body"><strong>We believe speed is a symptom of insecurity.</strong> Fast turnarounds exist because agencies are afraid to slow down — afraid the client will leave, afraid the budget will shrink, afraid the window will close. We've run this experiment both ways. Slowing down produces better work. Better work produces longer relationships. Longer relationships produce more revenue than any fast turnaround ever has.
-        <em class="standard-pull">Slowness is not a luxury. It's a competitive advantage dressed as patience.</em></p>
-      </div>
-
-      <div class="standard-para rv d2">
-        <span class="standard-para-num">03</span>
-        <p class="standard-para-body">We've declined acquisitions, investment rounds, and network partnerships. Not out of principle — out of arithmetic. <strong>Every dollar of outside money comes with a fraction of outside opinion.</strong> Enough fractions and you're no longer making the decisions. We want to make the decisions. Specifically, we want to make the decision to redo work that isn't good enough at our own cost without a finance committee questioning the write-off.
-        <em class="standard-pull">Independence isn't a philosophy. It's a prerequisite for the work we want to make.</em></p>
-      </div>
-
-      <div class="standard-para rv d3">
-        <span class="standard-para-num">04</span>
-        <p class="standard-para-body">The twelve clients who cried at the brand reveal were not overwhelmed by the visual. They were overwhelmed by recognition — <em>the feeling of seeing themselves accurately for the first time</em>. That's what the work is supposed to do. Not impress. Not win awards. Not trend. <strong>Produce the sensation of being truly, accurately seen.</strong> Everything else — the craft, the process, the arguments about typefaces at midnight — is infrastructure for that moment.</p>
-      </div>
-
+      <p class="hero-scroll rv d5">Scroll to explore</p>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════════
-     SECTION VI — TENSION BARS
-     Visual representation of creative tensions
-════════════════════════════════════ -->
-<section class="sec-tensions">
-  <div class="tensions-left rv">
-    <p class="tensions-label">Creative tensions</p>
-    <h2 class="tensions-hed">Where we<br>hold the<br>line.</h2>
-    <p class="tensions-note">Every studio claims balance. We don't. These are the actual tensions we live in — not resolved, not equal, but consciously calibrated. The percentage shows where we lean, right now, by design.</p>
+<!-- ═══════════════════════════════════════
+     SERVICE INDEX — sticky scrollspy nav
+═══════════════════════════════════════ -->
+<nav class="svc-index" id="svc-index" aria-label="Services navigation">
+  <a href="#svc-01" class="svc-index-item" data-target="svc-01">Brand Identity</a>
+  <a href="#svc-02" class="svc-index-item" data-target="svc-02">Web Design</a>
+  <a href="#svc-03" class="svc-index-item" data-target="svc-03">Motion &amp; 3D</a>
+  <a href="#svc-04" class="svc-index-item" data-target="svc-04">Strategy</a>
+  <a href="#svc-05" class="svc-index-item" data-target="svc-05">Campaigns</a>
+  <a href="#svc-06" class="svc-index-item" data-target="svc-06">Creative Direction</a>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     SERVICE 01 — BRAND IDENTITY
+═══════════════════════════════════════ -->
+<section class="svc-block" id="svc-01" data-svc-section>
+  <div class="svc-block-body">
+    <div class="svc-block-ghost">01</div>
+    <div class="svc-block-top">
+      <p class="svc-block-num rv">Service 01</p>
+      <h2 class="svc-block-name rv d1">Brand<br>Identity</h2>
+      <p class="svc-block-tagline rv d2">A promise made visible.</p>
+      <p class="svc-block-desc rv d3">A brand is not a logo. It's a belief system you've given visual form. We build complete brand architectures from the ground up — the kind that make your competitors feel like they're playing an entirely different game. From naming through final guidelines, we create identities that don't just represent who you are. They make people feel something about you before you've said a word.</p>
+      <div class="svc-block-tags rv d3">
+        <span class="tag">Brand Strategy</span><span class="tag">Naming</span>
+        <span class="tag">Visual Identity</span><span class="tag">Typography</span>
+        <span class="tag">Colour Systems</span><span class="tag">Guidelines</span>
+        <span class="tag">Tone of Voice</span><span class="tag">Motion Identity</span>
+      </div>
+    </div>
+    <div class="svc-block-mid">
+      <p class="svc-block-deliverables-label rv">What you'll receive</p>
+      <div class="svc-deliverables rv d1">
+        <div class="svc-deliverable">Brand strategy & positioning deck</div>
+        <div class="svc-deliverable">Naming & verbal identity</div>
+        <div class="svc-deliverable">Primary & secondary mark suite</div>
+        <div class="svc-deliverable">Full typography system</div>
+        <div class="svc-deliverable">Colour world & usage rules</div>
+        <div class="svc-deliverable">Iconography & illustration style</div>
+        <div class="svc-deliverable">Photography direction</div>
+        <div class="svc-deliverable">Motion identity principles</div>
+        <div class="svc-deliverable">Brand guidelines (100–200pp)</div>
+        <div class="svc-deliverable">Handoff files (all formats)</div>
+      </div>
+      <div class="svc-outcome rv d2">
+        <p class="svc-outcome-label">What you'll feel</p>
+        <p class="svc-outcome-text">You'll walk into a room and people will <em>know</em>. Not because you told them, but because everything about how your brand presents itself whispers authority — even before you speak.</p>
+      </div>
+    </div>
+    <div class="svc-block-bottom rv d3">
+      <div class="svc-starting">
+        <span class="svc-starting-label">Engagements from</span>
+        <span class="svc-starting-price">$45,000</span>
+      </div>
+      <a href="#contact" class="btn-gold">Start the conversation ↗</a>
+    </div>
   </div>
-  <div class="tensions-right rv d2">
-
-    <div class="tension-row" data-tension>
-      <div class="tension-labels">
-        <span class="tension-label-a">Craft</span>
-        <span class="tension-label-b">Speed</span>
-      </div>
-      <div class="tension-bar-wrap">
-        <div class="tension-bar-fill" style="--pct:78%"></div>
-      </div>
-      <p class="tension-note">78% craft. <em>We have never apologised for a slow timeline. We have apologised for work that wasn't good enough.</em> One of those apologies costs more.</p>
+  <div class="svc-block-visual sv1">
+    <div class="svc-art">
+      <div class="svc-art-inner"></div>
+      <div class="svc-art-cross-h"></div>
+      <div class="svc-art-cross-v"></div>
     </div>
-
-    <div class="tension-row" data-tension>
-      <div class="tension-labels">
-        <span class="tension-label-a">Provocation</span>
-        <span class="tension-label-b">Safety</span>
-      </div>
-      <div class="tension-bar-wrap">
-        <div class="tension-bar-fill" style="--pct:70%"></div>
-      </div>
-      <p class="tension-note">70% provocation. <em>The work that made clients nervous is the work that made their competitors nervous.</em> The correlation is consistent enough that we treat it as data.</p>
-    </div>
-
-    <div class="tension-row" data-tension>
-      <div class="tension-labels">
-        <span class="tension-label-a">Independence</span>
-        <span class="tension-label-b">Collaboration</span>
-      </div>
-      <div class="tension-bar-wrap">
-        <div class="tension-bar-fill" style="--pct:65%"></div>
-      </div>
-      <p class="tension-note">65% independent. <em>We take direction seriously and creative briefs as starting points, not contracts.</em> The best clients know these are different things.</p>
-    </div>
-
-    <div class="tension-row" data-tension>
-      <div class="tension-labels">
-        <span class="tension-label-a">Restraint</span>
-        <span class="tension-label-b">Maximalism</span>
-      </div>
-      <div class="tension-bar-wrap">
-        <div class="tension-bar-fill" style="--pct:60%"></div>
-      </div>
-      <p class="tension-note">60% restraint. <em>What's left in the room after you remove everything unnecessary — that's the design.</em> But we know when excess is the point.</p>
-    </div>
-
+    <span class="svc-visual-label">Brand Identity</span>
+    <span class="svc-visual-index">01</span>
   </div>
 </section>
 
-<!-- ════════════════════════════════════
-     THE OPEN BRIEF — styled as an actual
-     creative brief waiting to be filled in
-════════════════════════════════════ -->
-<section class="sec-brief" id="brief">
-  <div class="brief-glow"></div>
-
-  <div class="brief-top">
-    <div class="sec-label rv" style="border-bottom:none;padding-bottom:0;margin-bottom:0">
-      <span class="sec-label-num">VII</span>
-      <span class="sec-label-line" style="max-width:3em"></span>
-      <span>Open Brief</span>
+<!-- ═══════════════════════════════════════
+     SERVICE 02 — WEB DESIGN & BUILD
+═══════════════════════════════════════ -->
+<section class="svc-block" id="svc-02" data-svc-section>
+  <div class="svc-block-visual sv2">
+    <div class="svc-art">
+      <div class="svc-art-inner"></div>
+      <div class="svc-art-h2"></div>
+      <div class="svc-art-h3"></div>
     </div>
-    <div class="brief-avail rv d1">
+    <span class="svc-visual-label">Web Design & Build</span>
+    <span class="svc-visual-index">02</span>
+  </div>
+  <div class="svc-block-body">
+    <div class="svc-block-ghost">02</div>
+    <div class="svc-block-top">
+      <p class="svc-block-num rv">Service 02</p>
+      <h2 class="svc-block-name rv d1">Web<br>Design<br>&amp; Build</h2>
+      <p class="svc-block-tagline rv d2">Engineering the feeling of luxury.</p>
+      <p class="svc-block-desc rv d3">We build websites the way a watchmaker builds a timepiece — every component intentional, every interaction choreographed, every millisecond of load time earned. Our builds feel like luxury because they are. Fast, beautiful, pixel-obsessive, and engineered to convert. Visitors don't just browse them — they believe them.</p>
+      <div class="svc-block-tags rv d3">
+        <span class="tag">UX Research</span><span class="tag">UI Design</span>
+        <span class="tag">Prototyping</span><span class="tag">Webflow</span>
+        <span class="tag">React / Next.js</span><span class="tag">GSAP</span>
+        <span class="tag">Three.js</span><span class="tag">Performance</span>
+      </div>
+    </div>
+    <div class="svc-block-mid">
+      <p class="svc-block-deliverables-label rv">What you'll receive</p>
+      <div class="svc-deliverables rv d1">
+        <div class="svc-deliverable">UX research & user flows</div>
+        <div class="svc-deliverable">Information architecture</div>
+        <div class="svc-deliverable">Full UI design system</div>
+        <div class="svc-deliverable">Interaction design & prototypes</div>
+        <div class="svc-deliverable">Custom animation system</div>
+        <div class="svc-deliverable">Webflow or React development</div>
+        <div class="svc-deliverable">Performance optimisation</div>
+        <div class="svc-deliverable">CMS integration & training</div>
+        <div class="svc-deliverable">SEO-ready architecture</div>
+        <div class="svc-deliverable">90-day post-launch support</div>
+      </div>
+      <div class="svc-outcome rv d2">
+        <p class="svc-outcome-label">What you'll feel</p>
+        <p class="svc-outcome-text">The moment your new site goes live, something shifts. Your sales team starts sending the URL without being asked. Your investors notice. Your <em>competitors</em> notice.</p>
+      </div>
+    </div>
+    <div class="svc-block-bottom rv d3">
+      <div class="svc-starting">
+        <span class="svc-starting-label">Engagements from</span>
+        <span class="svc-starting-price">$35,000</span>
+      </div>
+      <a href="#contact" class="btn-gold">Start the conversation ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SERVICE 03 — MOTION & 3D
+═══════════════════════════════════════ -->
+<section class="svc-block" id="svc-03" data-svc-section>
+  <div class="svc-block-body">
+    <div class="svc-block-ghost">03</div>
+    <div class="svc-block-top">
+      <p class="svc-block-num rv">Service 03</p>
+      <h2 class="svc-block-name rv d1">Motion<br>&amp; 3D</h2>
+      <p class="svc-block-tagline rv d2">Movement is meaning.</p>
+      <p class="svc-block-desc rv d3">The way something moves tells you more about a brand than its logo ever will. Our motion department speaks fluent GSAP, Three.js, and Cinema 4D — creating micro-interactions that feel inevitable, brand films that linger in the chest, and 3D environments that make people lean closer to their screen. We don't add motion to designs. We design through motion.</p>
+      <div class="svc-block-tags rv d3">
+        <span class="tag">GSAP</span><span class="tag">Three.js</span>
+        <span class="tag">After Effects</span><span class="tag">Cinema 4D</span>
+        <span class="tag">Spline</span><span class="tag">Lottie</span>
+        <span class="tag">Brand Film</span><span class="tag">Product Viz</span>
+      </div>
+    </div>
+    <div class="svc-block-mid">
+      <p class="svc-block-deliverables-label rv">What you'll receive</p>
+      <div class="svc-deliverables rv d1">
+        <div class="svc-deliverable">UI motion system & guidelines</div>
+        <div class="svc-deliverable">Brand film production</div>
+        <div class="svc-deliverable">Interactive 3D web experience</div>
+        <div class="svc-deliverable">Product visualisation</div>
+        <div class="svc-deliverable">Loading & transition sequences</div>
+        <div class="svc-deliverable">Social motion content suite</div>
+        <div class="svc-deliverable">Lottie animations (UI-ready)</div>
+        <div class="svc-deliverable">Motion brand guidelines</div>
+      </div>
+      <div class="svc-outcome rv d2">
+        <p class="svc-outcome-label">What you'll feel</p>
+        <p class="svc-outcome-text">Other agencies will start studying your website. Candidates will mention your animations in interview. People will screenshot your <em>hover states</em> and post them to Twitter.</p>
+      </div>
+    </div>
+    <div class="svc-block-bottom rv d3">
+      <div class="svc-starting">
+        <span class="svc-starting-label">Engagements from</span>
+        <span class="svc-starting-price">$28,000</span>
+      </div>
+      <a href="#contact" class="btn-gold">Start the conversation ↗</a>
+    </div>
+  </div>
+  <div class="svc-block-visual sv3">
+    <div class="svc-art">
+      <div class="svc-art-inner"></div>
+    </div>
+    <span class="svc-visual-label">Motion & 3D</span>
+    <span class="svc-visual-index">03</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SERVICE 04 — DIGITAL STRATEGY
+═══════════════════════════════════════ -->
+<section class="svc-block" id="svc-04" data-svc-section>
+  <div class="svc-block-visual sv4">
+    <div class="svc-art">
+      <div class="svc-art-dot"></div>
+      <div class="svc-art-ring"></div>
+    </div>
+    <span class="svc-visual-label">Digital Strategy</span>
+    <span class="svc-visual-index">04</span>
+  </div>
+  <div class="svc-block-body">
+    <div class="svc-block-ghost">04</div>
+    <div class="svc-block-top">
+      <p class="svc-block-num rv">Service 04</p>
+      <h2 class="svc-block-name rv d1">Digital<br>Strategy</h2>
+      <p class="svc-block-tagline rv d2">Intuition informed by data.</p>
+      <p class="svc-block-desc rv d3">Intuition without evidence is just expensive guessing. We interrogate your market with the discipline of a researcher and the instincts of a creative director — then we build the map that makes your growth feel like gravity, not effort. Strategy isn't a document we hand you. It's the invisible architecture that makes everything else work harder.</p>
+      <div class="svc-block-tags rv d3">
+        <span class="tag">Market Research</span><span class="tag">Positioning</span>
+        <span class="tag">Analytics</span><span class="tag">CRO</span>
+        <span class="tag">SEO Strategy</span><span class="tag">Content</span>
+        <span class="tag">Roadmapping</span><span class="tag">KPIs</span>
+      </div>
+    </div>
+    <div class="svc-block-mid">
+      <p class="svc-block-deliverables-label rv">What you'll receive</p>
+      <div class="svc-deliverables rv d1">
+        <div class="svc-deliverable">Competitive landscape audit</div>
+        <div class="svc-deliverable">Audience research & personas</div>
+        <div class="svc-deliverable">Brand positioning framework</div>
+        <div class="svc-deliverable">Digital growth roadmap</div>
+        <div class="svc-deliverable">SEO & content strategy</div>
+        <div class="svc-deliverable">Conversion rate optimisation</div>
+        <div class="svc-deliverable">Analytics setup & dashboards</div>
+        <div class="svc-deliverable">Quarterly performance reviews</div>
+      </div>
+      <div class="svc-outcome rv d2">
+        <p class="svc-outcome-label">What you'll feel</p>
+        <p class="svc-outcome-text">Clarity. That rare sensation of knowing exactly what to do next, and <em>why</em> — without the paralysis of having too many options and too little conviction.</p>
+      </div>
+    </div>
+    <div class="svc-block-bottom rv d3">
+      <div class="svc-starting">
+        <span class="svc-starting-label">Engagements from</span>
+        <span class="svc-starting-price">$22,000</span>
+      </div>
+      <a href="#contact" class="btn-gold">Start the conversation ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SERVICE 05 — CAMPAIGNS
+═══════════════════════════════════════ -->
+<section class="svc-block" id="svc-05" data-svc-section>
+  <div class="svc-block-body">
+    <div class="svc-block-ghost">05</div>
+    <div class="svc-block-top">
+      <p class="svc-block-num rv">Service 05</p>
+      <h2 class="svc-block-name rv d1">Campaign<br>Creation</h2>
+      <p class="svc-block-tagline rv d2">Ideas that cut through everything.</p>
+      <p class="svc-block-desc rv d3">Most campaigns disappear 24 hours after they run. Ours don't. We build ideas sharp enough to cut through cultural noise — and compelling enough to stay in circulation long after the media spend is gone. From the concept that makes your board say "we can't" to the execution that makes your audience say "they did." We live for that gap.</p>
+      <div class="svc-block-tags rv d3">
+        <span class="tag">Campaign Concept</span><span class="tag">Creative Direction</span>
+        <span class="tag">Social Content</span><span class="tag">OOH Design</span>
+        <span class="tag">Experiential</span><span class="tag">Editorial</span>
+        <span class="tag">Influencer Frameworks</span><span class="tag">Activation</span>
+      </div>
+    </div>
+    <div class="svc-block-mid">
+      <p class="svc-block-deliverables-label rv">What you'll receive</p>
+      <div class="svc-deliverables rv d1">
+        <div class="svc-deliverable">3 campaign concepts (full creative)</div>
+        <div class="svc-deliverable">Chosen concept developed fully</div>
+        <div class="svc-deliverable">Social content production suite</div>
+        <div class="svc-deliverable">Out-of-home design files</div>
+        <div class="svc-deliverable">Experiential / activation brief</div>
+        <div class="svc-deliverable">Influencer creative framework</div>
+        <div class="svc-deliverable">Launch timing & rollout strategy</div>
+        <div class="svc-deliverable">Campaign performance tracking</div>
+      </div>
+      <div class="svc-outcome rv d2">
+        <p class="svc-outcome-label">What you'll feel</p>
+        <p class="svc-outcome-text">Six months later, people will still be referencing it. Not in a case study — in <em>conversation</em>. That's the difference between a campaign and a cultural moment.</p>
+      </div>
+    </div>
+    <div class="svc-block-bottom rv d3">
+      <div class="svc-starting">
+        <span class="svc-starting-label">Engagements from</span>
+        <span class="svc-starting-price">$38,000</span>
+      </div>
+      <a href="#contact" class="btn-gold">Start the conversation ↗</a>
+    </div>
+  </div>
+  <div class="svc-block-visual sv5">
+    <div class="svc-art">
+      <div class="svc-art-inner"></div>
+      <div class="svc-art-v"></div>
+    </div>
+    <span class="svc-visual-label">Campaign Creation</span>
+    <span class="svc-visual-index">05</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SERVICE 06 — CREATIVE DIRECTION
+═══════════════════════════════════════ -->
+<section class="svc-block" id="svc-06" data-svc-section>
+  <div class="svc-block-visual sv6">
+    <div class="svc-art">
+      <div class="svc-art-inner"></div>
+    </div>
+    <span class="svc-visual-label">Creative Direction</span>
+    <span class="svc-visual-index">06</span>
+  </div>
+  <div class="svc-block-body">
+    <div class="svc-block-ghost">06</div>
+    <div class="svc-block-top">
+      <p class="svc-block-num rv">Service 06</p>
+      <h2 class="svc-block-name rv d1">Creative<br>Direction</h2>
+      <p class="svc-block-tagline rv d2">The highest-leverage thing we do.</p>
+      <p class="svc-block-desc rv d3">Some brands don't need an agency. They need a creative mind inside the room. We offer senior-level creative direction on a retained or fractional basis — attending strategy sessions, reviewing in-house creative, elevating your team's ambitions. The brands that work with us this way rarely stop. Because once you know what excellent looks like, settling for anything else becomes physically impossible.</p>
+      <div class="svc-block-tags rv d3">
+        <span class="tag">Retained</span><span class="tag">Fractional</span>
+        <span class="tag">Embedded</span><span class="tag">Advisory</span>
+        <span class="tag">Team Mentorship</span><span class="tag">Brand Audits</span>
+        <span class="tag">Brief Review</span><span class="tag">Vendor Vetting</span>
+      </div>
+    </div>
+    <div class="svc-block-mid">
+      <p class="svc-block-deliverables-label rv">What you'll receive</p>
+      <div class="svc-deliverables rv d1">
+        <div class="svc-deliverable">Monthly creative strategy sessions</div>
+        <div class="svc-deliverable">Brief review & direction (unlimited)</div>
+        <div class="svc-deliverable">Team workshops & upskilling</div>
+        <div class="svc-deliverable">Creative vendor vetting</div>
+        <div class="svc-deliverable">Brand consistency oversight</div>
+        <div class="svc-deliverable">Quarterly creative audits</div>
+        <div class="svc-deliverable">Slack access to senior CD</div>
+        <div class="svc-deliverable">Annual brand health report</div>
+      </div>
+      <div class="svc-outcome rv d2">
+        <p class="svc-outcome-label">What you'll feel</p>
+        <p class="svc-outcome-text">Your team will start producing work they're <em>proud of</em>. Not just work that gets approved. There's a difference, and most teams have forgotten what that difference feels like.</p>
+      </div>
+    </div>
+    <div class="svc-block-bottom rv d3">
+      <div class="svc-starting">
+        <span class="svc-starting-label">Retained from</span>
+        <span class="svc-starting-price">$12,000 <span style="font-size:.55em;color:var(--cream-dim);font-family:'PType Text',sans-serif;font-weight:400;text-transform:none;letter-spacing:0">/month</span></span>
+      </div>
+      <a href="#contact" class="btn-gold">Start the conversation ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     ENGAGEMENT MODELS
+═══════════════════════════════════════ -->
+<section class="engage-section">
+  <div class="engage-top">
+    <div>
+      <span class="cap rv" style="display:flex;margin-bottom:.7em">How we work</span>
+      <h2 class="engage-hed disp rv d1">Three ways<br>to work<br>with us.</h2>
+    </div>
+    <p class="engage-note rv d2">Not every engagement looks the same. Pick the model that fits your ambition — or ask us to design something bespoke.</p>
+  </div>
+
+  <div class="engage-grid">
+    <div class="engage-card rv">
+      <div class="engage-card-icon">◈</div>
+      <div>
+        <h3 class="engage-type">Project</h3>
+        <p class="engage-desc">A defined scope, a clear outcome, a fixed timeline. Best for launches, rebrands, or campaign builds where the brief is clear and the ambition is high.</p>
+      </div>
+      <ul class="engage-list">
+        <li class="engage-list-item">Fixed scope & deliverables</li>
+        <li class="engage-list-item">Dedicated project team</li>
+        <li class="engage-list-item">Milestone-based payments</li>
+        <li class="engage-list-item">30-day post-launch support</li>
+        <li class="engage-list-item">Full IP transfer on completion</li>
+      </ul>
+      <div class="engage-from">
+        <p class="engage-from-label">Projects from</p>
+        <p class="engage-from-price">$22,000 <small>per project</small></p>
+      </div>
+    </div>
+
+    <div class="engage-card featured rv d2">
+      <div class="engage-card-tag">Most Popular</div>
+      <div class="engage-card-icon">⬡</div>
+      <div>
+        <h3 class="engage-type">Retainer</h3>
+        <p class="engage-desc">An ongoing creative partnership. We're embedded in your brand's life — always available, always aligned, always raising the standard. The highest-leverage engagement we offer.</p>
+      </div>
+      <ul class="engage-list">
+        <li class="engage-list-item">Dedicated senior team</li>
+        <li class="engage-list-item">Unlimited creative requests</li>
+        <li class="engage-list-item">Priority turnaround (48h)</li>
+        <li class="engage-list-item">Monthly strategy sessions</li>
+        <li class="engage-list-item">Quarterly brand audits</li>
+        <li class="engage-list-item">Slack & phone access</li>
+      </ul>
+      <div class="engage-from">
+        <p class="engage-from-label">Retainers from</p>
+        <p class="engage-from-price">$18,000 <small>/month</small></p>
+      </div>
+    </div>
+
+    <div class="engage-card rv d4">
+      <div class="engage-card-icon">◉</div>
+      <div>
+        <h3 class="engage-type">Advisory</h3>
+        <p class="engage-desc">Strategic guidance and senior creative input without full execution. Ideal for in-house teams that want a seasoned perspective at the table — without the full agency price tag.</p>
+      </div>
+      <ul class="engage-list">
+        <li class="engage-list-item">4× monthly advisory sessions</li>
+        <li class="engage-list-item">Brief review & written feedback</li>
+        <li class="engage-list-item">Creative vendor introductions</li>
+        <li class="engage-list-item">Access to our resource library</li>
+        <li class="engage-list-item">Annual brand health report</li>
+      </ul>
+      <div class="engage-from">
+        <p class="engage-from-label">Advisory from</p>
+        <p class="engage-from-price">$8,500 <small>/month</small></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     THE DIFFERENCE
+═══════════════════════════════════════ -->
+<section class="diff-section">
+  <div class="diff-left">
+    <div>
+      <span class="cap rv" style="margin-bottom:1em;display:flex">Why Veil</span>
+      <h2 class="diff-big rv d1">
+        The work<br>should<br>make you<br><em>nervous.</em>
+      </h2>
+    </div>
+    <blockquote class="diff-quote rv d2">
+      "If your agency never pushes back, never shows you something that makes your stomach drop with possibility — find a new agency. That discomfort is where growth lives."
+    </blockquote>
+  </div>
+  <div class="diff-right">
+    <div class="diff-row rv">
+      <div class="diff-row-icon">◈</div>
+      <div class="diff-row-body">
+        <h3 class="diff-row-title">We say no more than we say yes.</h3>
+        <p class="diff-row-text">We take on around 14 projects per year. This isn't scarcity theatre — it's how we maintain the quality that justifies everything else. When we say yes to you, we mean it entirely.</p>
+      </div>
+    </div>
+    <div class="diff-row rv d1">
+      <div class="diff-row-icon">⬡</div>
+      <div class="diff-row-body">
+        <h3 class="diff-row-title">Senior talent on every brief.</h3>
+        <p class="diff-row-text">No juniors doing the work while seniors do the pitching. The people who present the concepts are the people who made them. Always.</p>
+      </div>
+    </div>
+    <div class="diff-row rv d2">
+      <div class="diff-row-icon">◉</div>
+      <div class="diff-row-body">
+        <h3 class="diff-row-title">Uncomfortable honesty is the service.</h3>
+        <p class="diff-row-text">We'll tell you when your brief is wrong. When your timeline is delusional. When the safe option is, in fact, the most dangerous one. You're not paying us to agree with you.</p>
+      </div>
+    </div>
+    <div class="diff-row rv d3">
+      <div class="diff-row-icon">◇</div>
+      <div class="diff-row-body">
+        <h3 class="diff-row-title">Obsession is our operating system.</h3>
+        <p class="diff-row-text">We've turned down clients. We've redone work at our own cost because it wasn't good enough. We've missed sleep over kerning. This is not a healthy way to run a business. It's an exceptional way to make great work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FAQ
+═══════════════════════════════════════ -->
+<section class="faq-section" id="faq">
+  <div class="faq-top">
+    <div>
+      <span class="cap rv" style="margin-bottom:.7em;display:flex">Questions</span>
+      <h2 class="faq-hed rv d1">The things<br>everyone<br>wants to<br>ask.</h2>
+    </div>
+    <p class="faq-intro rv d2">We've answered the questions we hear most often. If yours isn't here, it probably means it deserves a real conversation — and we'd welcome that.</p>
+  </div>
+
+  <div class="faq-list">
+    <div class="faq-item rv" data-faq>
+      <div class="faq-q">
+        <p class="faq-q-text">How long does a typical project take?</p>
+        <div class="faq-q-icon">+</div>
+      </div>
+      <div class="faq-body">
+        <div class="faq-body-inner">
+          <p class="faq-body-text">Brand identity projects typically run 10–16 weeks. Web design and build projects run 12–20 weeks depending on scope and complexity. Campaign creation usually takes 6–10 weeks from brief to launch-ready assets. Retainer and advisory engagements begin within two weeks of contract signing.<br><br>We don't rush. That said, we're not precious about timelines — if you have a hard deadline, tell us upfront. We'll design the process around it, not around our preferences.</p>
+          <div class="faq-body-aside">
+            <p class="faq-aside-label">Quick guide</p>
+            <p class="faq-aside-text">Brand Identity: 10–16 weeks · Web Build: 12–20 weeks · Campaign: 6–10 weeks · Retainer: ongoing</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item rv d1" data-faq>
+      <div class="faq-q">
+        <p class="faq-q-text">Do you work with startups or only established brands?</p>
+        <div class="faq-q-icon">+</div>
+      </div>
+      <div class="faq-body">
+        <div class="faq-body-inner">
+          <p class="faq-body-text">We work with both, but what matters to us isn't the size of the company — it's the ambition of the people running it. We've built brand identities for pre-revenue startups that had more conviction than Fortune 500 companies we've declined. If you have a clear vision, the hunger to do something genuinely exceptional, and a budget that reflects that seriousness, we want to talk.</p>
+          <div class="faq-body-aside">
+            <p class="faq-aside-label">What we look for</p>
+            <p class="faq-aside-text">Strong point of view. Openness to being challenged. A budget that signals commitment. Everything else is secondary.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item rv d2" data-faq>
+      <div class="faq-q">
+        <p class="faq-q-text">What does your pricing include?</p>
+        <div class="faq-q-icon">+</div>
+      </div>
+      <div class="faq-body">
+        <div class="faq-body-inner">
+          <p class="faq-body-text">All pricing includes the full senior team, all revision rounds (we work until it's right, not until the revision count runs out), all final files in every format you'll need, and a defined period of post-project support. We don't nickel-and-dime on extra concepts or minor scope changes. What we do charge for is genuine scope expansion — things that are clearly different from what we agreed to make together.<br><br>Stock photography, licensed fonts, third-party hosting, and development tools are billed at cost with no markup.</p>
+          <div class="faq-body-aside">
+            <p class="faq-aside-label">What's always included</p>
+            <p class="faq-aside-text">Senior team · Unlimited revisions · All final files · Post-project support · No hidden fees</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item rv d3" data-faq>
+      <div class="faq-q">
+        <p class="faq-q-text">Can we combine services?</p>
+        <div class="faq-q-icon">+</div>
+      </div>
+      <div class="faq-body">
+        <div class="faq-body-inner">
+          <p class="faq-body-text">Yes, and honestly the most transformative work we do happens when we're working across multiple disciplines simultaneously. A brand identity and a website built together share a coherence that's almost impossible to achieve when they're designed separately by different teams. Our most successful long-term clients started with a full-suite engagement: brand, web, and motion — all designed as a single unified system.</p>
+          <div class="faq-body-aside">
+            <p class="faq-aside-label">Most common combination</p>
+            <p class="faq-aside-text">Brand Identity + Web Build + Motion System. One team, one vision, built as a single unified system.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item rv d4" data-faq>
+      <div class="faq-q">
+        <p class="faq-q-text">How do we get started?</p>
+        <div class="faq-q-icon">+</div>
+      </div>
+      <div class="faq-body">
+        <div class="faq-body-inner">
+          <p class="faq-body-text">Send us an email with a brief paragraph on what you're working on and what you're hoping to achieve. We'll respond within 48 hours. If it sounds like a fit, we'll schedule a 30-minute introductory call — no pitch decks, no presentations, just a real conversation about your brand and your ambitions. From there, we'll send a proposal within a week.<br><br>We deliberately keep the process light at the front end. The best client relationships start with a conversation, not a form.</p>
+          <div class="faq-body-aside">
+            <p class="faq-aside-label">The process</p>
+            <p class="faq-aside-text">Email us → 48h response → 30min call → 1-week proposal → kick off</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CTA
+═══════════════════════════════════════ -->
+<section class="svc-cta" id="contact">
+  <div class="svc-cta-glow"></div>
+  <div class="svc-cta-top">
+    <span class="cap rv">Start the work</span>
+    <span class="svc-cta-avail rv d1">
       <span class="avail-dot"></span>
-      Accepting new briefs — Q1 2025
-    </div>
-    <div class="brief-doc-ref rv d2">
-      Document <span style="color:var(--gold);margin-left:.4em">brief_template_v1.doc</span>
+      Accepting briefs — Q1 2025
+    </span>
+  </div>
+  <div class="svc-cta-main">
+    <div class="svc-cta-hed rv d1">
+      <div class="w1">The brief</div>
+      <div class="w2">is waiting</div>
+      <div class="w3">for you.</div>
     </div>
   </div>
-
-  <div class="brief-fields rv d1">
-
-    <div class="brief-field">
-      <p class="brief-field-label">Client</p>
-      <div class="brief-field-value blank">Your brand<span class="brief-blank-cursor"></span></div>
-    </div>
-
-    <div class="brief-field">
-      <p class="brief-field-label">Studio</p>
-      <div class="brief-field-value">Veil Studio<br><em>New York</em></div>
-    </div>
-
-    <div class="brief-field">
-      <p class="brief-field-label">The problem</p>
-      <div class="brief-field-value blank">Still working<br>it out<span class="brief-blank-cursor"></span></div>
-    </div>
-
-    <div class="brief-field">
-      <p class="brief-field-label">What we'll make</p>
-      <div class="brief-field-value">Something<br><em>that lasts</em></div>
-    </div>
-
-    <div class="brief-field">
-      <p class="brief-field-label">What success looks like</p>
-      <div class="brief-field-value ghost">People can't look<br>away. They're not sure why.</div>
-    </div>
-
-    <div class="brief-field">
-      <p class="brief-field-label">The standard</p>
-      <div class="brief-field-value"><em>Doing less</em><br>is unacceptable.</div>
-    </div>
-
-  </div>
-
-  <div class="brief-bottom">
-    <div class="brief-contacts rv d2">
+  <div class="svc-cta-bottom">
+    <div class="svc-cta-contacts rv d2">
       <div>
-        <p class="brief-contact-label">Send the brief</p>
-        <p class="brief-contact-val">hello@veil.studio</p>
+        <p class="svc-cta-contact-label">New business</p>
+        <p class="svc-cta-contact-val">hello@veil.studio</p>
       </div>
       <div>
-        <p class="brief-contact-label">Call us</p>
-        <p class="brief-contact-val">+1 (212) 555 0191</p>
+        <p class="svc-cta-contact-label">Phone</p>
+        <p class="svc-cta-contact-val">+1 (212) 555 0191</p>
       </div>
       <div>
-        <p class="brief-contact-label">Studios</p>
-        <p class="brief-contact-val">NY · Paris · Tokyo</p>
+        <p class="svc-cta-contact-label">Studios</p>
+        <p class="svc-cta-contact-val">NY · Paris · Tokyo</p>
       </div>
     </div>
-    <div class="brief-btns rv d3">
-      <a href="mailto:hello@veil.studio" class="btn-gold">Send a brief ↗</a>
-      <a href="services.html" class="btn-outline">See services</a>
+    <div class="svc-cta-btns rv d3">
+      <a href="mailto:hello@veil.studio" class="btn-gold">Send us a brief ↗</a>
+      <a href="index.html" class="btn-outline">Back to home</a>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════════
+<!-- ═══════════════════════════════════════
      FOOTER
-════════════════════════════════════ -->
+═══════════════════════════════════════ -->
 <footer class="site-footer">
   <div class="footer-top">
     <div>
@@ -998,20 +754,22 @@
     <div>
       <p class="footer-col-head">Navigate</p>
       <ul class="footer-links">
-        <li><a href="index.html"       class="footer-link">Home</a></li>
-        <li><a href="#"                  class="footer-link">Work</a></li>
-        <li><a href="services.html" class="footer-link">Services</a></li>
-        <li><a href="#"                  class="footer-link active">About</a></li>
-        <li><a href="#brief"             class="footer-link">Contact</a></li>
+        <li><a href="index.html" class="footer-link">Home</a></li>
+        <li><a href="#" class="footer-link">Work</a></li>
+        <li><a href="#" class="footer-link active">Services</a></li>
+        <li><a href="#" class="footer-link">Process</a></li>
+        <li><a href="#contact" class="footer-link">Contact</a></li>
       </ul>
     </div>
     <div>
-      <p class="footer-col-head">Jump to</p>
+      <p class="footer-col-head">Services</p>
       <ul class="footer-links">
-        <li><a href="#drafts"   class="footer-link">Draft history</a></li>
-        <li><a href="#team"     class="footer-link">The team</a></li>
-        <li><a href="#standard" class="footer-link">The standard</a></li>
-        <li><a href="#brief"    class="footer-link">Open brief</a></li>
+        <li><a href="#svc-01" class="footer-link">Brand Identity</a></li>
+        <li><a href="#svc-02" class="footer-link">Web Design & Build</a></li>
+        <li><a href="#svc-03" class="footer-link">Motion & 3D</a></li>
+        <li><a href="#svc-04" class="footer-link">Digital Strategy</a></li>
+        <li><a href="#svc-05" class="footer-link">Campaign Creation</a></li>
+        <li><a href="#svc-06" class="footer-link">Creative Direction</a></li>
       </ul>
     </div>
     <div>
@@ -1027,16 +785,16 @@
   <div class="footer-base">
     <p class="footer-copy">© 2024 Veil Studio LLC. All rights reserved.</p>
     <div class="footer-legal">
-      <a href="#" class="footer-legal-link">Privacy</a>
+      <a href="#" class="footer-legal-link">Privacy Policy</a>
       <a href="#" class="footer-legal-link">Terms</a>
       <a href="#" class="footer-legal-link">Cookies</a>
     </div>
   </div>
 </footer>
 
-<!-- ════════════════════════════════════
+<!-- ═══════════════════════════════════════
      SCRIPTS
-════════════════════════════════════ -->
+═══════════════════════════════════════ -->
 
 
 
@@ -1052,8 +810,9 @@
 ═══════════════════════════════════════════════════════ -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="shared.js"></script>
-<script src="about.js"></script>
+<script src="service.js"></script>
 
 </body>
 </html>
