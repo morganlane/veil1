@@ -25,10 +25,12 @@
 <header class="tt-header" id="tt-header">
   <nav class="tt-nav">
 
-    <!-- ═══ LEFT NAV LINKS ═══ -->
-    <ul class="tt-nav-left">
+     <!-- ═══ LEFT NAV LINKS ═══ -->
+     <ul class="tt-nav-left">
+      <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
 
     <!-- ═══ CENTER LOGO (absolute positioned) ═══ -->
@@ -40,9 +42,9 @@
     <!-- ═══ RIGHT NAV LINKS + CTA ═══ -->
     <div class="tt-nav-right">
       <ul class="tt-nav-right-links">
-        <li><a href="contact.html">Contact</a></li>
+       
       </ul>
-      <a href="contact.html" class="tt-nav-cta">File a Brief</a>
+      <a href="contact.html" class="tt-nav-cta">Film Production</a>
     </div>
 
     <!-- ═══ HAMBURGER BUTTON (mobile) — inline styles override any external stylesheet ═══ -->
@@ -76,10 +78,10 @@
     <div class="menu-inner">
       <ul class="menu-list">
         <li class="menu-list-item"><a href="index.html"    class="menu-link"><p class="menu-link-heading">Home</p>    <p class="eyebrow">00</p><div class="menu-link-bg"></div></a></li>
-        <li class="menu-list-item"><a href="#"               class="menu-link"><p class="menu-link-heading">Work</p>    <p class="eyebrow">01</p><div class="menu-link-bg"></div></a></li>
-        <li class="menu-list-item"><a href="#"               class="menu-link"><p class="menu-link-heading">Services</p><p class="eyebrow">02</p><div class="menu-link-bg"></div></a></li>
-        <li class="menu-list-item"><a href="about.html" class="menu-link"><p class="menu-link-heading">About</p>   <p class="eyebrow">03</p><div class="menu-link-bg"></div></a></li>
-        <li class="menu-list-item"><a href="#complaint"      class="menu-link"><p class="menu-link-heading">Contact</p> <p class="eyebrow">04</p><div class="menu-link-bg"></div></a></li>
+        <li class="menu-list-item"><a href="about.html"               class="menu-link"><p class="menu-link-heading">Story</p>    <p class="eyebrow">01</p><div class="menu-link-bg"></div></a></li>
+        <li class="menu-list-item"><a href="services.html"               class="menu-link"><p class="menu-link-heading">Services</p><p class="eyebrow">02</p><div class="menu-link-bg"></div></a></li>
+        <li class="menu-list-item"><a href="about.html" class="menu-link"><p class="menu-link-heading">Film</p>   <p class="eyebrow">03</p><div class="menu-link-bg"></div></a></li>
+        <li class="menu-list-item"><a href="contact.html"      class="menu-link"><p class="menu-link-heading">Contact</p> <p class="eyebrow">04</p><div class="menu-link-bg"></div></a></li>
       </ul>
       <div class="menu-details">
         <p data-menu-fade="" class="p-small">Follow the obsession</p>
@@ -793,9 +795,13 @@
 ═══════════════════════════════════════ -->
 
 <script>
+
 gsap.registerPlugin(CustomEase, ScrollTrigger, SplitText);
 CustomEase.create("main","0.65,0.01,0.05,0.99");
 gsap.defaults({ ease:"main", duration:.7 });
+  
+  
+  
 </script>
 
 <!-- ═══════════════════════════════════════════════════════
