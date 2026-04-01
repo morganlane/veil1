@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VEIL — File a Brief / The Brief Room</title>
+  <!-- ═══════════════════════════════════════════════════════
+     STYLESHEETS
+     · shared.css — design tokens, reset, fonts, nav, footer
+     · contact.css  — page-specific styles
+     NOTE: External stylesheets (Tailwind, Webflow, Slater) removed;
+     all styles are now self-contained in these two files.
+═══════════════════════════════════════════════════════ -->
+<link rel="stylesheet" href="css/shared.css">
+<link rel="stylesheet" href="css/contact.css">
+</head>
+<body id="page-contact">
+
+
+  <!-- ════════════════════════════════════════════
+     ╔══════════════════════════════════════════╗
+     ║   nav    ║ header
+     ╚══════════════════════════════════════════╝
+════════════════════════════════════════════ -->
+
+<header class="tt-header" id="tt-header">
+  <nav class="tt-nav">
+
+    <!-- ═══ LEFT NAV LINKS ═══ -->
+    <ul class="tt-nav-left">
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+    </ul>
+
+    <!-- ═══ CENTER LOGO (absolute positioned) ═══ -->
+    <a href="index.html" class="tt-logo">
+      <span class="tt-logo-mark" aria-hidden="true"></span>
+      VEIL
+    </a>
+
+    <!-- ═══ RIGHT NAV LINKS + CTA ═══ -->
+    <div class="tt-nav-right">
+      <ul class="tt-nav-right-links">
+        <li><a href="contact.html" class="tt-active">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="tt-nav-cta">File a Brief</a>
+    </div>
+
+    <!-- ═══ HAMBURGER BUTTON (mobile) — inline styles override any external stylesheet ═══ -->
+    <button class="menu-button hamburger-btn" type="button" data-menu-toggle=""
+      aria-label="Open menu" aria-expanded="false"
+      style="display:flex !important;align-items:center;justify-content:center;background:transparent;border:none;cursor:pointer;padding:.75em;margin-right:-.5em;color:#c4a46b;z-index:10002;position:relative;">
+      <span class="hamburger" aria-hidden="true"
+        style="display:flex;flex-direction:column;justify-content:space-between;width:1.6em;height:1.15em;pointer-events:none;">
+        <span class="hamburger-line" style="display:block;height:2px;width:100%;background:currentColor;border-radius:2px;transition:transform .35s,opacity .25s;"></span>
+        <span class="hamburger-line" style="display:block;height:2px;width:100%;background:currentColor;border-radius:2px;transition:transform .35s,opacity .25s;"></span>
+        <span class="hamburger-line" style="display:block;height:2px;width:100%;background:currentColor;border-radius:2px;transition:transform .35s,opacity .25s;"></span>
+      </span>
+    </button>
+
+  </nav>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════
+     SLIDE-IN NAVIGATION MENU
+     NOTE: JS (shared.js) moves this to <body> end at runtime
+     via document.body.appendChild() to escape stacking contexts.
+     position:fixed is then applied via inline style override.
+═══════════════════════════════════════════════════════ -->
+<div data-nav="closed" class="nav-menu">
+  <div data-menu-toggle="" class="overlay"></div>
+  <nav class="menu">
+    <div class="menu-bg">
+      <div class="bg-panel first"></div>
+      <div class="bg-panel second"></div>
+      <div class="bg-panel"></div>
+    </div>
+    <div class="menu-inner">
+      <ul class="menu-list">
+        <li class="menu-list-item">
+          <a href="index.html" class="menu-link">
+            <p class="menu-link-heading">Home</p>
+            <p class="eyebrow">00</p>
+            <div class="menu-link-bg"></div>
+          </a>
+        </li>
+        <li class="menu-list-item">
+          <a href="#" class="menu-link">
+            <p class="menu-link-heading">Work</p>
+            <p class="eyebrow">01</p>
+            <div class="menu-link-bg"></div>
+          </a>
+        </li>
+        <li class="menu-list-item">
+          <a href="services.html" class="menu-link">
+            <p class="menu-link-heading">Services</p>
+            <p class="eyebrow">02</p>
+            <div class="menu-link-bg"></div>
+          </a>
+        </li>
+        <li class="menu-list-item">
+          <a href="about.html" class="menu-link">
+            <p class="menu-link-heading">About</p>
+            <p class="eyebrow">03</p>
+            <div class="menu-link-bg"></div>
+          </a>
+        </li>
+        <li class="menu-list-item">
+          <a href="contact.html" class="menu-link">
+            <p class="menu-link-heading">Contact</p>
+            <p class="eyebrow">04</p>
+            <div class="menu-link-bg"></div>
+          </a>
+        </li>
+      </ul>
+      <div class="menu-details">
+        <p data-menu-fade="" class="p-small">Follow the obsession</p>
+        <div class="socials-row">
+          <a data-menu-fade="" href="#" class="p-large text-link">Instagram</a>
+          <a data-menu-fade="" href="#" class="p-large text-link">LinkedIn</a>
+          <a data-menu-fade="" href="#" class="p-large text-link">Awwwards</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- X close button inside the menu panel -->
+  <button id="nav-close-btn" aria-label="Close menu"
+    style="position:absolute;top:1.2em;right:1.5em;z-index:10002;background:transparent;border:none;width:2.8em;height:2.8em;display:flex;align-items:center;justify-content:center;color:#c4a46b;cursor:pointer;">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <line x1="2" y1="2" x2="20" y2="20"/>
+      <line x1="20" y1="2" x2="2" y2="20"/>
+    </svg>
+  </button>
+</div>
+
+<!-- ════════════════════════════════════════════
+     PRELOADER — CASE FILE INITIALISING
+════════════════════════════════════════════ -->
+<div id="preloader">
+  <div class="pre-top">
+    <div class="pre-log" id="pre-log"></div>
+    <p class="pre-case-label">Case number assigned</p>
+    <div class="pre-case-num" id="pre-case-num"><span class="pre-cursor"></span></div>
+  </div>
+  <div class="pre-bar-row">
+    <span class="pre-studio">Veil Studio</span>
+    <div class="pre-track"><div class="pre-fill" id="pre-fill"></div></div>
+    <span class="pre-status" id="pre-status">Initialising…</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     ╔══════════════════════════════════════════╗
+     ║   nav    ║ end
+     ╚══════════════════════════════════════════╝
+════════════════════════════════════════════ -->
+
+
+
+
+
+
+
+
+
+<!-- ════════════════════════════════════════════
+     HERO — THE QUESTION / LIVE CLOCKS
+════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-glow"></div>
+
+  <!-- Left: the question -->
+  <div class="hero-left">
+    <div>
+      <div class="hero-breadcrumb rv">
+        <a href="index.html">Home</a>
+        <span class="hero-breadcrumb-sep">/</span>
+        <span>Contact</span>
+      </div>
+      <div class="hero-question">
+        <p class="hero-q-eyebrow rv d1">The only question that matters</p>
+        <div class="hero-q-text rv d2">
+          <span class="qw1">What are</span>
+          <span class="qw2">you refusing</span>
+          <span class="qw3">to accept</span>
+          <span class="qw4">right now?</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-left-foot rv d3">
+      <div class="hero-avail">
+        <span class="dot-live"></span>
+        Accepting new briefs — Q1 2025
+      </div>
+      <p class="hero-case-gen">Your case ref: <span id="hero-case-ref">VL-2025-___</span></p>
+    </div>
+  </div>
+
+  <!-- Right: three live clocks -->
+  <div class="hero-right">
+    <div class="clock-panel ny rv">
+      <p class="clock-city-label"><span class="clock-city-dot"></span>New York</p>
+      <div class="clock-time" id="clock-ny">--:--<span class="tz">EST</span></div>
+      <p class="clock-coords">40.7128° N, 74.0060° W</p>
+      <p class="clock-note">Brand identity, web, campaigns. The studio where the argument started.</p>
+    </div>
+    <div class="clock-panel paris rv d1">
+      <p class="clock-city-label"><span class="clock-city-dot"></span>Paris</p>
+      <div class="clock-time" id="clock-paris">--:--<span class="tz">CET</span></div>
+      <p class="clock-coords">48.8566° N, 2.3522° E</p>
+      <p class="clock-note">Strategy, creative direction, European client partnerships.</p>
+    </div>
+    <div class="clock-panel tokyo rv d2">
+      <p class="clock-city-label"><span class="clock-city-dot"></span>Tokyo</p>
+      <div class="clock-time" id="clock-tokyo">--:--<span class="tz">JST</span></div>
+      <p class="clock-coords">35.6762° N, 139.6503° E</p>
+      <p class="clock-note">Motion, 3D, and digital. The studio that never sleeps when there's a deadline.</p>
+    </div>
+    <div class="hero-right-footer rv d3">
+      <span>One of us is <span>awake.</span></span>
+      <span style="font-size:.55em;text-transform:none;letter-spacing:0;font-family:'PType Text',sans-serif;font-weight:400;color:var(--cream-dim)">We respond within 48 hours.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     THE INTAKE FORM
+════════════════════════════════════════════ -->
+<section class="form-section" id="form-section">
+  <div class="form-glow"></div>
+
+  <div class="form-doc-head rv">
+    <span class="form-doc-title">Intake Document — Brief Filing</span>
+    <div class="form-doc-meta">
+      <span class="form-doc-meta-item">Studio <span>Veil, New York</span></span>
+      <span class="form-doc-meta-item">Response <span>Within 48 hrs</span></span>
+      <span class="form-doc-meta-item">Status <span>Accepting briefs</span></span>
+    </div>
+    <span class="form-case-ref" id="form-case-ref">VL-2025-___</span>
+  </div>
+
+  <!-- Intro + form split -->
+  <div class="form-split">
+
+    <div class="form-intro rv">
+      <div>
+        <h2 class="form-intro-hed">File the<br>case.<br><em>Start here.</em></h2>
+        <p class="form-intro-body">This is not a contact form. It's the first document in a case you're building against your brand's current situation. <strong>The more honestly you fill it in, the better we can tell you if we're the right studio for this.</strong></p>
+      </div>
+      <div>
+        <p style="font-size:.55em;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);font-weight:600;margin-bottom:1em">What you're agreeing to</p>
+        <div class="form-intro-conditions">
+          <div class="form-condition">
+            <span class="form-condition-num">I</span>
+            <span>We will respond within 48 hours with an honest assessment — including if we think we're not the right fit.</span>
+          </div>
+          <div class="form-condition">
+            <span class="form-condition-num">II</span>
+            <span>If it's a fit: 30 minutes. No presentations. A real conversation about what you're actually trying to solve.</span>
+          </div>
+          <div class="form-condition">
+            <span class="form-condition-num">III</span>
+            <span>A written proposal within one week. Work begins when both parties are ready to commit to the standard.</span>
+          </div>
+          <div class="form-condition">
+            <span class="form-condition-num">IV</span>
+            <span>The standard does not adjust for the timeline or budget. The timeline and budget adjust for the standard.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-body rv d1">
+
+      <!-- The declaration — most important field first -->
+      <div class="field-row declaration">
+        <div class="field-label-group">
+          <label class="field-label" for="f-refusal">The refusal</label>
+          <p class="field-sublabel">The most important field on this form</p>
+        </div>
+        <div>
+          <p class="declaration-intro">In one or two sentences: <em>what are you refusing to accept about your brand's current state?</em> Not your project brief — the thing that's been bothering you. The gap between what it is and what you know it should be.</p>
+          <textarea class="f-textarea" id="f-refusal" name="refusal" rows="4" placeholder="The thing we can't keep accepting is…"></textarea>
+        </div>
+      </div>
+
+      <!-- Who -->
+      <div class="field-row">
+        <div class="field-label-group">
+          <label class="field-label">The complainant</label>
+          <p class="field-sublabel">Who is filing this case</p>
+        </div>
+        <div class="f-two-col">
+          <input class="f-input" type="text" name="name" placeholder="Your name" autocomplete="name">
+          <input class="f-input" type="text" name="org" placeholder="Organisation" autocomplete="organization">
+        </div>
+      </div>
+
+      <!-- What work -->
+      <div class="field-row">
+        <div class="field-label-group">
+          <label class="field-label">Relief sought</label>
+          <p class="field-sublabel">Type of work needed</p>
+        </div>
+        <div class="f-check-grid">
+          <label class="f-check"><input type="checkbox" name="svc" value="brand"><span class="f-check-box"></span><span class="f-check-label">Brand Identity</span></label>
+          <label class="f-check"><input type="checkbox" name="svc" value="web"><span class="f-check-box"></span><span class="f-check-label">Web Design &amp; Build</span></label>
+          <label class="f-check"><input type="checkbox" name="svc" value="motion"><span class="f-check-box"></span><span class="f-check-label">Motion &amp; 3D</span></label>
+          <label class="f-check"><input type="checkbox" name="svc" value="strategy"><span class="f-check-box"></span><span class="f-check-label">Digital Strategy</span></label>
+          <label class="f-check"><input type="checkbox" name="svc" value="campaign"><span class="f-check-box"></span><span class="f-check-label">Campaign Creation</span></label>
+          <label class="f-check"><input type="checkbox" name="svc" value="cd"><span class="f-check-box"></span><span class="f-check-label">Creative Direction</span></label>
+        </div>
+      </div>
+
+      <!-- Evidence: timeline + budget -->
+      <div class="field-row">
+        <div class="field-label-group">
+          <label class="field-label">The evidence</label>
+          <p class="field-sublabel">Timeline &amp; investment</p>
+        </div>
+        <div class="f-two-col">
+          <select class="f-select" name="timeline">
+            <option value="" disabled selected>Timeline</option>
+            <option value="lt4">Under 4 weeks</option>
+            <option value="4-8">4–8 weeks</option>
+            <option value="8-16">8–16 weeks</option>
+            <option value="gt16">16+ weeks</option>
+            <option value="ongoing">Ongoing / Retainer</option>
+          </select>
+          <select class="f-select" name="budget">
+            <option value="" disabled selected>Investment range</option>
+            <option value="lt20">Under $20K</option>
+            <option value="20-50">$20K – $50K</option>
+            <option value="50-100">$50K – $100K</option>
+            <option value="gt100">$100K+</option>
+            <option value="discuss">Prefer to discuss</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- How to reach -->
+      <div class="field-row">
+        <div class="field-label-group">
+          <label class="field-label">How to reach you</label>
+          <p class="field-sublabel">We respond by email first</p>
+        </div>
+        <input class="f-input" type="email" name="email" placeholder="hello@yourcompany.com" autocomplete="email">
+      </div>
+
+      <!-- Submit -->
+      <div class="form-submit-row">
+        <p class="form-submit-note">We read every brief personally. <em>If we're not the right studio, we'll tell you — and we'll try to point you toward who is.</em></p>
+        <button type="button" class="btn-file" id="btn-submit">
+          File this case ↗
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Confirmation (hidden until submit) -->
+  <div class="form-confirmed" id="form-confirmed">
+    <p style="font-size:.6em;text-transform:uppercase;letter-spacing:.22em;color:var(--gold);font-weight:600">Case filed</p>
+    <div class="confirmed-case">Case <span id="confirmed-ref">VL-2025-___</span><br>received.</div>
+    <p class="confirmed-msg"><strong>We've received your brief.</strong> Someone from the studio will respond within 48 hours — in writing, with a genuine assessment of whether we're the right fit. If we're not, we'll say so.</p>
+    <p style="font-size:.8em;line-height:1.7;color:var(--cream-dim);font-style:italic;max-width:34ch">The standard applies to this response too. No template. No "thanks for reaching out." A real answer.</p>
+    <a href="services.html" class="btn-outline" style="margin-top:.5em">Read the six services</a>
+  </div>
+
+</section>
+
+<!-- ════════════════════════════════════════════
+     TYPOGRAPHIC PUNCH
+════════════════════════════════════════════ -->
+<div class="punch rv">
+  <div class="punch-text">
+    <span class="pt-dim">The standard doesn't adjust</span><br>
+    <span class="pt-cream">for the timeline.</span><br>
+    <span class="pt-gold">The timeline adjusts for the standard.</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     WHAT HAPPENS NEXT — three clauses
+════════════════════════════════════════════ -->
+<section class="sec-process">
+  <div class="process-header">
+    <h2 class="process-hed rv">What happens<br><em>next.</em></h2>
+    <p class="process-note rv d2"><strong>Three steps.</strong> Written as contract clauses because that's what they are — a commitment from us on how we treat every brief, from the moment it lands. No pitch theatre. No account managers. No vague next steps.</p>
+  </div>
+  <div class="process-clauses">
+
+    <div class="process-clause rv">
+      <span class="clause-roman">Clause I</span>
+      <h3 class="clause-heading">The response</h3>
+      <p class="clause-legal">"The Studio agrees to respond to every brief in writing, within forty-eight hours, with an honest and specific assessment of whether it is the right studio for the work described. <em>This assessment includes the possibility that the answer is no.</em>"</p>
+      <div>
+        <span class="clause-plain-lbl">Plain English</span>
+        <p class="clause-plain">We read it. We respond with a real opinion — not a courtesy reply. If we're not the right fit, we'll say so clearly and try to point you toward who is.</p>
+      </div>
+      <div class="clause-timing">
+        <span class="clause-timing-val">48</span>
+        <span class="clause-timing-unit">Hours</span>
+      </div>
+    </div>
+
+    <div class="process-clause rv d2">
+      <span class="clause-roman">Clause II</span>
+      <h3 class="clause-heading">The conversation</h3>
+      <p class="clause-legal">"If the brief indicates a potential fit, the Studio proposes a thirty-minute conversation. <em>No presentations. No credentials decks. No agency theatre.</em> A real conversation about what is actually being solved."</p>
+      <div>
+        <span class="clause-plain-lbl">Plain English</span>
+        <p class="clause-plain">Thirty minutes. We ask questions. You ask questions. If we both leave that call feeling it's right — we move to a proposal. If not, we part on honest terms.</p>
+      </div>
+      <div class="clause-timing">
+        <span class="clause-timing-val">30</span>
+        <span class="clause-timing-unit">Minutes</span>
+      </div>
+    </div>
+
+    <div class="process-clause rv d4">
+      <span class="clause-roman">Clause III</span>
+      <h3 class="clause-heading">The proposal</h3>
+      <p class="clause-legal">"The Studio delivers a written proposal within seven days of the qualifying conversation. The proposal names <em>the specific problem being solved, the standard being applied, and the terms under which the work will proceed.</em>"</p>
+      <div>
+        <span class="clause-plain-lbl">Plain English</span>
+        <p class="clause-plain">A document that says exactly what we'll do, why we'll do it, and what it will cost. No padding, no vague scope, nothing that requires interpretation.</p>
+      </div>
+      <div class="clause-timing">
+        <span class="clause-timing-val">1</span>
+        <span class="clause-timing-unit">Week</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     THE THREE STUDIOS
+════════════════════════════════════════════ -->
+<section class="sec-studios">
+  <div class="studios-header">
+    <h2 class="studios-hed rv">Three cities.<br>One <em>standard.</em></h2>
+    <p class="studios-note rv d2">The same refusal applies in every room. The timezone changes. The argument doesn't.</p>
+  </div>
+  <div class="studios-grid">
+
+    <div class="studio-card ny rv">
+      <div class="studio-card-art"></div>
+      <div class="studio-card-body">
+        <div class="studio-city-name">New York</div>
+        <div class="studio-local-time" id="sc-ny">--:--</div>
+        <div class="studio-details">
+          <p class="studio-coords">40.7128° N / 74.0060° W</p>
+          <p class="studio-what">Brand identity, web design, campaigns. The studio where Marcus and Elena started the argument at midnight in 2016.</p>
+          <a href="mailto:newyork@veil.studio" class="studio-email">newyork@veil.studio →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="studio-card paris rv d2">
+      <div class="studio-card-art"></div>
+      <div class="studio-card-body">
+        <div class="studio-city-name">Paris</div>
+        <div class="studio-local-time" id="sc-paris">--:--</div>
+        <div class="studio-details">
+          <p class="studio-coords">48.8566° N / 2.3522° E</p>
+          <p class="studio-what">Strategy, creative direction, European client partnerships. Home to Dario and Camille — the ones who have never lost an argument about logos.</p>
+          <a href="mailto:paris@veil.studio" class="studio-email">paris@veil.studio →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="studio-card tokyo rv d4">
+      <div class="studio-card-art"></div>
+      <div class="studio-card-body">
+        <div class="studio-city-name">Tokyo</div>
+        <div class="studio-local-time" id="sc-tokyo">--:--</div>
+        <div class="studio-details">
+          <p class="studio-coords">35.6762° N / 139.6503° E</p>
+          <p class="studio-what">Motion, 3D, digital craft. Riku rewrote an entire animation system the night before a launch because it was 2% less smooth on mid-range Android. He'd do it again.</p>
+          <a href="mailto:tokyo@veil.studio" class="studio-email">tokyo@veil.studio →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     DIRECT CONTACT
+════════════════════════════════════════════ -->
+<section class="sec-direct">
+  <div class="direct-left rv">
+    <h2 class="direct-hed">Prefer to<br>write <em>directly.</em></h2>
+    <p class="direct-body">One paragraph is enough. Tell us what you're working on and what you're refusing to accept about where it is now. <strong>We respond to every message personally.</strong> The account management layer doesn't exist here — you'll hear from the person who will actually work on your brief.</p>
+  </div>
+  <div class="direct-right rv d2">
+    <div class="direct-item">
+      <div>
+        <p class="direct-item-label">General enquiries</p>
+        <p class="direct-item-val">hello@veil.studio</p>
+      </div>
+      <a href="mailto:hello@veil.studio" class="direct-item-link">Write directly →</a>
+    </div>
+    <div class="direct-item">
+      <div>
+        <p class="direct-item-label">New briefs</p>
+        <p class="direct-item-val">briefs@veil.studio</p>
+      </div>
+      <a href="mailto:briefs@veil.studio" class="direct-item-link">File directly →</a>
+    </div>
+    <div class="direct-item">
+      <div>
+        <p class="direct-item-label">Studio phone</p>
+        <p class="direct-item-val">+1 (212) 555 0191</p>
+      </div>
+      <a href="tel:+12125550191" class="direct-item-link">Call us →</a>
+    </div>
+    <div class="direct-item">
+      <div>
+        <p class="direct-item-label">Press &amp; editorial</p>
+        <p class="direct-item-val">press@veil.studio</p>
+      </div>
+      <a href="mailto:press@veil.studio" class="direct-item-link">Write directly →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-wm">Veil<br>Studio</div>
+      <p class="footer-tag">We exist because doing less was unacceptable. New York, Paris, Tokyo — since 2016.</p>
+    </div>
+    <div>
+      <p class="footer-col-hed">Navigate</p>
+      <ul class="footer-links">
+        <li><a href="index.html"     class="fl">Home</a></li>
+        <li><a href="#"                      class="fl">Work</a></li>
+        <li><a href="services.html" class="fl">Services</a></li>
+        <li><a href="about.html"        class="fl">About</a></li>
+        <li><a href="#"                      class="fl active">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-hed">The Six Services</p>
+      <ul class="footer-links">
+        <li><a href="services.html#svc-01" class="fl">Brand Identity</a></li>
+        <li><a href="services.html#svc-02" class="fl">Web Design</a></li>
+        <li><a href="services.html#svc-03" class="fl">Motion &amp; 3D</a></li>
+        <li><a href="services.html#svc-04" class="fl">Strategy</a></li>
+        <li><a href="services.html#svc-05" class="fl">Campaigns</a></li>
+        <li><a href="services.html#svc-06" class="fl">Creative Direction</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-hed">Follow</p>
+      <ul class="footer-links">
+        <li><a href="#" class="fl">Instagram</a></li>
+        <li><a href="#" class="fl">LinkedIn</a></li>
+        <li><a href="#" class="fl">Awwwards</a></li>
+        <li><a href="#" class="fl">Dribbble</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-base">
+    <p class="footer-copy">© 2024 Veil Studio LLC. All rights reserved.</p>
+    <div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a></div>
+  </div>
+</footer>
+
+<!-- ════════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════════ -->
+
+
+
+    <script  src="./script.js"></script>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     EXTERNAL LIBRARIES
+     · GSAP 3.12.5 — animation engine
+     · CustomEase  — custom easing curves
+     · ScrollTrigger — scroll-based animations
+     · SplitText  — character/word splitting (home only)
+═══════════════════════════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+<script src="js/shared.js"></script>
+<script src="js/contact.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1394 @@
+/* ═══════════════════════════════════════════════════════════════
+   VEIL STUDIO — css/about.css.css
+   ───────────────────────────────────────────────────────────────
+   Page-specific styles for: about.html
+   Loaded AFTER shared.css (which handles tokens, nav, footer, etc.)
+   
+   Sections in this file:
+   · Preloader (.pre-doc-label, .pre-bar)
+   · Hero stage (.hero-stage, .attempt-line, .hero-final)
+   · Hero bottom (.hero-bottom, .hero-desc)
+   · Draft history section (.sec-drafts, .draft-block)
+   · Midnight thread / messenger (.sec-thread, .messenger, .msg)
+   · Personnel dossiers (.sec-dossiers, .dossier-card)
+   · Evidence wall (.sec-evidence, .exhibit)
+   · The Standard section (.sec-standard)
+   · Tension bars (.sec-tensions, .tension-bar)
+   · Open brief section (.sec-brief)
+   · Responsive overrides
+═══════════════════════════════════════════════════════════════ */
+
+/* ════════════════════════════════════════
+   TOKENS
+════════════════════════════════════════ */
+:root {
+  --bg:          #0c0b09;
+  --bg-mid:      #131210;
+  --bg-lift:     #1c1a17;
+  --bg-high:     #242018;
+  --gold:        #c4a46b;
+  --gold-lt:     #d4b87c;
+  --gold-border: rgba(196,164,107,.22);
+  --gold-faint:  rgba(196,164,107,.09);
+  --gold-glow:   rgba(196,164,107,.07);
+  --cream:       #f0e6d3;
+  --cream-mid:   rgba(240,230,211,.55);
+  --cream-dim:   rgba(240,230,211,.3);
+  --cream-ghost: rgba(240,230,211,.07);
+  --rule:        rgba(240,230,211,.08);
+  --rule-mid:    rgba(240,230,211,.13);
+  --red:         #c4504a;
+  --red-dim:     rgba(196,80,74,.18);
+  --cubic:       cubic-bezier(.65,.01,.05,.99);
+  --ease-out:    cubic-bezier(.16,1,.3,1);
+  /* nav compat */
+  --color-primary:#c4a46b; --color-dark:#0c0b09;
+  --color-neutral-100:#f0e6d3; --color-neutral-200:#2a2720;
+  --color-neutral-300:#f0e6d3; --color-neutral-800:#f0e6d3;
+  --gap:1.5rem; --container-padding:2rem; --size-container:90em;
+  --cubic-default:cubic-bezier(.65,.01,.05,.99); --menu-padding:2em;
+}
+
+/* ════════════════════════════════════════
+   RESET
+════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--cream);
+  font-family:"PType Text",sans-serif;
+  font-size:16px;font-weight:400;line-height:1.2;overflow-x:hidden;
+  cursor:url("https://cdn.prod.website-files.com/6708f85ff3d3cba6aff436fb/671251b239d7aeb290a31ac5_cursor-default%402x.svg") 2 0,auto;
+}
+p{margin:0}a{text-decoration:none;color:inherit}
+a,button{cursor:url("https://cdn.prod.website-files.com/6708f85ff3d3cba6aff436fb/671251b212e6b71494aa67ff_cursor-pointer%402x.svg") 12 0,pointer}
+ul{list-style:none}
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:160px;
+}
+
+/* ════════════════════════════════════════
+   FONTS
+════════════════════════════════════════ */
+@font-face{font-family:"PType Display";src:url("https://assets.website-files.com/60e4912ee7c15fb303f4c588/60e491f57f25e15bc971a03a_manuka-condensed-web-black.woff") format("woff");font-weight:900;font-display:swap}
+@font-face{font-family:"PType Text";src:url("https://assets.website-files.com/60e4912ee7c15fb303f4c588/60e492c541078e283f2bf759_soehne-web-kraftig.woff") format("woff");font-weight:600;font-display:swap}
+@font-face{font-family:"PType Text";src:url("https://assets.website-files.com/60e4912ee7c15fb303f4c588/60e492c5ed8ba9d6d959a06b_soehne-web-buch.woff") format("woff");font-weight:400;font-display:swap}
+@font-face{font-family:"PP Neue Corp Tight";src:url("https://cdn.prod.website-files.com/673af51dea86ab95d124c3ee/673b0f5784f7060c0ac05534_PPNeueCorp-TightUltrabold.otf") format("opentype");font-weight:700;font-display:swap}
+
+/* ════════════════════════════════════════
+   NAV — preserved exactly
+════════════════════════════════════════ */
+.header{z-index:110;padding-top:var(--gap);position:fixed;inset:0 0 auto}
+.container{z-index:1;max-width:var(--size-container);padding-left:var(--container-padding);padding-right:var(--container-padding);width:100%;margin:0 auto;position:relative}
+.container.is--full{max-width:100%}
+.nav-row{justify-content:space-between;align-items:center;width:100%;display:flex}
+.nav-row__right{gap:.625rem;pointer-events:auto;justify-content:flex-end;align-items:center;display:flex}
+.menu-button{gap:.625em;background:transparent;justify-content:flex-end;align-items:center;margin:-1em;padding:1em;display:flex;border:none;color:var(--cream)}
+.menu-button-text{flex-flow:column;justify-content:flex-start;align-items:flex-end;height:1.125em;display:flex;overflow:hidden}
+.menu-button-icon{width:1em;height:1em}
+.icon-wrap{transition:transform .4s cubic-bezier(.65,.05,0,1)}
+.p-large{font-size:1.125em;font-family:Arial,Helvetica}
+
+
+
+
+
+
+/* ═══════════════════════════════════════════════
+   ╔════════════════════════════════════════════╗
+   ║  TAKETHAT.COM NAV — EXACT STRUCTURAL MATCH ║
+   ║  Split nav: left links | center logo       ║
+   ║  | right links + CTA pill                  ║
+   ║  Hamburger → full-screen dark overlay      ║
+   ╚════════════════════════════════════════════╝
+═══════════════════════════════════════════════ */
+.tt-header{
+  position:sticky;
+  top:0;left:0;right:0;z-index:10001;
+  background:rgba(12,11,9,.92);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--rule);
+}
+/* The nav bar row */
+.tt-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  height:3.5em;padding:0 2em;position:relative;
+  max-width:100%;margin:0 auto;
+}
+/* Left nav links */
+.tt-nav-left{
+  display:flex;align-items:center;gap:1.8em;
+  flex:1;
+}
+.tt-nav-left a,.tt-nav-right-links a{
+  font-size:.68em;text-transform:uppercase;letter-spacing:.14em;font-weight:600;
+  color:rgba(240,230,211,.45);
+  transition:color .25s;position:relative;padding:.2em 0;
+}
+.tt-nav-left a:hover,.tt-nav-right-links a:hover{color:var(--cream)}
+.tt-nav-left a.tt-active,.tt-nav-right-links a.tt-active{color:var(--gold)}
+/* Underline on hover */
+.tt-nav-left a::after,.tt-nav-right-links a::after{
+  content:'';position:absolute;bottom:-.1em;left:0;width:100%;height:1px;
+  background:var(--gold);transform:scaleX(0);transform-origin:right;
+  transition:transform .4s var(--cubic);
+}
+.tt-nav-left a:hover::after,.tt-nav-right-links a:hover::after{transform:scaleX(1);transform-origin:left}
+.tt-nav-left a.tt-active::after,.tt-nav-right-links a.tt-active::after{transform:scaleX(1)}
+
+/* Center logo — absolute center within the bar */
+.tt-logo{
+  position:absolute;left:50%;transform:translateX(-50%);
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:1.15em;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--cream);transition:color .25s;
+  white-space:nowrap;line-height:1;
+}
+.tt-logo:hover{color:var(--gold)}
+/* Logo mark — the V monogram */
+.tt-logo-mark{
+  display:inline-block;width:.9em;height:.9em;
+  border:1.5px solid currentColor;border-radius:50%;
+  vertical-align:middle;margin-right:.3em;margin-bottom:.1em;
+  position:relative;overflow:hidden;font-size:.85em;
+}
+.tt-logo-mark::after{
+  content:'';position:absolute;
+  bottom:0;left:50%;transform:translateX(-50%);
+  width:50%;height:50%;border-top:1.5px solid currentColor;
+  clip-path:polygon(0 0,100% 0,50% 100%);
+}
+
+/* Right nav — links + CTA */
+.tt-nav-right{
+  display:flex;align-items:center;gap:1.8em;justify-content:flex-end;flex:1;
+}
+.tt-nav-right-links{display:flex;align-items:center;gap:1.8em}
+/* CTA pill button */
+.tt-nav-cta{
+  font-size:.65em;font-weight:600;text-transform:uppercase;letter-spacing:.14em;
+  padding:.55em 1.4em;border-radius:2em;
+  background:var(--gold);color:var(--bg);
+  transition:background .3s,transform .3s var(--cubic);white-space:nowrap;
+}
+.tt-nav-cta:hover{background:var(--gold-lt);transform:translateY(-1px)}
+
+/* Hamburger button — CSS three-line icon, right-aligned, mobile only */
+.tt-hamburger{
+  display:none;flex-direction:column;justify-content:center;gap:.28em;
+  width:2.4em;height:2.4em;background:none;border:none;
+  padding:.4em;cursor:pointer;position:relative;z-index:201;
+}
+.tt-hamburger span{
+  display:block;width:100%;height:1.5px;background:var(--cream);border-radius:1px;
+  transition:transform .4s var(--cubic),opacity .3s,width .3s var(--cubic);
+  transform-origin:center;
+}
+/* X state when open */
+.tt-hamburger.open span:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.tt-hamburger.open span:nth-child(2){opacity:0;width:0}
+.tt-hamburger.open span:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+
+/* ═══════════════════════════════════════════════
+   MOBILE MENU OVERLAY — Full screen dark
+   Exact TakeThat.com pattern: full-screen dark
+   overlay, links centered, large type, CTA pill at bottom
+═══════════════════════════════════════════════ */
+.tt-mobile-menu{
+  position:fixed;inset:0;z-index:199;
+  background:rgba(10,9,7,.98);
+  display:flex;flex-direction:column;
+  padding:6em 2.5em 3em;
+  /* Hidden state */
+  opacity:0;pointer-events:none;
+  transform:translateY(-1em);
+  transition:opacity .45s var(--cubic),transform .45s var(--cubic);
+}
+.tt-mobile-menu.open{opacity:1;pointer-events:auto;transform:none}
+/* Nav items */
+.tt-mobile-links{
+  display:flex;flex-direction:column;gap:0;flex:1;justify-content:center;
+}
+.tt-mobile-link{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1em 0;border-bottom:1px solid var(--rule);
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:clamp(2.5rem,10vw,4.5rem);font-weight:700;text-transform:uppercase;
+  letter-spacing:-.02em;line-height:1;
+  color:rgba(240,230,211,.35);
+  transition:color .3s;
+  overflow:hidden;
+  opacity:0;transform:translateY(20px);
+  transition:color .3s,opacity .5s var(--ease-out),transform .5s var(--ease-out);
+}
+.tt-mobile-menu.open .tt-mobile-link{opacity:1;transform:none}
+/* Stagger each link */
+.tt-mobile-menu.open .tt-mobile-link:nth-child(1){transition-delay:.05s}
+.tt-mobile-menu.open .tt-mobile-link:nth-child(2){transition-delay:.10s}
+.tt-mobile-menu.open .tt-mobile-link:nth-child(3){transition-delay:.15s}
+.tt-mobile-menu.open .tt-mobile-link:nth-child(4){transition-delay:.20s}
+.tt-mobile-menu.open .tt-mobile-link:nth-child(5){transition-delay:.25s}
+.tt-mobile-link:hover,.tt-mobile-link.tt-active{color:var(--cream)}
+.tt-mobile-link-num{font-size:.3em;color:var(--gold);font-family:"PType Text",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.2em;align-self:center}
+/* Mobile CTA at bottom */
+.tt-mobile-bottom{
+  padding-top:2em;display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid var(--rule);flex-wrap:wrap;gap:1.5em;
+  opacity:0;transform:translateY(12px);
+  transition:opacity .5s var(--ease-out) .3s,transform .5s var(--ease-out) .3s;
+}
+.tt-mobile-menu.open .tt-mobile-bottom{opacity:1;transform:none}
+.tt-mobile-tagline{font-size:.65em;text-transform:uppercase;letter-spacing:.18em;color:var(--cream-dim);font-weight:600}
+.tt-mobile-cta{
+  font-size:.68em;font-weight:600;text-transform:uppercase;letter-spacing:.14em;
+  padding:.7em 1.8em;border-radius:2em;
+  background:var(--gold);color:var(--bg);
+}
+
+
+@media screen and (max-width:1200px){
+  /* Hide desktop nav items, show hamburger */
+  .tt-nav-left,.tt-nav-right-links,.tt-nav-cta{display:none}
+  .tt-hamburger,.menu-button.hamburger-btn{display:flex}
+}
+
+@media screen and (max-width:991px){
+  .tt-nav{padding:0 1.5em}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Replace plus icon + text with hamburger */
+.hamburger-btn{
+  display:flex !important;
+  gap:0;
+  color:var(--cream);
+  cursor:pointer;
+  background:transparent;
+  border:none;
+  padding:.75em;
+  margin:-.75em -.75em -.75em 0;
+}
+
+/* hide old stacked Menu/Close text if it still exists anywhere */
+.menu-button-text{display:none !important;}
+
+.hamburger{
+  width:1.6em;
+  height:1.2em;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  pointer-events:none;
+}
+
+.hamburger-line{
+  height:2px;
+  width:100%;
+  background:currentColor;
+  border-radius:2px;
+  transform-origin:center;
+  display:block;
+  transition:transform .35s var(--ease-out), opacity .25s var(--ease-out);
+}
+
+/* Animate to X when open */
+.nav-menu[data-nav="open"] ~ * .hamburger-line{}
+
+/* safer: drive by aria-expanded on the button */
+.hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(1){
+  transform:translateY(.43em) rotate(45deg);
+}
+.hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(2){
+  opacity:0;
+}
+.hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(3){
+  transform:translateY(-.43em) rotate(-45deg);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.cloneable {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: relative;
+    --menu-padding: 2em;
+}
+.nav-menu{z-index:100;width:100%;height:100vh;display:block;position:fixed;inset:0}
+.overlay{z-index:0;background:rgba(12,11,9,.75);width:100%;height:100%;position:absolute;inset:0;backdrop-filter:blur(4px)}
+.menu{padding-bottom:var(--menu-padding);padding-top:calc(3*var(--menu-padding));flex-flow:column;justify-content:space-between;align-items:flex-start;width:35em;height:100%;margin-left:auto;position:relative;overflow:auto}
+.menu-bg{z-index:0;position:absolute;inset:0}
+.menu-inner{z-index:1;flex-flow:column;justify-content:space-between;align-items:flex-start;height:100%;display:flex;position:relative;overflow:auto}
+.bg-panel{z-index:0;background:var(--bg);border-top-left-radius:1.25em;border-bottom-left-radius:1.25em;position:absolute;inset:0}
+.bg-panel.first{background:var(--gold)}.bg-panel.second{background:var(--bg-lift)}
+.menu-list{flex-flow:column;width:100%;margin-bottom:0;padding:0;list-style:none;display:flex}
+.menu-list-item{position:relative;overflow:hidden}
+.menu-link-heading{z-index:1;text-shadow:0 1em 0 var(--bg-lift);text-transform:uppercase;font-family:"PP Neue Corp Tight",Arial,sans-serif;font-size:5.625em;font-weight:700;line-height:.75;transition:transform .55s cubic-bezier(.65,.05,0,1);position:relative;color:var(--cream)}
+.menu-link{padding:.75em 0 .75em var(--menu-padding);gap:.75em;width:100%;text-decoration:none;display:flex}
+.eyebrow{z-index:1;color:var(--gold);text-transform:uppercase;font-weight:400;position:relative}
+.menu-link-bg{z-index:0;background:var(--gold);transform-origin:50% 100%;transition:transform .55s cubic-bezier(.65,.05,0,1);position:absolute;inset:0;transform:scale3d(1,0,1)}
+.menu-details{padding-left:var(--menu-padding);flex-flow:column;justify-content:flex-start;align-items:flex-start;display:flex;gap:1.25em}
+.p-small{font-size:.875em;font-family:Arial,Helvetica;color:var(--cream-mid)}
+.socials-row{display:flex;gap:1.5em}
+.text-link{position:relative;color:var(--cream)}
+
+@media(hover:hover){
+  .menu-button:hover .icon-wrap{transform:rotate(90deg)}
+  .menu-link:hover .menu-link-heading{transform:translate(0,-1em);transition-delay:.1s}
+  .menu-link:hover .menu-link-bg{transform:scale(1,1)}
+  .text-link::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--gold);transform-origin:right;transform:scaleX(0);transition:transform .5s var(--cubic)}
+  .text-link:hover::after{transform-origin:left;transform:scaleX(1)}
+}
+
+/* ════════════════════════════════════════
+   ATOMS
+════════════════════════════════════════ */
+.rv{opacity:0;transform:translateY(32px);transition:opacity .85s var(--ease-out),transform .85s var(--ease-out)}
+.rv.in{opacity:1!important;transform:none!important}
+.d1{transition-delay:.08s}.d2{transition-delay:.15s}.d3{transition-delay:.22s}
+.d4{transition-delay:.29s}.d5{transition-delay:.36s}
+
+/* ════════════════════════════════════════
+   PRELOADER — revision counter aesthetic
+════════════════════════════════════════ */
+#preloader{
+  position:fixed;inset:0;z-index:10000;background:var(--bg);
+  display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;
+  padding:4em;
+}
+.pre-doc-label{
+  font-size:.6em;text-transform:uppercase;letter-spacing:.22em;
+  color:rgba(196,164,107,.45);margin-bottom:2em;
+  font-weight:600;
+}
+.pre-filename{
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:clamp(2rem,6vw,6rem);font-weight:700;
+  text-transform:uppercase;letter-spacing:-.02em;
+  color:var(--cream);line-height:1;margin-bottom:.3em;
+}
+.pre-revisions{
+  display:flex;gap:1em;align-items:center;margin-bottom:3em;flex-wrap:wrap;
+}
+.pre-rev{
+  font-size:.58em;padding:.22em .7em;border-radius:.2em;
+  font-weight:600;text-transform:uppercase;letter-spacing:.1em;
+  background:var(--bg-lift);color:var(--cream-dim);
+  position:relative;overflow:hidden;
+}
+.pre-rev.active{background:var(--gold);color:var(--bg)}
+.pre-rev.struck{text-decoration:line-through;text-decoration-color:var(--red);opacity:.4}
+.pre-bar-wrap{width:100%;height:1px;background:var(--rule)}
+.pre-bar{height:100%;width:0%;background:var(--gold);transition:width .05s linear}
+.pre-status{
+  margin-top:1.2em;font-size:.62em;text-transform:uppercase;letter-spacing:.18em;
+  color:rgba(196,164,107,.4);height:1em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ════════════════════════════════════════
+   HERO — Hidden but css still present
+   "We could write anything here. We chose the truth."
+════════════════════════════════════════ */
+.hero-wrap{
+  min-height:10vh;display:flex;flex-direction:column;
+  position:relative;overflow:hidden;border-bottom:1px solid var(--rule);
+}
+.hero-top-bar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:5em 5em 0;position:relative;z-index:2;flex-wrap:wrap;gap:1em;
+}
+.hero-doc-meta{
+  display:flex;align-items:center;gap:1.8em;flex-wrap:wrap;
+}
+.hero-doc-item{
+  font-size:.58em;text-transform:uppercase;letter-spacing:.16em;
+  color:var(--cream-dim);font-weight:600;display:flex;align-items:center;gap:.5em;
+}
+.hero-doc-item .val{color:var(--gold)}
+.hero-breadcrumb{
+  font-size:.62em;text-transform:uppercase;letter-spacing:.18em;
+  color:var(--cream-dim);display:flex;align-items:center;gap:.7em;
+}
+.hero-breadcrumb a:hover{color:var(--gold);transition:color .3s}
+.hero-breadcrumb-sep{opacity:.3}
+
+/* The typewriter stage */
+.hero-stage{
+  flex:1;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:3em 4em 5em;position:relative;z-index:2;
+}
+.typewriter-area{margin-bottom:3em}
+/* Each draft line: crossed out or final */
+.tw-line{
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:clamp(2.5rem,6.5vw,8rem);
+  font-weight:700;text-transform:uppercase;line-height:.82;letter-spacing:-.025em;
+  display:flex;align-items:center;gap:.5em;flex-wrap:wrap;
+  margin-bottom:.12em;
+}
+.tw-line.struck{
+  color:var(--cream-dim);
+  position:relative;
+}
+.tw-line.struck .tw-text{
+  display:inline;
+  background:linear-gradient(var(--red) 0%,var(--red) 100%) no-repeat 0 50% / 0% 1.5px;
+  transition:background-size .6s var(--cubic);
+}
+.tw-line.struck.in .tw-text{background-size:100% 1.5px}
+.tw-line.final .tw-text{color:var(--cream)}
+.tw-line.final .tw-text.gold{color:var(--gold)}
+.tw-line.final .tw-text.outline{
+  color:transparent;-webkit-text-stroke:1.5px rgba(240,230,211,.2);
+}
+/* Draft badge */
+.tw-badge{
+  font-family:"PType Text",sans-serif;
+  font-size:.22em;font-weight:600;text-transform:uppercase;letter-spacing:.14em;
+  background:var(--bg-lift);border:1px solid var(--rule-mid);
+  color:var(--cream-dim);padding:.3em .7em;border-radius:.2em;
+  flex-shrink:0;align-self:center;
+}
+.tw-line.struck .tw-badge{background:var(--red-dim);border-color:rgba(196,80,74,.25);color:rgba(196,80,74,.7)}
+.tw-line.final .tw-badge{background:rgba(196,164,107,.12);border-color:var(--gold-border);color:var(--gold)}
+/* Blinking cursor */
+.tw-cursor{
+  display:inline-block;width:.06em;height:.85em;background:var(--gold);
+  vertical-align:middle;margin-left:.1em;
+  animation:cursor-blink .9s step-end infinite;
+}
+@keyframes cursor-blink{0%,100%{opacity:1}50%{opacity:0}}
+
+/* Hero bottom rule */
+.hero-bottom{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  padding-top:2.5em;border-top:1px solid var(--rule);flex-wrap:wrap;gap:2em;
+}
+.hero-verdict{
+  font-size:.875em;line-height:1.8;color:var(--cream-mid);max-width:42ch;
+}
+.hero-verdict strong{color:var(--cream)}
+.hero-meta-group{display:flex;flex-direction:column;gap:.35em;text-align:right}
+.hero-meta-num{
+  font-family:"PType Display",sans-serif;
+  font-size:clamp(2rem,3vw,3rem);font-weight:900;letter-spacing:-.04em;
+  line-height:1;color:var(--cream);
+}
+.hero-meta-num sup{font-size:.42em;color:var(--gold);font-family:"PType Text",sans-serif;text-transform:uppercase;letter-spacing:.06em}
+.hero-meta-label{font-size:.58em;text-transform:uppercase;letter-spacing:.14em;color:var(--gold)}
+/* Decorative background type */
+.hero-bg-type{
+  position:absolute;right:-.02em;bottom:-.05em;pointer-events:none;user-select:none;
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:clamp(12rem,26vw,32rem);font-weight:700;
+  text-transform:uppercase;line-height:.75;letter-spacing:-.04em;
+  color:rgba(240,230,211,.025);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ══════════════════════════════════════════════
+   HERO 2 IN EFFECT — THE INTERRUPTED SENTENCE
+   4 failed attempts crossing out, then the truth
+══════════════════════════════════════════════ */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;
+  padding:0;position:relative;overflow:hidden;
+  border-bottom:1px solid var(--rule);
+}
+.hero-glow{
+  position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at 60% 55%,rgba(196,164,107,.055) 0%,transparent 55%);
+}
+/* Nav bar of the hero */
+.hero-nav-bar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:5.5em 4em 2.5em;border-bottom:1px solid var(--rule);
+  position:relative;z-index:2;flex-wrap:wrap;gap:1em;
+}
+.hero-studio{
+  display:flex;align-items:center;gap:1.5em;
+}
+.hero-wordmark{
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:1.5em;font-weight:700;text-transform:uppercase;letter-spacing:-.02em;
+  color:var(--cream);
+}
+.hero-since{font-size:.6em;text-transform:uppercase;letter-spacing:.2em;color:rgba(196,164,107,.45);font-weight:600}
+.hero-meta{display:flex;gap:2.5em;flex-wrap:wrap}
+.hero-meta-item{font-size:.58em;text-transform:uppercase;letter-spacing:.18em;color:var(--cream-dim);font-weight:600}
+.hero-meta-item span{color:var(--gold);margin-left:.3em}
+/* The interrupted sentence stage */
+.hero-stage{
+  flex:1;display:flex;flex-direction:column;justify-content:center;
+  padding:4em 4em;position:relative;z-index:2;
+  min-height:55vh;
+}
+/* Each attempt line */
+.attempt-line{
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:clamp(3.5rem,8vw,11rem);font-weight:700;text-transform:uppercase;
+  line-height:.78;letter-spacing:-.03em;
+  display:block;overflow:hidden;height:0;opacity:0;
+  transition:height .0s,opacity .1s;
+  position:relative;
+}
+.attempt-line.show{height:auto;opacity:1}
+.attempt-line.struck{
+  color:rgba(240,230,211,.18);
+  background:linear-gradient(var(--red) 0%,var(--red) 100%) no-repeat 0 50%/0% 2.5px;
+}
+.attempt-line.strike-fire{background-size:100% 2.5px;transition:background-size .55s var(--cubic)}
+/* Final real line */
+.hero-final{display:flex;flex-direction:column;gap:0}
+.hero-final-line{
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:clamp(4rem,10vw,14rem);font-weight:700;text-transform:uppercase;
+  line-height:.78;letter-spacing:-.03em;display:block;
+  overflow:hidden;
+  clip-path:inset(0 100% 0 0);
+  transition:clip-path .9s var(--cubic);
+}
+.hero-final-line.reveal{clip-path:inset(0 0% 0 0)}
+.hero-final-line.c-cream{color:var(--cream)}
+.hero-final-line.c-gold{color:var(--gold)}
+.hero-final-line.c-outline{color:transparent;-webkit-text-stroke:2.5px rgba(240,230,211,.18)}
+/* Bottom strip */
+.hero-bottom{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  padding:2.5em 4em;border-top:1px solid var(--rule);
+  position:relative;z-index:2;flex-wrap:wrap;gap:2em;
+}
+.hero-bottom-left{max-width:44ch}
+.hero-desc{font-size:.9em;line-height:1.82;color:var(--cream-mid)}
+.hero-desc strong{color:var(--cream)}
+.hero-bottom-right{display:flex;flex-direction:column;align-items:flex-end;gap:1.5em}
+.hero-scroll-hint{
+  font-size:.58em;text-transform:uppercase;letter-spacing:.2em;color:rgba(196,164,107,.38);
+  display:flex;align-items:center;gap:.7em;font-weight:600;
+}
+.hero-scroll-line{width:3em;height:1px;background:var(--gold);opacity:.35}
+.hero-btns{display:flex;gap:1em;align-items:center;flex-wrap:wrap}
+/* Background architectural type */
+.hero-bg-mark{
+  position:absolute;right:-.04em;bottom:-.06em;
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:clamp(12rem,32vw,42rem);font-weight:700;text-transform:uppercase;
+  line-height:.72;letter-spacing:-.04em;
+  color:rgba(240,230,211,.018);pointer-events:none;user-select:none;z-index:1;
+}
+
+
+
+
+
+
+
+
+/* ══════════════════════════════════════════════
+   TICKER STRIP — scrolling award / stat ticker
+══════════════════════════════════════════════ */
+.ticker-wrap{
+  overflow:hidden;white-space:nowrap;border-bottom:1px solid var(--rule);
+  background:var(--bg-mid);padding:.9em 0;
+}
+.ticker-track{
+  display:inline-flex;gap:0;
+  animation:ticker-run 28s linear infinite;
+}
+.ticker-track:hover{animation-play-state:paused}
+@keyframes ticker-run{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-item{
+  display:inline-flex;align-items:center;gap:2em;padding:0 2.5em;
+  font-size:.6em;text-transform:uppercase;letter-spacing:.18em;color:var(--cream-dim);font-weight:600;
+  border-right:1px solid var(--rule);
+}
+.ticker-item.gold{color:var(--gold)}
+.ticker-sep{color:rgba(196,164,107,.3);font-size:.7em}
+/* ══════════════════════════════════════════════
+   THE END — NEXT 
+══════════════════════════════════════════════ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ════════════════════════════════════════
+   SECTION WRAPPER ATOMS
+════════════════════════════════════════ */
+.sec-label{
+  display:flex;align-items:center;gap:1.2em;
+  font-size:.58em;font-weight:600;text-transform:uppercase;letter-spacing:.2em;
+  color:rgba(196,164,107,.45);padding-bottom:3em;
+  border-bottom:1px solid var(--rule);margin-bottom:4em;
+}
+.sec-label-num{
+  font-family:"PType Display",sans-serif;font-size:1.5em;font-weight:900;
+  line-height:1;letter-spacing:-.04em;
+}
+.sec-label-line{flex:1;height:1px;background:var(--rule)}
+.sec-head{
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:clamp(3rem,6vw,7.5rem);font-weight:700;
+  text-transform:uppercase;line-height:.82;letter-spacing:-.025em;
+}
+.sec-head em{font-style:normal;color:var(--gold)}
+.sec-note{font-size:.875em;line-height:1.8;color:var(--cream-mid);max-width:38ch}
+.sec-note strong{color:var(--cream)}
+
+/* ════════════════════════════════════════
+   DRAFT HISTORY SECTION
+   Shows 5 failed versions & the real one
+════════════════════════════════════════ */
+.sec-drafts{
+  padding:6em 4em;border-bottom:1px solid var(--rule);
+  position:relative;overflow:hidden;
+}
+/* Margin annotation — handwriting feel */
+.sec-annotation{
+  position:absolute;left:4em;top:0;bottom:0;width:3px;
+  background:linear-gradient(180deg,var(--gold) 0%,rgba(196,164,107,.15) 100%);
+}
+.drafts-grid{display:flex;flex-direction:column;gap:0}
+
+.draft-block{
+  padding:2.8em 0;border-bottom:1px solid var(--rule);
+  display:grid;grid-template-columns:9em 1fr 28em;gap:3em;
+  align-items:start;position:relative;
+  transition:background .4s;
+}
+.draft-block:hover{background:rgba(28,26,23,.4)}
+.draft-block:last-child{border-bottom:none}
+
+/* Attempt counter */
+.draft-num{
+  font-family:"PType Display",sans-serif;
+  font-size:3.5em;font-weight:900;letter-spacing:-.04em;line-height:1;
+  color:rgba(240,230,211,.07);padding-top:.1em;
+  transition:color .4s;
+}
+.draft-block:hover .draft-num{color:rgba(240,230,211,.12)}
+.draft-block.is-final .draft-num{color:rgba(196,164,107,.3)}
+
+.draft-main{}
+.draft-tag{
+  font-size:.55em;font-weight:600;text-transform:uppercase;letter-spacing:.14em;
+  padding:.25em .75em;border-radius:.2em;display:inline-flex;
+  margin-bottom:1em;
+}
+.draft-tag.reject{background:var(--red-dim);color:rgba(196,80,74,.8);border:1px solid rgba(196,80,74,.2)}
+.draft-tag.approved{background:rgba(196,164,107,.12);color:var(--gold);border:1px solid var(--gold-border)}
+
+.draft-text{
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:clamp(1.5rem,2.5vw,2.5rem);font-weight:700;
+  text-transform:uppercase;line-height:.9;letter-spacing:-.01em;color:var(--cream);
+}
+/* Strikethrough that animates in */
+.draft-block.is-rejected .draft-text{
+  background:linear-gradient(var(--red) 0%,var(--red) 100%) no-repeat 0 50% / 0% 1.5px;
+  color:var(--cream-dim);
+}
+.draft-block.is-rejected.anim .draft-text{
+  background-size:100% 1.5px;
+  transition:background-size .8s var(--cubic);
+}
+.draft-block.is-final .draft-text{color:var(--cream)}
+.draft-block.is-final .draft-text em{font-style:normal;color:var(--gold)}
+
+.draft-reason{
+  padding:1.8em 2em;background:var(--bg-lift);
+  border-left:2px solid var(--rule-mid);
+  position:relative;
+}
+.draft-reason-label{
+  font-size:.55em;text-transform:uppercase;letter-spacing:.16em;
+  color:var(--gold);margin-bottom:.6em;font-weight:600;
+}
+.draft-reason-text{font-size:.8em;line-height:1.7;color:var(--cream-mid)}
+.draft-reason-text em{font-style:normal;color:var(--cream)}
+/* Red X on rejected */
+.draft-block.is-rejected .draft-reason{border-left-color:rgba(196,80,74,.3)}
+.draft-block.is-rejected .draft-reason-label{color:rgba(196,80,74,.7)}
+/* Green/gold check on final */
+.draft-block.is-final .draft-reason{border-left-color:var(--gold);background:rgba(196,164,107,.05)}
+
+/* ════════════════════════════════════════
+   MIDNIGHT THREAD — Founders at 11:47pm
+   A real messaging conversation, Aug 2016
+════════════════════════════════════════ */
+.sec-thread{padding:6em 4em;border-bottom:1px solid var(--rule)}
+.thread-split{
+  display:grid;grid-template-columns:1fr 1.2fr;gap:6em;align-items:start;
+  margin-top:3em;
+}
+.thread-context{padding-top:.5em}
+.thread-context-hed{
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:clamp(2rem,3.5vw,4rem);font-weight:700;
+  text-transform:uppercase;line-height:.88;letter-spacing:-.015em;color:var(--cream);
+  margin-bottom:1em;
+}
+.thread-context-hed em{font-style:normal;color:var(--gold)}
+.thread-context-body{font-size:.875em;line-height:1.8;color:var(--cream-mid);max-width:36ch}
+.thread-context-body p+p{margin-top:1em}
+.thread-context-note{
+  margin-top:2em;padding:1.5em 1.8em;
+  background:var(--bg-lift);border:1px solid var(--rule-mid);border-radius:.4em;
+  font-size:.8em;line-height:1.7;color:var(--cream-mid);font-style:italic;
+}
+.thread-context-note em{font-style:normal;color:var(--cream)}
+
+/* Messenger UI */
+.messenger{
+  background:var(--bg-mid);border:1px solid var(--rule-mid);
+  border-radius:1em;overflow:hidden;
+  box-shadow:0 40px 80px rgba(0,0,0,.4);
+}
+.messenger-header{
+  display:flex;align-items:center;gap:1em;
+  padding:1.2em 1.5em;border-bottom:1px solid var(--rule);
+  background:var(--bg-lift);
+}
+.messenger-dots{display:flex;gap:.4em}
+.messenger-dot{width:.75em;height:.75em;border-radius:50%;background:var(--rule-mid)}
+.messenger-dot:first-child{background:rgba(196,80,74,.5)}
+.messenger-dot:nth-child(2){background:rgba(196,164,107,.4)}
+.messenger-dot:nth-child(3){background:rgba(100,180,100,.3)}
+.messenger-title{
+  font-size:.7em;font-weight:600;text-transform:uppercase;letter-spacing:.14em;
+  color:var(--cream-dim);margin:0 auto;
+}
+.messenger-body{padding:1.8em 1.5em;display:flex;flex-direction:column;gap:.9em}
+
+/* Individual messages */
+.msg{
+  display:flex;flex-direction:column;gap:.2em;
+  max-width:85%;
+}
+.msg.them{align-self:flex-start}
+.msg.us{align-self:flex-end}
+.msg-sender{
+  font-size:.55em;text-transform:uppercase;letter-spacing:.12em;
+  font-weight:600;padding:0 .6em;
+}
+.msg.them .msg-sender{color:var(--gold)}
+.msg.us .msg-sender{color:var(--cream-dim);text-align:right}
+.msg-bubble{
+  padding:.85em 1.15em;border-radius:.8em;
+  font-size:.85em;line-height:1.65;
+}
+.msg.them .msg-bubble{
+  background:var(--bg-lift);color:var(--cream-mid);
+  border-bottom-left-radius:.2em;border:1px solid var(--rule-mid);
+}
+.msg.us .msg-bubble{
+  background:var(--gold);color:#3a2a10;font-weight:600;
+  border-bottom-right-radius:.2em;
+}
+.msg-bubble em{font-style:italic}
+.msg-time{
+  font-size:.52em;text-transform:uppercase;letter-spacing:.1em;color:var(--cream-dim);
+  padding:0 .6em;
+}
+.msg.us .msg-time{text-align:right}
+/* Typing indicator */
+.msg-typing .msg-bubble{
+  display:flex;align-items:center;gap:.3em;padding:.75em 1em;
+}
+.typing-dot{
+  width:.4em;height:.4em;border-radius:50%;background:var(--cream-dim);
+  animation:typing .8s ease-in-out infinite;
+}
+.typing-dot:nth-child(2){animation-delay:.16s}
+.typing-dot:nth-child(3){animation-delay:.32s}
+@keyframes typing{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-.35em)}}
+
+.messenger-footer{
+  padding:1em 1.5em;border-top:1px solid var(--rule);
+  background:var(--bg-lift);
+  display:flex;align-items:center;gap:.8em;
+}
+.messenger-input-mock{
+  flex:1;background:var(--bg);border:1px solid var(--rule-mid);border-radius:2em;
+  padding:.6em 1.1em;font-size:.72em;color:var(--cream-dim);font-family:"PType Text",sans-serif;
+}
+.messenger-send{
+  width:2em;height:2em;border-radius:50%;background:var(--gold);
+  display:flex;align-items:center;justify-content:center;font-size:.7em;
+  color:var(--bg);font-weight:700;flex-shrink:0;
+}
+.thread-date-divider{
+  text-align:center;font-size:.55em;text-transform:uppercase;letter-spacing:.16em;
+  color:var(--cream-dim);position:relative;
+  display:flex;align-items:center;gap:1em;
+}
+.thread-date-divider::before,.thread-date-divider::after{
+  content:'';flex:1;height:1px;background:var(--rule);
+}
+
+/* ════════════════════════════════════════
+   PERSONNEL DOSSIERS
+   Redacted files — hover reveals the truth
+════════════════════════════════════════ */
+.sec-dossiers{border-bottom:1px solid var(--rule)}
+.dossier-header{
+  padding:6em 4em 4em;display:grid;grid-template-columns:1fr 1fr;gap:6em;
+  align-items:end;border-bottom:1px solid var(--rule);
+}
+.dossier-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  background:var(--rule);gap:1px;
+}
+.dossier-card{
+  background:var(--bg);position:relative;overflow:hidden;
+  min-height:32em;
+  display:flex;flex-direction:column;
+  transition:background .4s;
+}
+.dossier-card:hover{background:var(--bg-lift)}
+
+/* File header */
+.dossier-file-header{
+  padding:1.4em 1.6em .8em;
+  border-bottom:1px solid var(--rule);
+  background:var(--bg-mid);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.dossier-file-stamp{
+  font-size:.5em;font-weight:600;text-transform:uppercase;letter-spacing:.16em;
+  color:rgba(196,164,107,.5);
+}
+.dossier-file-num{
+  font-size:.5em;font-weight:600;text-transform:uppercase;letter-spacing:.1em;
+  color:rgba(240,230,211,.2);
+  font-family:"PType Display",sans-serif;font-size:.9em;
+}
+/* Body */
+.dossier-body{padding:1.8em 1.6em;flex:1;display:flex;flex-direction:column;gap:1.2em}
+
+/* Geometric avatar */
+.dossier-avatar{
+  width:4em;height:4em;border:1px solid var(--rule-mid);border-radius:.3em;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--bg-lift);position:relative;overflow:hidden;
+  flex-shrink:0;
+  transition:border-color .4s;
+}
+.dossier-card:hover .dossier-avatar{border-color:var(--gold-border)}
+.dossier-avatar-initials{
+  font-family:"PP Neue Corp Tight",sans-serif;font-size:1.2em;font-weight:700;
+  color:rgba(196,164,107,.25);letter-spacing:-.02em;
+  transition:color .4s;
+}
+.dossier-card:hover .dossier-avatar-initials{color:rgba(196,164,107,.45)}
+.dossier-avatar-ring{
+  position:absolute;width:3em;height:3em;border-radius:50%;
+  border:1px solid rgba(196,164,107,.1);
+}
+
+/* Name row */
+.dossier-name{
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:1.4em;font-weight:700;text-transform:uppercase;
+  line-height:.9;letter-spacing:-.01em;color:var(--cream);
+}
+.dossier-role{font-size:.62em;text-transform:uppercase;letter-spacing:.13em;color:var(--gold);margin-top:.3em}
+
+/* The redaction — key fact hidden under a gold bar */
+.dossier-redact-row{
+  position:relative;display:flex;flex-direction:column;gap:.3em;
+}
+.dossier-redact-label{
+  font-size:.55em;text-transform:uppercase;letter-spacing:.15em;color:var(--cream-dim);font-weight:600;
+}
+.dossier-redact{
+  position:relative;overflow:hidden;cursor:default;
+  border-radius:.2em;
+}
+.dossier-redact-bar{
+  position:absolute;inset:0;
+  background:var(--gold);border-radius:.2em;
+  transition:transform .55s var(--cubic),opacity .4s;
+  transform-origin:left center;
+  z-index:2;
+}
+.dossier-card:hover .dossier-redact-bar{
+  transform:scaleX(0);
+  opacity:0;
+}
+.dossier-redact-text{
+  font-size:.8em;line-height:1.7;color:var(--cream-mid);
+  padding:.4em .5em;
+  user-select:none;
+}
+.dossier-card:hover .dossier-redact-text{user-select:auto}
+.dossier-redact-text em{font-style:normal;color:var(--cream);font-weight:600}
+
+/* Public statement */
+.dossier-statement-label{
+  font-size:.55em;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);font-weight:600;margin-top:.3em;
+}
+.dossier-statement{
+  font-size:.78em;line-height:1.7;color:var(--cream-mid);font-style:italic;
+  border-left:1px solid var(--rule-mid);padding-left:.9em;
+}
+
+/* "Classified" footer */
+.dossier-footer{
+  padding:1em 1.6em;border-top:1px solid var(--rule);
+  background:var(--bg-mid);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.dossier-footer-status{
+  font-size:.52em;text-transform:uppercase;letter-spacing:.14em;color:rgba(196,80,74,.55);font-weight:600;
+}
+.dossier-footer-hint{font-size:.52em;text-transform:uppercase;letter-spacing:.1em;color:var(--cream-dim);transition:color .4s}
+.dossier-card:hover .dossier-footer-hint{color:var(--gold)}
+.dossier-card:hover .dossier-footer-status{color:rgba(100,180,100,.6)}
+
+/* ════════════════════════════════════════
+   EVIDENCE WALL — The real numbers as exhibits
+════════════════════════════════════════ */
+.sec-evidence{border-bottom:1px solid var(--rule)}
+.evidence-header{
+  padding:6em 4em 4em;border-bottom:1px solid var(--rule);
+  display:flex;align-items:flex-end;justify-content:space-between;gap:4em;flex-wrap:wrap;
+}
+.evidence-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  background:var(--rule);gap:1px;
+}
+.exhibit{
+  background:var(--bg);padding:0;
+  position:relative;overflow:hidden;
+  transition:background .5s var(--cubic);
+}
+.exhibit:hover{background:var(--bg-lift)}
+/* Exhibit header — the tag */
+.exhibit-tag-wrap{
+  padding:1.2em 2em .9em;
+  border-bottom:1px solid var(--rule);
+  background:var(--bg-mid);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.exhibit-tag{
+  font-size:.5em;font-weight:600;text-transform:uppercase;letter-spacing:.18em;
+  color:rgba(196,164,107,.55);
+  font-family:"PType Display",sans-serif;font-size:.85em;
+}
+.exhibit-category{
+  font-size:.5em;text-transform:uppercase;letter-spacing:.14em;color:var(--cream-dim);font-weight:600;
+}
+.exhibit-body{padding:2.5em 2em;display:flex;flex-direction:column;gap:1.5em}
+.exhibit-val{
+  font-family:"PType Display",sans-serif;
+  font-size:clamp(3.5rem,5vw,5.5rem);font-weight:900;
+  letter-spacing:-.04em;line-height:1;color:var(--cream);
+}
+.exhibit-val .unit{
+  font-family:"PType Text",sans-serif;font-size:.38em;font-weight:600;
+  color:var(--gold);text-transform:uppercase;letter-spacing:.06em;
+}
+.exhibit-descriptor{
+  font-size:.72em;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);
+}
+.exhibit-testimony{
+  font-size:.82em;line-height:1.75;color:var(--cream-mid);
+  padding-top:1.2em;border-top:1px solid var(--rule);
+}
+.exhibit-testimony em{font-style:normal;color:var(--cream);font-weight:600}
+/* Diagonal "EXHIBIT" watermark */
+.exhibit-watermark{
+  position:absolute;bottom:-.1em;right:-.05em;
+  font-family:"PType Display",sans-serif;
+  font-size:4em;font-weight:900;text-transform:uppercase;
+  color:rgba(240,230,211,.025);letter-spacing:-.04em;
+  pointer-events:none;user-select:none;
+}
+
+/* ════════════════════════════════════════
+   THE STANDARD — one long-form belief
+   Not a list. A single, sustained argument.
+════════════════════════════════════════ */
+.sec-standard{border-bottom:1px solid var(--rule)}
+.standard-layout{
+  display:grid;grid-template-columns:1fr 1.8fr;
+  min-height:70vh;
+}
+.standard-left{
+  padding:6em 5em 6em 4em;border-right:1px solid var(--rule);
+  display:flex;flex-direction:column;justify-content:space-between;
+  position:relative;overflow:hidden;
+}
+.standard-left::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 20% 70%,rgba(196,164,107,.05) 0%,transparent 60%);
+  pointer-events:none;
+}
+.standard-headline{
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:clamp(3rem,5.5vw,6.5rem);font-weight:700;
+  text-transform:uppercase;line-height:.82;letter-spacing:-.025em;
+  position:relative;z-index:1;
+}
+.standard-headline em{font-style:normal;color:var(--gold)}
+.standard-footnote{
+  font-size:.7em;line-height:1.75;color:var(--cream-dim);
+  position:relative;z-index:1;
+}
+.standard-right{
+  padding:6em 4em;display:flex;flex-direction:column;justify-content:center;gap:3em;
+}
+/* Annotated paragraph blocks */
+.standard-para{
+  display:grid;grid-template-columns:2.5em 1fr;gap:1.5em;align-items:start;
+  padding-bottom:3em;border-bottom:1px solid var(--rule);
+}
+.standard-para:last-child{border-bottom:none;padding-bottom:0}
+.standard-para-num{
+  font-size:.6em;font-weight:600;text-transform:uppercase;letter-spacing:.14em;
+  color:var(--gold);padding-top:.25em;
+}
+.standard-para-body{font-size:.9em;line-height:1.85;color:var(--cream-mid)}
+.standard-para-body strong{color:var(--cream);font-weight:600}
+.standard-para-body em{color:var(--gold);font-style:normal}
+/* Pull quote within */
+.standard-pull{
+  display:block;margin:1.2em 0 .8em;
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:clamp(1.2rem,2vw,1.8rem);font-weight:700;
+  text-transform:uppercase;line-height:.9;letter-spacing:-.01em;color:var(--cream);
+  border-left:2px solid var(--gold);padding-left:1em;
+}
+
+/* ════════════════════════════════════════
+   TENSION BARS — visual representation of
+   creative tensions the studio holds
+════════════════════════════════════════ */
+.sec-tensions{
+  padding:6em 4em;border-bottom:1px solid var(--rule);
+  display:grid;grid-template-columns:1fr 1fr;gap:6em;align-items:start;
+}
+.tensions-left{}
+.tensions-label{
+  font-size:.62em;font-weight:600;text-transform:uppercase;letter-spacing:.2em;
+  color:var(--gold);margin-bottom:1em;display:flex;align-items:center;gap:.8em;
+}
+.tensions-label::before{content:'';display:block;width:2em;height:1px;background:var(--gold);opacity:.5}
+.tensions-hed{
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:clamp(2.5rem,4.5vw,5.5rem);font-weight:700;
+  text-transform:uppercase;line-height:.82;letter-spacing:-.025em;color:var(--cream);
+  margin-bottom:1.5em;
+}
+.tensions-note{font-size:.875em;line-height:1.8;color:var(--cream-mid);max-width:34ch}
+.tensions-right{display:flex;flex-direction:column;gap:2em}
+
+.tension-row{
+  display:flex;flex-direction:column;gap:.8em;
+  padding-bottom:2em;border-bottom:1px solid var(--rule);
+}
+.tension-row:last-child{border-bottom:none;padding-bottom:0}
+.tension-labels{display:flex;justify-content:space-between;align-items:center}
+.tension-label-a,.tension-label-b{
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:.95em;font-weight:700;text-transform:uppercase;letter-spacing:-.005em;color:var(--cream);
+}
+.tension-label-b{color:var(--cream-dim)}
+.tension-bar-wrap{
+  height:.25em;background:var(--bg-lift);border-radius:2em;
+  overflow:hidden;position:relative;
+}
+.tension-bar-fill{
+  height:100%;border-radius:2em;
+  background:linear-gradient(90deg,var(--gold),var(--gold-lt));
+  transition:width 1.2s var(--ease-out);
+  width:0%;
+}
+.tension-bar-fill.loaded{width:var(--pct)}
+.tension-note{font-size:.75em;line-height:1.65;color:var(--cream-dim);font-style:italic}
+.tension-note em{font-style:normal;color:var(--cream-mid)}
+
+/* ════════════════════════════════════════
+   OPEN BRIEF — the CTA page styled as
+   an actual blank creative brief
+════════════════════════════════════════ */
+.sec-brief{
+  min-height:100vh;display:flex;flex-direction:column;
+  padding:0;position:relative;overflow:hidden;
+}
+.brief-top{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  padding:4em 4em 3em;border-bottom:1px solid var(--rule);
+  flex-wrap:wrap;gap:1.5em;position:relative;z-index:1;
+}
+.brief-avail{
+  font-size:.62em;text-transform:uppercase;letter-spacing:.16em;
+  color:var(--gold);display:flex;align-items:center;gap:.65em;
+}
+.avail-dot{width:.5em;height:.5em;background:var(--gold);border-radius:50%;animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.18}}
+.brief-doc-ref{
+  font-size:.58em;text-transform:uppercase;letter-spacing:.16em;color:var(--cream-dim);
+  display:flex;align-items:center;gap:.7em;font-weight:600;
+}
+
+/* Brief form fields — filled in */
+.brief-fields{
+  flex:1;padding:4em;display:grid;grid-template-columns:1fr 1fr;gap:0;
+  position:relative;z-index:1;
+}
+.brief-field{
+  padding:2.5em 3em 2.5em 0;border-bottom:1px solid var(--rule);
+  position:relative;
+}
+.brief-field:nth-child(2n){padding:2.5em 0 2.5em 3em;border-left:1px solid var(--rule)}
+.brief-field:last-child,.brief-field:nth-last-child(2){border-bottom:none}
+.brief-field-label{
+  font-size:.58em;font-weight:600;text-transform:uppercase;letter-spacing:.2em;
+  color:var(--gold);margin-bottom:.9em;display:flex;align-items:center;gap:.6em;
+}
+.brief-field-label::before{
+  content:'';display:block;width:1.2em;height:1px;background:var(--gold);opacity:.45;
+}
+.brief-field-value{
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:clamp(1.8rem,2.8vw,3rem);font-weight:700;
+  text-transform:uppercase;line-height:.88;letter-spacing:-.01em;color:var(--cream);
+}
+.brief-field-value em{font-style:normal;color:var(--gold)}
+.brief-field-value.ghost{
+  color:transparent;-webkit-text-stroke:1px rgba(240,230,211,.15);
+}
+/* Blank field — to be filled by the client */
+.brief-field.blank .brief-field-value{
+  display:flex;align-items:center;gap:.4em;
+  color:var(--cream-dim);
+}
+.brief-blank-cursor{
+  display:inline-block;width:.06em;height:.85em;background:var(--gold);
+  animation:cursor-blink .9s step-end infinite;
+}
+
+.brief-bottom{
+  padding:3em 4em;border-top:1px solid var(--rule);
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:2em;position:relative;z-index:1;
+}
+.brief-contacts{display:flex;gap:5em;flex-wrap:wrap}
+.brief-contact-label{font-size:.58em;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);margin-bottom:.4em;font-weight:600}
+.brief-contact-val{font-size:.92em;font-weight:600;color:var(--cream)}
+.brief-btns{display:flex;gap:1.5em;align-items:center;flex-wrap:wrap}
+.btn-gold{
+  display:inline-flex;align-items:center;gap:.7em;
+  background:var(--gold);color:var(--bg);
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:.95em;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+  padding:1.15em 2.4em;border-radius:3em;border:none;
+  transition:transform .4s var(--cubic),box-shadow .4s,background .3s;
+}
+.btn-gold:hover{background:var(--gold-lt);box-shadow:0 16px 48px rgba(196,164,107,.28);transform:translateY(-2px)}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:.7em;
+  border:1px solid var(--gold-border);color:var(--gold);
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:.95em;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+  padding:1.15em 2.4em;border-radius:3em;background:transparent;
+  transition:border-color .4s,background .4s,color .4s;
+}
+.btn-outline:hover{border-color:var(--gold);background:var(--gold-faint);color:var(--cream)}
+/* Glow */
+.brief-glow{
+  position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at 80% 50%,rgba(196,164,107,.07) 0%,transparent 55%);
+}
+
+/* ════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════ */
+.site-footer{background:#070605;padding:5em 4em 2.5em;border-top:1px solid var(--rule)}
+.footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:4em;padding-bottom:4em;border-bottom:1px solid var(--rule)}
+.footer-wordmark{font-family:"PP Neue Corp Tight",sans-serif;font-size:4em;font-weight:700;text-transform:uppercase;line-height:.82;letter-spacing:-.025em;color:var(--cream)}
+.footer-tagline{font-size:.78em;line-height:1.7;color:var(--cream-dim);max-width:24ch;margin-top:.8em}
+.footer-col-head{font-size:.58em;font-weight:600;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);margin-bottom:1.5em}
+.footer-links{display:flex;flex-direction:column;gap:.6em}
+.footer-link{font-size:.85em;color:var(--cream-dim);transition:color .3s}
+.footer-link:hover{color:var(--cream)}.footer-link.active{color:var(--gold)}
+.footer-base{display:flex;justify-content:space-between;align-items:center;padding-top:2em;flex-wrap:wrap;gap:1em}
+.footer-copy{font-size:.68em;color:rgba(240,230,211,.18)}
+.footer-legal{display:flex;gap:2em}
+.footer-legal-link{font-size:.68em;color:rgba(240,230,211,.18);transition:color .3s}
+.footer-legal-link:hover{color:rgba(240,230,211,.55)}
+
+/* ════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════ */
+@media screen and (max-width:1200px){
+  .draft-block{grid-template-columns:6em 1fr;gap:2em}
+  .draft-reason{grid-column:2;padding:1.5em 1.5em}
+  .dossier-grid{grid-template-columns:repeat(2,1fr)}
+  .evidence-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-top{grid-template-columns:1fr 1fr}
+}
+@media screen and (max-width:991px){
+  .thread-split{grid-template-columns:1fr;gap:3em}
+  .standard-layout{grid-template-columns:1fr}
+  .standard-left{border-right:none;border-bottom:1px solid var(--rule);padding:4em 2.5em}
+  .standard-right{padding:4em 2.5em}
+  .sec-tensions{grid-template-columns:1fr;gap:3em}
+  .sec-tensions{padding:4em 2.5em}
+  .brief-fields{grid-template-columns:1fr}
+  .brief-field:nth-child(2n){padding:2.5em 0 2.5em 0;border-left:none}
+  .dossier-header{grid-template-columns:1fr}
+  .cloneable{--menu-padding:1em}
+  .menu{width:100%;padding-top:calc(6*var(--menu-padding))}
+  .bg-panel{border-radius:0}
+  .menu-link-heading{font-size:4em}
+  .menu-list-item{height:4.5em}
+}
+@media screen and (max-width:767px){
+  .hero-top-bar,.hero-stage{padding-left:1.5em;padding-right:1.5em}
+  .sec-drafts,.sec-thread,.sec-standard,.sec-brief{padding:4em 1.5em}
+  .evidence-header,.dossier-header{padding:3.5em 1.5em}
+  .draft-block{grid-template-columns:1fr;gap:1em;display:flex;flex-direction:column;padding:2em 0}
+  .draft-num{font-size:2em;padding-top:0}
+  .draft-reason{border-left:none;border-top:2px solid var(--rule-mid)}
+  .evidence-grid,.dossier-grid{grid-template-columns:1fr}
+  .brief-fields{padding:2em 1.5em;gap:0}
+  .brief-top,.brief-bottom{padding:2.5em 1.5em}
+  .brief-contacts{gap:2em}
+  .brief-btns{width:100%}
+  .btn-gold,.btn-outline{width:100%;justify-content:center}
+  .site-footer{padding:4em 1.5em 2em}
+  .footer-top{grid-template-columns:1fr;gap:2.5em}
+}
+@media screen and (max-width:479px){
+  .tw-line{font-size:clamp(2rem,10vw,3rem)}
+  .hero-top-bar{padding-top:6em}
+}

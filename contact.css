@@ -1,0 +1,927 @@
+/* ═══════════════════════════════════════════════════════════════
+   VEIL STUDIO — css/contact.css.css
+   ───────────────────────────────────────────────────────────────
+   Page-specific styles for: contact.html
+   Loaded AFTER shared.css (which handles tokens, nav, footer, etc.)
+   
+   Sections in this file:
+   · Preloader (.pre-log, .pre-case-num)
+   · Hero — question + clocks (.hero, .clock-panel)
+   · Intake form (.form-section, .field-row, .f-input)
+   · Form confirmation (.form-confirmed)
+   · Typographic punch (.punch)
+   · Process clauses (.sec-process, .process-clause)
+   · Three studios (.sec-studios, .studio-card)
+   · Direct contact (.sec-direct)
+   · Responsive overrides
+═══════════════════════════════════════════════════════════════ */
+
+/* ════════════════════════════════════════════
+   TOKENS
+════════════════════════════════════════════ */
+:root{
+  --bg:#0c0b09;--bg-mid:#131210;--bg-lift:#1c1a17;--bg-high:#242018;
+  --gold:#c4a46b;--gold-lt:#d4b87c;
+  --gold-border:rgba(196,164,107,.22);--gold-faint:rgba(196,164,107,.09);
+  --cream:#f0e6d3;--cream-mid:rgba(240,230,211,.55);
+  --cream-dim:rgba(240,230,211,.3);--cream-ghost:rgba(240,230,211,.06);
+  --rule:rgba(240,230,211,.08);--rule-mid:rgba(240,230,211,.13);
+  --red:#c4504a;--red-dim:rgba(196,80,74,.14);
+  --cubic:cubic-bezier(.65,.01,.05,.99);--ease-out:cubic-bezier(.16,1,.3,1);
+  --color-primary:#c4a46b;--color-dark:#0c0b09;
+  --color-neutral-100:#f0e6d3;--color-neutral-200:#2a2720;
+  --color-neutral-300:#f0e6d3;--color-neutral-800:#f0e6d3;
+  --gap:1.5rem;--container-padding:2rem;--size-container:90em;
+  --cubic-default:cubic-bezier(.65,.01,.05,.99);--menu-padding:2em;
+}
+/* ════════════════════════════════════════════
+   RESET
+════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--cream);font-family:"PType Text",sans-serif;font-size:16px;font-weight:400;line-height:1.2;overflow-x:hidden;cursor:url("https://cdn.prod.website-files.com/6708f85ff3d3cba6aff436fb/671251b239d7aeb290a31ac5_cursor-default%402x.svg") 2 0,auto}
+p{margin:0}a{text-decoration:none;color:inherit}
+a,button{cursor:url("https://cdn.prod.website-files.com/6708f85ff3d3cba6aff436fb/671251b212e6b71494aa67ff_cursor-pointer%402x.svg") 12 0,pointer}
+ul{list-style:none}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:160px}
+/* ════════════════════════════════════════════
+   FONTS
+════════════════════════════════════════════ */
+@font-face{font-family:"PType Display";src:url("https://assets.website-files.com/60e4912ee7c15fb303f4c588/60e491f57f25e15bc971a03a_manuka-condensed-web-black.woff") format("woff");font-weight:900;font-display:swap}
+@font-face{font-family:"PType Text";src:url("https://assets.website-files.com/60e4912ee7c15fb303f4c588/60e492c541078e283f2bf759_soehne-web-kraftig.woff") format("woff");font-weight:600;font-display:swap}
+@font-face{font-family:"PType Text";src:url("https://assets.website-files.com/60e4912ee7c15fb303f4c588/60e492c5ed8ba9d6d959a06b_soehne-web-buch.woff") format("woff");font-weight:400;font-display:swap}
+@font-face{font-family:"PP Neue Corp Tight";src:url("https://cdn.prod.website-files.com/673af51dea86ab95d124c3ee/673b0f5784f7060c0ac05534_PPNeueCorp-TightUltrabold.otf") format("opentype");font-weight:700;font-display:swap}
+
+
+
+
+
+
+
+
+/* ═══════════════════════════════════════════════
+   ╔════════════════════════════════════════════╗
+   ║  TAKETHAT.COM NAV — EXACT STRUCTURAL MATCH ║
+   ║  Split nav: left links | center logo       ║
+   ║  | right links + CTA pill                  ║
+   ║  Hamburger → full-screen dark overlay      ║
+   ╚════════════════════════════════════════════╝
+═══════════════════════════════════════════════ */
+.tt-header{
+  position:sticky;
+  top:0;left:0;right:0;z-index:10001;
+  background:rgba(12,11,9,.92);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--rule);
+}
+/* The nav bar row */
+.tt-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  height:3.5em;padding:0 2em;position:relative;
+  max-width:100%;margin:0 auto;
+}
+/* Left nav links */
+.tt-nav-left{
+  display:flex;align-items:center;gap:1.8em;
+  flex:1;
+}
+.tt-nav-left a,.tt-nav-right-links a{
+  font-size:.68em;text-transform:uppercase;letter-spacing:.14em;font-weight:600;
+  color:rgba(240,230,211,.45);
+  transition:color .25s;position:relative;padding:.2em 0;
+}
+.tt-nav-left a:hover,.tt-nav-right-links a:hover{color:var(--cream)}
+.tt-nav-left a.tt-active,.tt-nav-right-links a.tt-active{color:var(--gold)}
+/* Underline on hover */
+.tt-nav-left a::after,.tt-nav-right-links a::after{
+  content:'';position:absolute;bottom:-.1em;left:0;width:100%;height:1px;
+  background:var(--gold);transform:scaleX(0);transform-origin:right;
+  transition:transform .4s var(--cubic);
+}
+.tt-nav-left a:hover::after,.tt-nav-right-links a:hover::after{transform:scaleX(1);transform-origin:left}
+.tt-nav-left a.tt-active::after,.tt-nav-right-links a.tt-active::after{transform:scaleX(1)}
+
+/* Center logo — absolute center within the bar */
+.tt-logo{
+  position:absolute;left:50%;transform:translateX(-50%);
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:1.15em;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--cream);transition:color .25s;
+  white-space:nowrap;line-height:1;
+}
+.tt-logo:hover{color:var(--gold)}
+/* Logo mark — the V monogram */
+.tt-logo-mark{
+  display:inline-block;width:.9em;height:.9em;
+  border:1.5px solid currentColor;border-radius:50%;
+  vertical-align:middle;margin-right:.3em;margin-bottom:.1em;
+  position:relative;overflow:hidden;font-size:.85em;
+}
+.tt-logo-mark::after{
+  content:'';position:absolute;
+  bottom:0;left:50%;transform:translateX(-50%);
+  width:50%;height:50%;border-top:1.5px solid currentColor;
+  clip-path:polygon(0 0,100% 0,50% 100%);
+}
+
+/* Right nav — links + CTA */
+.tt-nav-right{
+  display:flex;align-items:center;gap:1.8em;justify-content:flex-end;flex:1;
+}
+.tt-nav-right-links{display:flex;align-items:center;gap:1.8em}
+/* CTA pill button */
+.tt-nav-cta{
+  font-size:.65em;font-weight:600;text-transform:uppercase;letter-spacing:.14em;
+  padding:.55em 1.4em;border-radius:2em;
+  background:var(--gold);color:var(--bg);
+  transition:background .3s,transform .3s var(--cubic);white-space:nowrap;
+}
+.tt-nav-cta:hover{background:var(--gold-lt);transform:translateY(-1px)}
+
+/* Hamburger button — CSS three-line icon, right-aligned, mobile only */
+.tt-hamburger{
+  display:none;flex-direction:column;justify-content:center;gap:.28em;
+  width:2.4em;height:2.4em;background:none;border:none;
+  padding:.4em;cursor:pointer;position:relative;z-index:201;
+}
+.tt-hamburger span{
+  display:block;width:100%;height:1.5px;background:var(--cream);border-radius:1px;
+  transition:transform .4s var(--cubic),opacity .3s,width .3s var(--cubic);
+  transform-origin:center;
+}
+/* X state when open */
+.tt-hamburger.open span:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.tt-hamburger.open span:nth-child(2){opacity:0;width:0}
+.tt-hamburger.open span:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+
+/* ═══════════════════════════════════════════════
+   MOBILE MENU OVERLAY — Full screen dark
+   Exact TakeThat.com pattern: full-screen dark
+   overlay, links centered, large type, CTA pill at bottom
+═══════════════════════════════════════════════ */
+.tt-mobile-menu{
+  position:fixed;inset:0;z-index:199;
+  background:rgba(10,9,7,.98);
+  display:flex;flex-direction:column;
+  padding:6em 2.5em 3em;
+  /* Hidden state */
+  opacity:0;pointer-events:none;
+  transform:translateY(-1em);
+  transition:opacity .45s var(--cubic),transform .45s var(--cubic);
+}
+.tt-mobile-menu.open{opacity:1;pointer-events:auto;transform:none}
+/* Nav items */
+.tt-mobile-links{
+  display:flex;flex-direction:column;gap:0;flex:1;justify-content:center;
+}
+.tt-mobile-link{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1em 0;border-bottom:1px solid var(--rule);
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:clamp(2.5rem,10vw,4.5rem);font-weight:700;text-transform:uppercase;
+  letter-spacing:-.02em;line-height:1;
+  color:rgba(240,230,211,.35);
+  transition:color .3s;
+  overflow:hidden;
+  opacity:0;transform:translateY(20px);
+  transition:color .3s,opacity .5s var(--ease-out),transform .5s var(--ease-out);
+}
+.tt-mobile-menu.open .tt-mobile-link{opacity:1;transform:none}
+/* Stagger each link */
+.tt-mobile-menu.open .tt-mobile-link:nth-child(1){transition-delay:.05s}
+.tt-mobile-menu.open .tt-mobile-link:nth-child(2){transition-delay:.10s}
+.tt-mobile-menu.open .tt-mobile-link:nth-child(3){transition-delay:.15s}
+.tt-mobile-menu.open .tt-mobile-link:nth-child(4){transition-delay:.20s}
+.tt-mobile-menu.open .tt-mobile-link:nth-child(5){transition-delay:.25s}
+.tt-mobile-link:hover,.tt-mobile-link.tt-active{color:var(--cream)}
+.tt-mobile-link-num{font-size:.3em;color:var(--gold);font-family:"PType Text",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.2em;align-self:center}
+/* Mobile CTA at bottom */
+.tt-mobile-bottom{
+  padding-top:2em;display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid var(--rule);flex-wrap:wrap;gap:1.5em;
+  opacity:0;transform:translateY(12px);
+  transition:opacity .5s var(--ease-out) .3s,transform .5s var(--ease-out) .3s;
+}
+.tt-mobile-menu.open .tt-mobile-bottom{opacity:1;transform:none}
+.tt-mobile-tagline{font-size:.65em;text-transform:uppercase;letter-spacing:.18em;color:var(--cream-dim);font-weight:600}
+.tt-mobile-cta{
+  font-size:.68em;font-weight:600;text-transform:uppercase;letter-spacing:.14em;
+  padding:.7em 1.8em;border-radius:2em;
+  background:var(--gold);color:var(--bg);
+}
+
+
+@media screen and (max-width:1200px){
+  /* Hide desktop nav items, show hamburger */
+  .tt-nav-left,.tt-nav-right-links,.tt-nav-cta{display:none}
+  .tt-hamburger,.menu-button.hamburger-btn{display:flex}
+}
+
+@media screen and (max-width:991px){
+  .tt-nav{padding:0 1.5em}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Replace plus icon + text with hamburger */
+.hamburger-btn{
+  display:flex !important;
+  gap:0;
+  color:var(--cream);
+  cursor:pointer;
+  background:transparent;
+  border:none;
+  padding:.75em;
+  margin:-.75em -.75em -.75em 0;
+}
+
+/* hide old stacked Menu/Close text if it still exists anywhere */
+.menu-button-text{display:none !important;}
+
+.hamburger{
+  width:1.6em;
+  height:1.2em;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  pointer-events:none;
+}
+
+.hamburger-line{
+  height:2px;
+  width:100%;
+  background:currentColor;
+  border-radius:2px;
+  transform-origin:center;
+  display:block;
+  transition:transform .35s var(--ease-out), opacity .25s var(--ease-out);
+}
+
+/* Animate to X when open */
+.nav-menu[data-nav="open"] ~ * .hamburger-line{}
+
+/* safer: drive by aria-expanded on the button */
+.hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(1){
+  transform:translateY(.43em) rotate(45deg);
+}
+.hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(2){
+  opacity:0;
+}
+.hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(3){
+  transform:translateY(-.43em) rotate(-45deg);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.cloneable {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: relative;
+    --menu-padding: 2em;
+}
+.nav-menu{z-index:100;width:100%;height:100vh;display:block;position:fixed;inset:0}
+.overlay{z-index:0;background:rgba(12,11,9,.75);width:100%;height:100%;position:absolute;inset:0;backdrop-filter:blur(4px)}
+.menu{padding-bottom:var(--menu-padding);padding-top:calc(3*var(--menu-padding));flex-flow:column;justify-content:space-between;align-items:flex-start;width:35em;height:100%;margin-left:auto;position:relative;overflow:auto}
+.menu-bg{z-index:0;position:absolute;inset:0}
+.menu-inner{z-index:1;flex-flow:column;justify-content:space-between;align-items:flex-start;height:100%;display:flex;position:relative;overflow:auto}
+.bg-panel{z-index:0;background:var(--bg);border-top-left-radius:1.25em;border-bottom-left-radius:1.25em;position:absolute;inset:0}
+.bg-panel.first{background:var(--gold)}.bg-panel.second{background:var(--bg-lift)}
+.menu-list{flex-flow:column;width:100%;margin-bottom:0;padding:0;list-style:none;display:flex}
+.menu-list-item{position:relative;overflow:hidden}
+.menu-link-heading{z-index:1;text-shadow:0 1em 0 var(--bg-lift);text-transform:uppercase;font-family:"PP Neue Corp Tight",Arial,sans-serif;font-size:5.625em;font-weight:700;line-height:.75;transition:transform .55s cubic-bezier(.65,.05,0,1);position:relative;color:var(--cream)}
+.menu-link{padding:.75em 0 .75em var(--menu-padding);gap:.75em;width:100%;text-decoration:none;display:flex}
+.eyebrow{z-index:1;color:var(--gold);text-transform:uppercase;font-weight:400;position:relative}
+.menu-link-bg{z-index:0;background:var(--gold);transform-origin:50% 100%;transition:transform .55s cubic-bezier(.65,.05,0,1);position:absolute;inset:0;transform:scale3d(1,0,1)}
+.menu-details{padding-left:var(--menu-padding);flex-flow:column;justify-content:flex-start;align-items:flex-start;display:flex;gap:1.25em}
+.p-small{font-size:.875em;font-family:Arial,Helvetica;color:var(--cream-mid)}
+.socials-row{display:flex;gap:1.5em}
+.text-link{position:relative;color:var(--cream)}
+
+@media(hover:hover){
+  .menu-button:hover .icon-wrap{transform:rotate(90deg)}
+  .menu-link:hover .menu-link-heading{transform:translate(0,-1em);transition-delay:.1s}
+  .menu-link:hover .menu-link-bg{transform:scale(1,1)}
+  .text-link::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--gold);transform-origin:right;transform:scaleX(0);transition:transform .5s var(--cubic)}
+  .text-link:hover::after{transform-origin:left;transform:scaleX(1)}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+════════════════════════════════════════════
+   ATOMS
+════════════════════════════════════════════ */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease-out),transform .9s var(--ease-out)}
+.rv.in{opacity:1!important;transform:none!important}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+.d4{transition-delay:.32s}.d5{transition-delay:.40s}
+.tw-cursor{display:inline-block;width:.07em;height:.88em;background:var(--gold);vertical-align:middle;margin-left:.04em;animation:blink-c .9s step-end infinite}
+@keyframes blink-c{0%,100%{opacity:1}50%{opacity:0}}
+.dot-live{width:.5em;height:.5em;background:var(--gold);border-radius:50%;display:inline-block;animation:blink-d 2s ease-in-out infinite;flex-shrink:0}
+@keyframes blink-d{0%,100%{opacity:1}50%{opacity:.18}}
+/* ════════════════════════════════════════════
+   PRELOADER — CASE FILE INITIALISING
+   A case number builds digit by digit
+════════════════════════════════════════════ */
+#preloader{
+  position:fixed;inset:0;z-index:10000;background:var(--bg);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:4em;overflow:hidden;
+}
+.pre-top{
+  flex:1;display:flex;flex-direction:column;justify-content:flex-end;
+  padding-bottom:3em;
+}
+.pre-log{
+  display:flex;flex-direction:column;gap:.6em;margin-bottom:3em;
+}
+.pre-log-line{
+  font-size:.62em;text-transform:uppercase;letter-spacing:.2em;color:var(--cream-dim);
+  font-weight:600;opacity:0;transform:translateY(8px);
+  transition:opacity .35s var(--ease-out),transform .35s var(--ease-out);
+  display:flex;align-items:center;gap:.8em;
+}
+.pre-log-line.show{opacity:1;transform:none}
+.pre-log-line.done{color:rgba(196,164,107,.45)}
+.pre-log-bullet{width:.35em;height:.35em;border-radius:50%;background:currentColor;flex-shrink:0}
+.pre-case-label{
+  font-size:.58em;text-transform:uppercase;letter-spacing:.2em;color:var(--cream-dim);
+  font-weight:600;margin-bottom:.7em;
+}
+.pre-case-num{
+  font-family:"PType Display",sans-serif;
+  font-size:clamp(3.5rem,8vw,9rem);font-weight:900;letter-spacing:-.03em;line-height:1;
+  color:var(--cream);min-height:1.1em;
+}
+.pre-case-num .pre-digit{color:var(--gold)}
+.pre-case-num .pre-cursor{
+  display:inline-block;width:.08em;height:.88em;
+  background:var(--gold);vertical-align:middle;margin-left:.04em;
+  animation:blink-c .7s step-end infinite;
+}
+.pre-bar-row{
+  border-top:1px solid var(--rule);padding-top:1.2em;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1em;
+}
+.pre-track{flex:1;height:1px;background:var(--rule);min-width:6em}
+.pre-fill{height:100%;width:0%;background:var(--gold);transition:width .15s linear}
+.pre-studio{font-size:.56em;text-transform:uppercase;letter-spacing:.22em;color:rgba(196,164,107,.4);font-weight:600}
+.pre-status{font-size:.56em;text-transform:uppercase;letter-spacing:.18em;color:rgba(196,164,107,.38);font-weight:600}
+/* ════════════════════════════════════════════
+   HERO — SPLIT: QUESTION / LIVE CLOCKS
+════════════════════════════════════════════ */
+.hero{
+  min-height:100vh;display:grid;grid-template-columns:1fr 1fr;
+  border-bottom:1px solid var(--rule);position:relative;overflow:hidden;
+}
+.hero-glow{
+  position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at 30% 55%,rgba(196,164,107,.06) 0%,transparent 55%);
+  z-index:0;
+}
+/* Left: the question */
+.hero-left{
+  padding:7.5em 4em 4em;border-right:1px solid var(--rule);
+  display:flex;flex-direction:column;justify-content:space-between;
+  position:relative;z-index:1;
+}
+.hero-breadcrumb{
+  font-size:.58em;text-transform:uppercase;letter-spacing:.18em;
+  color:var(--cream-dim);display:flex;align-items:center;gap:.7em;margin-bottom:3em;
+}
+.hero-breadcrumb a:hover{color:var(--gold);transition:color .3s}
+.hero-breadcrumb-sep{opacity:.28}
+.hero-question{
+  flex:1;display:flex;flex-direction:column;justify-content:center;
+  padding-bottom:3em;
+}
+.hero-q-eyebrow{
+  font-size:.58em;text-transform:uppercase;letter-spacing:.22em;
+  color:var(--gold);font-weight:600;margin-bottom:1em;
+  display:flex;align-items:center;gap:.75em;
+}
+.hero-q-eyebrow::before{content:'';display:block;width:2em;height:1px;background:var(--gold);opacity:.5}
+.hero-q-text{
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:clamp(3.5rem,7vw,9.5rem);font-weight:700;text-transform:uppercase;
+  line-height:.79;letter-spacing:-.03em;
+}
+.hero-q-text .qw1{color:var(--cream);display:block}
+.hero-q-text .qw2{color:var(--cream);display:block}
+.hero-q-text .qw3{color:var(--gold);display:block}
+.hero-q-text .qw4{color:transparent;-webkit-text-stroke:2px rgba(240,230,211,.17);display:block}
+/* Bottom of left: availability + case gen */
+.hero-left-foot{border-top:1px solid var(--rule);padding-top:2em}
+.hero-avail{
+  display:flex;align-items:center;gap:.7em;
+  font-size:.62em;text-transform:uppercase;letter-spacing:.16em;color:var(--gold);
+  font-weight:600;margin-bottom:1em;
+}
+.hero-case-gen{
+  font-family:"PType Display",sans-serif;
+  font-size:.9em;font-weight:900;letter-spacing:-.02em;color:var(--cream-dim);
+  font-size:.65em;text-transform:uppercase;letter-spacing:.12em;font-family:"PType Text",sans-serif;
+}
+.hero-case-gen span{color:var(--gold)}
+/* Right: three live clocks */
+.hero-right{
+  display:flex;flex-direction:column;
+  position:relative;z-index:1;
+}
+.clock-panel{
+  flex:1;padding:0 3.5em;display:flex;flex-direction:column;justify-content:center;
+  border-bottom:1px solid var(--rule);position:relative;overflow:hidden;
+  transition:background .5s var(--cubic);
+  min-height:0;
+}
+.clock-panel:last-child{border-bottom:none}
+.clock-panel:hover{background:var(--bg-lift)}
+/* Subtle CSS art per city — atmospheric glows */
+.clock-panel::before{
+  content:'';position:absolute;border-radius:50%;pointer-events:none;
+  transition:opacity .6s;
+}
+.clock-panel.ny::before{width:18em;height:18em;right:-6em;top:-4em;background:radial-gradient(ellipse,rgba(196,164,107,.04) 0%,transparent 70%)}
+.clock-panel.paris::before{width:14em;height:14em;right:-3em;bottom:-3em;background:radial-gradient(ellipse,rgba(196,164,107,.035) 0%,transparent 70%)}
+.clock-panel.tokyo::before{width:20em;height:20em;left:-6em;top:-5em;background:radial-gradient(ellipse,rgba(196,164,107,.03) 0%,transparent 70%)}
+.clock-panel:hover::before{opacity:2}
+.clock-city-label{
+  font-size:.52em;text-transform:uppercase;letter-spacing:.22em;
+  color:var(--gold);font-weight:600;margin-bottom:.5em;
+  display:flex;align-items:center;gap:.8em;
+}
+.clock-city-dot{width:.35em;height:.35em;border-radius:50%;background:var(--gold)}
+.clock-time{
+  font-family:"PType Display",sans-serif;
+  font-size:clamp(2.5rem,4.5vw,5.5rem);font-weight:900;letter-spacing:-.04em;
+  line-height:1;color:var(--cream);margin-bottom:.2em;
+  font-variant-numeric:tabular-nums;
+}
+.clock-time .tz{font-size:.32em;color:var(--gold);font-family:"PType Text",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.06em;vertical-align:middle;margin-left:.4em}
+.clock-coords{font-size:.55em;text-transform:uppercase;letter-spacing:.14em;color:var(--cream-dim);margin-bottom:.5em}
+.clock-note{font-size:.78em;line-height:1.65;color:var(--cream-dim);max-width:22ch}
+/* "One of us is awake" closer */
+.hero-right-footer{
+  padding:1.5em 3.5em;border-top:1px solid var(--rule);
+  background:var(--bg-mid);
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:1em;font-weight:700;text-transform:uppercase;
+  letter-spacing:-.005em;color:var(--cream);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1em;
+}
+.hero-right-footer span{color:var(--gold)}
+/* ════════════════════════════════════════════
+   THE INTAKE FORM — legal case filing document
+════════════════════════════════════════════ */
+.form-section{
+  padding:0;border-bottom:1px solid var(--rule);
+  position:relative;overflow:hidden;
+}
+.form-glow{
+  position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at 70% 40%,rgba(196,164,107,.05) 0%,transparent 55%);
+}
+/* Document header */
+.form-doc-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:2.5em 4em;border-bottom:1px solid var(--rule);
+  background:var(--bg-mid);flex-wrap:wrap;gap:1em;
+  position:relative;z-index:1;
+}
+.form-doc-title{font-size:.58em;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);font-weight:600}
+.form-doc-meta{display:flex;gap:2.5em;flex-wrap:wrap}
+.form-doc-meta-item{font-size:.53em;text-transform:uppercase;letter-spacing:.16em;color:var(--cream-dim);font-weight:600}
+.form-doc-meta-item span{color:var(--gold)}
+.form-case-ref{
+  font-family:"PType Display",sans-serif;font-size:1.1em;font-weight:900;
+  letter-spacing:-.02em;color:rgba(196,164,107,.35);
+}
+/* Layout: intro left, form right */
+.form-split{
+  display:grid;grid-template-columns:1fr 1.5fr;
+  position:relative;z-index:1;
+}
+.form-intro{
+  padding:5em 4em;border-right:1px solid var(--rule);
+  display:flex;flex-direction:column;justify-content:space-between;
+  position:relative;
+}
+.form-intro-hed{
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:clamp(2.5rem,4vw,5.5rem);font-weight:700;text-transform:uppercase;
+  line-height:.82;letter-spacing:-.025em;color:var(--cream);margin-bottom:1.2em;
+}
+.form-intro-hed em{font-style:normal;color:var(--gold)}
+.form-intro-body{font-size:.875em;line-height:1.82;color:var(--cream-mid);max-width:34ch;margin-bottom:2.5em}
+.form-intro-body strong{color:var(--cream)}
+.form-intro-conditions{display:flex;flex-direction:column;gap:.6em}
+.form-condition{
+  display:flex;align-items:flex-start;gap:.8em;
+  font-size:.8em;color:var(--cream-dim);line-height:1.6;
+  padding:.45em 0;border-bottom:1px solid var(--rule);
+}
+.form-condition:last-child{border-bottom:none}
+.form-condition-num{color:var(--gold);flex-shrink:0;font-size:.85em;font-weight:600;text-transform:uppercase;letter-spacing:.1em;min-width:1.8em}
+/* The actual form */
+.form-body{
+  padding:5em 4em;display:flex;flex-direction:column;gap:0;
+}
+/* Field rows */
+.field-row{
+  padding:2em 0;border-bottom:1px solid var(--rule);
+  display:grid;grid-template-columns:11em 1fr;gap:2em;align-items:start;
+}
+.field-row:last-of-type{border-bottom:none}
+.field-label-group{padding-top:.4em}
+.field-label{
+  font-size:.52em;text-transform:uppercase;letter-spacing:.18em;
+  color:var(--gold);font-weight:600;margin-bottom:.3em;display:block;
+}
+.field-sublabel{font-size:.7em;line-height:1.55;color:var(--cream-dim)}
+/* Custom input styling */
+.f-input,.f-textarea,.f-select{
+  width:100%;background:transparent;border:none;border-bottom:1px solid var(--rule-mid);
+  color:var(--cream);font-family:"PType Text",sans-serif;font-size:1em;font-weight:400;
+  padding:.6em 0;line-height:1.5;outline:none;
+  transition:border-color .4s var(--cubic);
+  -webkit-appearance:none;border-radius:0;
+}
+.f-input:focus,.f-textarea:focus,.f-select:focus{border-bottom-color:var(--gold)}
+.f-input::placeholder,.f-textarea::placeholder{color:var(--cream-dim);font-style:italic}
+.f-textarea{resize:none;min-height:7em;line-height:1.75}
+.f-select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c4a46b' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .5em center;padding-right:2em;background-color:transparent}
+.f-select option{background:var(--bg-lift);color:var(--cream)}
+/* Checkbox group — service type */
+.f-check-grid{display:flex;flex-direction:column;gap:.4em}
+.f-check{display:flex;align-items:center;gap:.8em;padding:.35em 0;cursor:pointer}
+.f-check input[type=checkbox]{display:none}
+.f-check-box{
+  width:1.1em;height:1.1em;border:1px solid var(--rule-mid);border-radius:.15em;
+  flex-shrink:0;position:relative;transition:border-color .3s,background .3s;
+}
+.f-check:hover .f-check-box{border-color:var(--gold-border)}
+.f-check input:checked ~ .f-check-box{background:var(--gold);border-color:var(--gold)}
+.f-check input:checked ~ .f-check-box::after{
+  content:'';position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8'%3E%3Cpath d='M1 4l3 3 5-6' stroke='%230c0b09' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:center;background-size:70%;
+}
+.f-check-label{font-size:.85em;color:var(--cream-mid);cursor:pointer;transition:color .3s}
+.f-check:hover .f-check-label{color:var(--cream)}
+.f-check input:checked ~ .f-check-box + .f-check-label{color:var(--cream);font-weight:600}
+/* Two-col input row */
+.f-two-col{display:grid;grid-template-columns:1fr 1fr;gap:2em}
+/* The declaration — most important field */
+.field-row.declaration{
+  grid-template-columns:1fr;gap:1em;
+  background:rgba(196,164,107,.02);
+  padding:2.5em 2.5em;
+  border:1px solid var(--gold-border);
+  border-radius:.4em;
+  margin:1em 0;
+}
+.field-row.declaration .field-label-group{padding:0;margin-bottom:.5em}
+.declaration-intro{
+  font-size:.72em;line-height:1.7;color:var(--cream-dim);
+  border-left:2px solid var(--gold-border);padding-left:1em;margin-bottom:1em;
+  font-style:italic;
+}
+.declaration-intro em{font-style:normal;color:var(--cream-mid)}
+/* Submit row */
+.form-submit-row{
+  padding:3em 0 0;display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1.5em;
+}
+.form-submit-note{font-size:.75em;line-height:1.65;color:var(--cream-dim);max-width:32ch}
+.form-submit-note em{font-style:normal;color:var(--cream-mid)}
+/* Submit button — special */
+.btn-file{
+  display:inline-flex;align-items:center;gap:.7em;
+  background:var(--gold);color:var(--bg);
+  font-family:"PP Neue Corp Tight",sans-serif;font-size:1em;font-weight:700;
+  text-transform:uppercase;letter-spacing:.08em;
+  padding:1.2em 2.8em;border-radius:3em;border:none;
+  transition:transform .4s var(--cubic),box-shadow .4s,background .3s;
+  position:relative;overflow:hidden;
+}
+.btn-file::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,transparent 30%,rgba(255,255,255,.1) 50%,transparent 70%);
+  transform:translateX(-100%);transition:transform .6s var(--cubic);
+}
+.btn-file:hover{background:var(--gold-lt);box-shadow:0 20px 56px rgba(196,164,107,.3);transform:translateY(-2px)}
+.btn-file:hover::before{transform:translateX(100%)}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:.7em;
+  border:1px solid var(--gold-border);color:var(--gold);
+  font-family:"PP Neue Corp Tight",sans-serif;font-size:.9em;font-weight:700;
+  text-transform:uppercase;letter-spacing:.08em;padding:1.1em 2.3em;
+  border-radius:3em;background:transparent;
+  transition:border-color .4s,background .4s,color .4s;
+}
+.btn-outline:hover{border-color:var(--gold);background:var(--gold-faint);color:var(--cream)}
+/* Confirmation state */
+.form-confirmed{
+  display:none;padding:4em;text-align:center;
+  flex-direction:column;align-items:center;gap:2em;
+}
+.form-confirmed.show{display:flex}
+.confirmed-case{
+  font-family:"PType Display",sans-serif;
+  font-size:clamp(3rem,6vw,7rem);font-weight:900;letter-spacing:-.04em;
+  color:var(--cream);line-height:1;
+}
+.confirmed-case span{color:var(--gold)}
+.confirmed-msg{font-size:.9em;line-height:1.82;color:var(--cream-mid);max-width:38ch}
+.confirmed-msg strong{color:var(--cream)}
+/* ════════════════════════════════════════════
+   TYPOGRAPHIC PUNCH
+════════════════════════════════════════════ */
+.punch{
+  padding:7em 4em;border-bottom:1px solid var(--rule);
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.punch::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 50%,rgba(196,164,107,.04) 0%,transparent 60%);
+}
+.punch-text{
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:clamp(2.5rem,5.5vw,7rem);font-weight:700;
+  text-transform:uppercase;line-height:.85;letter-spacing:-.025em;
+  text-align:center;position:relative;z-index:1;
+}
+.pt-cream{color:var(--cream)}.pt-gold{color:var(--gold)}
+.pt-dim{color:rgba(240,230,211,.22)}.pt-out{color:transparent;-webkit-text-stroke:1.5px rgba(240,230,211,.15)}
+/* ════════════════════════════════════════════
+   WHAT HAPPENS NEXT — contract clauses
+════════════════════════════════════════════ */
+.sec-process{border-bottom:1px solid var(--rule)}
+.process-header{
+  padding:5em 4em 4.5em;border-bottom:1px solid var(--rule);
+  display:grid;grid-template-columns:1fr 1fr;gap:5em;align-items:end;
+}
+.process-hed{
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:clamp(3rem,6vw,7.5rem);font-weight:700;text-transform:uppercase;
+  line-height:.82;letter-spacing:-.025em;
+}
+.process-hed em{font-style:normal;color:var(--gold)}
+.process-note{font-size:.875em;line-height:1.82;color:var(--cream-mid);max-width:36ch}
+.process-note strong{color:var(--cream)}
+.process-clauses{display:grid;grid-template-columns:repeat(3,1fr);background:var(--rule);gap:1px}
+.process-clause{
+  background:var(--bg);padding:4em 3.5em;
+  display:flex;flex-direction:column;gap:2em;
+  position:relative;overflow:hidden;transition:background .5s;
+}
+.process-clause:hover{background:var(--bg-lift)}
+.process-clause::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+  transform:scaleX(0);transform-origin:left;transition:transform .6s var(--cubic);
+}
+.process-clause:hover::before{transform:scaleX(1)}
+.clause-roman{
+  font-size:.56em;font-weight:600;text-transform:uppercase;letter-spacing:.22em;color:var(--gold);
+}
+.clause-heading{
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:clamp(1.6rem,2.5vw,2.8rem);font-weight:700;text-transform:uppercase;
+  line-height:.88;color:var(--cream);letter-spacing:-.01em;
+}
+.clause-legal{
+  font-size:.75em;line-height:1.82;color:var(--cream-mid);font-style:italic;
+  border-left:1px solid var(--rule-mid);padding-left:1em;
+}
+.clause-legal em{font-style:normal;color:var(--cream)}
+.clause-plain-lbl{font-size:.5em;text-transform:uppercase;letter-spacing:.16em;color:var(--gold);font-weight:600;margin-bottom:.4em;display:block}
+.clause-plain{font-size:.82em;line-height:1.65;color:var(--cream-mid)}
+.clause-timing{
+  margin-top:auto;padding-top:1.5em;border-top:1px solid var(--rule);
+  display:flex;align-items:baseline;gap:.6em;
+}
+.clause-timing-val{
+  font-family:"PType Display",sans-serif;
+  font-size:2.2em;font-weight:900;letter-spacing:-.04em;color:var(--cream);line-height:1;
+}
+.clause-timing-unit{font-size:.7em;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);font-weight:600}
+/* ════════════════════════════════════════════
+   THE THREE STUDIOS — live city panels
+════════════════════════════════════════════ */
+.sec-studios{border-bottom:1px solid var(--rule)}
+.studios-header{
+  padding:5em 4em 4em;border-bottom:1px solid var(--rule);
+  display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:2em;
+}
+.studios-hed{
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:clamp(3rem,6vw,7.5rem);font-weight:700;text-transform:uppercase;
+  line-height:.82;letter-spacing:-.025em;
+}
+.studios-hed em{font-style:normal;color:var(--gold)}
+.studios-note{font-size:.875em;line-height:1.8;color:var(--cream-mid);max-width:28ch;text-align:right}
+.studios-grid{display:grid;grid-template-columns:repeat(3,1fr);background:var(--rule);gap:1px}
+.studio-card{
+  background:var(--bg);position:relative;overflow:hidden;
+  min-height:50vh;display:flex;flex-direction:column;
+  transition:background .5s var(--cubic);
+}
+.studio-card:hover{background:var(--bg-lift)}
+/* CSS art per city */
+.studio-card-art{
+  height:14em;position:relative;overflow:hidden;
+  border-bottom:1px solid var(--rule);flex-shrink:0;
+}
+/* New York — vertical grid of light beams */
+.studio-card.ny .studio-card-art{background:radial-gradient(ellipse at 40% 100%,#1a1208 0%,#0c0b09 100%)}
+.studio-card.ny .studio-card-art::before{
+  content:'';position:absolute;left:35%;top:0;bottom:0;width:1px;
+  background:linear-gradient(180deg,transparent,rgba(196,164,107,.18),transparent);
+}
+.studio-card.ny .studio-card-art::after{
+  content:'';position:absolute;left:55%;top:0;bottom:0;width:1px;
+  background:linear-gradient(180deg,transparent,rgba(196,164,107,.1),transparent);
+}
+/* Paris — diagonal */
+.studio-card.paris .studio-card-art{background:radial-gradient(ellipse at 70% 30%,#0e1018 0%,#0c0b09 100%)}
+.studio-card.paris .studio-card-art::before{
+  content:'';position:absolute;width:120%;height:1px;
+  top:40%;left:-10%;
+  background:linear-gradient(90deg,transparent,rgba(196,164,107,.2),transparent);
+  transform:rotate(-20deg);
+}
+.studio-card.paris .studio-card-art::after{
+  content:'';position:absolute;width:5em;height:5em;
+  border-radius:50%;border:1px solid rgba(196,164,107,.15);
+  right:2em;top:2em;
+}
+/* Tokyo — concentric circles */
+.studio-card.tokyo .studio-card-art{background:radial-gradient(ellipse at 50% 60%,#1a1008 0%,#0c0b09 100%)}
+.studio-card.tokyo .studio-card-art::before{
+  content:'';position:absolute;width:8em;height:8em;border-radius:50%;
+  border:1px solid rgba(196,164,107,.18);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+}
+.studio-card.tokyo .studio-card-art::after{
+  content:'';position:absolute;width:5em;height:5em;border-radius:50%;
+  border:1px solid rgba(196,164,107,.12);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+}
+/* Card body */
+.studio-card-body{padding:2.5em 2.8em;flex:1;display:flex;flex-direction:column;gap:1.2em}
+.studio-city-name{
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:2.5em;font-weight:700;text-transform:uppercase;
+  line-height:.82;letter-spacing:-.02em;color:var(--cream);
+}
+.studio-local-time{
+  font-family:"PType Display",sans-serif;
+  font-size:2em;font-weight:900;letter-spacing:-.03em;color:var(--gold);
+  font-variant-numeric:tabular-nums;
+}
+.studio-details{display:flex;flex-direction:column;gap:.3em;margin-top:auto}
+.studio-coords{font-size:.6em;text-transform:uppercase;letter-spacing:.14em;color:var(--cream-dim)}
+.studio-what{font-size:.82em;line-height:1.65;color:var(--cream-mid);padding-top:.7em;border-top:1px solid var(--rule)}
+.studio-email{font-size:.75em;font-weight:600;color:var(--gold);margin-top:.5em;display:flex;align-items:center;gap:.45em;transition:opacity .3s}
+.studio-email:hover{opacity:.7}
+/* ════════════════════════════════════════════
+   DIRECT CONTACT ROW
+════════════════════════════════════════════ */
+.sec-direct{
+  padding:5em 4em;border-bottom:1px solid var(--rule);
+  display:grid;grid-template-columns:1fr 1fr;gap:5em;align-items:center;
+}
+.direct-left{}
+.direct-hed{
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:clamp(2.5rem,4.5vw,6rem);font-weight:700;text-transform:uppercase;
+  line-height:.82;letter-spacing:-.025em;margin-bottom:1em;
+}
+.direct-hed em{font-style:normal;color:var(--gold)}
+.direct-body{font-size:.875em;line-height:1.82;color:var(--cream-mid);max-width:40ch}
+.direct-body strong{color:var(--cream)}
+.direct-right{display:flex;flex-direction:column;gap:2em}
+.direct-item{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.5em 0;border-bottom:1px solid var(--rule);
+  gap:2em;flex-wrap:wrap;
+}
+.direct-item:first-child{border-top:1px solid var(--rule)}
+.direct-item-label{font-size:.55em;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);font-weight:600}
+.direct-item-val{font-size:.95em;font-weight:600;color:var(--cream)}
+.direct-item-link{font-size:.75em;text-transform:uppercase;letter-spacing:.14em;color:var(--cream-dim);transition:color .3s;font-weight:600}
+.direct-item-link:hover{color:var(--gold)}
+/* ════════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════════ */
+.site-footer{background:#070605;padding:5em 4em 2.5em;border-top:1px solid var(--rule)}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:4em;padding-bottom:4em;border-bottom:1px solid var(--rule)}
+.footer-wm{font-family:"PP Neue Corp Tight",sans-serif;font-size:4em;font-weight:700;text-transform:uppercase;line-height:.82;letter-spacing:-.025em;color:var(--cream)}
+.footer-tag{font-size:.78em;line-height:1.72;color:var(--cream-dim);max-width:24ch;margin-top:.8em}
+.footer-col-hed{font-size:.56em;font-weight:600;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);margin-bottom:1.4em}
+.footer-links{display:flex;flex-direction:column;gap:.55em}
+.fl{font-size:.85em;color:var(--cream-dim);transition:color .3s}
+.fl:hover{color:var(--cream)}.fl.active{color:var(--gold)}
+.footer-base{display:flex;justify-content:space-between;align-items:center;padding-top:2em;flex-wrap:wrap;gap:1em}
+.footer-copy{font-size:.66em;color:rgba(240,230,211,.17)}
+.footer-legal{display:flex;gap:2em}
+.footer-legal a{font-size:.66em;color:rgba(240,230,211,.17);transition:color .3s}
+.footer-legal a:hover{color:rgba(240,230,211,.48)}
+/* ════════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════════ */
+@media screen and (max-width:1200px){
+  .hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .form-split{grid-template-columns:1fr}
+  .form-intro{border-right:none;border-bottom:1px solid var(--rule);padding:4em 3em}
+  .process-clauses{grid-template-columns:1fr}
+  .studios-grid{grid-template-columns:1fr 1fr}
+  .studio-card.tokyo{display:none}
+  .sec-direct{grid-template-columns:1fr;gap:3em}
+  .process-header{grid-template-columns:1fr;gap:2em}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media screen and (max-width:991px){
+  .hero-left{padding:7em 2.5em 3.5em}
+  .form-doc-head,.form-intro,.form-body{padding-left:2.5em;padding-right:2.5em}
+  .process-header,.studios-header,.sec-direct,.punch{padding-left:2.5em;padding-right:2.5em}
+  .studios-grid{grid-template-columns:1fr}
+  .studio-card.tokyo{display:flex}
+  
+ 
+  
+  
+  
+  
+  .menu{width:100%;padding-top:calc(6*var(--menu-padding))}
+  .bg-panel{border-radius:0}
+  .menu-link-heading{font-size:4em}
+  .menu-list-item{height:4.5em}
+}
+@media screen and (max-width:767px){
+  .hero-left{padding:7em 1.5em 3em}
+  .form-doc-head,.form-intro,.form-body,.process-header,.studios-header,.sec-direct,.punch{padding-left:1.5em;padding-right:1.5em}
+  .field-row{grid-template-columns:1fr;gap:.5em}
+  .f-two-col{grid-template-columns:1fr}
+  .field-row.declaration{padding:1.8em 1.5em}
+  .form-submit-row{flex-direction:column;align-items:stretch}
+  .btn-file,.btn-outline{width:100%;justify-content:center}
+  .footer-grid{grid-template-columns:1fr;gap:2.5em}
+  .site-footer{padding:4em 1.5em 2em}
+  .punch{padding:5em 1.5em}
+  .studios-header{padding:4em 1.5em 3em;flex-direction:column;align-items:flex-start}
+  .studios-note{text-align:left}
+}
+@media screen and (max-width:479px){
+  .hero-q-text{font-size:clamp(3rem,12vw,5rem)}
+  .punch-text{font-size:clamp(2rem,9vw,3.5rem)}
+  .process-clauses{grid-template-columns:1fr}
+}

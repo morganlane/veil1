@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VEIL — Services</title>
+  <!-- ═══════════════════════════════════════════════════════
+     STYLESHEETS
+     · shared.css — design tokens, reset, fonts, nav, footer
+     · service.css  — page-specific styles
+     NOTE: External stylesheets (Tailwind, Webflow, Slater) removed;
+     all styles are now self-contained in these two files.
+═══════════════════════════════════════════════════════ -->
+<link rel="stylesheet" href="css/shared.css">
+<link rel="stylesheet" href="css/service.css">
+</head>
+<body id="page-services">
+
+<header class="tt-header" id="tt-header">
+  <nav class="tt-nav">
+
+    <!-- ═══ LEFT NAV LINKS ═══ -->
+    <ul class="tt-nav-left">
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html" class="tt-active">Services</a></li>
+    </ul>
+
+    <!-- ═══ CENTER LOGO (absolute positioned) ═══ -->
+    <a href="index.html" class="tt-logo">
+      <span class="tt-logo-mark" aria-hidden="true"></span>
+      VEIL
+    </a>
+
+    <!-- ═══ RIGHT NAV LINKS + CTA ═══ -->
+    <div class="tt-nav-right">
+      <ul class="tt-nav-right-links">
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="tt-nav-cta">File a Brief</a>
+    </div>
+
+    <!-- ═══ HAMBURGER BUTTON (mobile) — inline styles override any external stylesheet ═══ -->
+    <button class="menu-button hamburger-btn" type="button" data-menu-toggle=""
+      aria-label="Open menu" aria-expanded="false"
+      style="display:flex !important;align-items:center;justify-content:center;background:transparent;border:none;cursor:pointer;padding:.75em;margin-right:-.5em;color:#c4a46b;z-index:10002;position:relative;">
+      <span class="hamburger" aria-hidden="true"
+        style="display:flex;flex-direction:column;justify-content:space-between;width:1.6em;height:1.15em;pointer-events:none;">
+        <span class="hamburger-line" style="display:block;height:2px;width:100%;background:currentColor;border-radius:2px;transition:transform .35s,opacity .25s;"></span>
+        <span class="hamburger-line" style="display:block;height:2px;width:100%;background:currentColor;border-radius:2px;transition:transform .35s,opacity .25s;"></span>
+        <span class="hamburger-line" style="display:block;height:2px;width:100%;background:currentColor;border-radius:2px;transition:transform .35s,opacity .25s;"></span>
+      </span>
+    </button>
+
+  </nav>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════
+     SLIDE-IN NAVIGATION MENU
+     NOTE: JS (shared.js) moves this to <body> end at runtime
+     via document.body.appendChild() to escape stacking contexts.
+     position:fixed is then applied via inline style override.
+═══════════════════════════════════════════════════════ -->
+<div data-nav="closed" class="nav-menu">
+  <div data-menu-toggle="" class="overlay"></div>
+  <nav class="menu">
+    <div class="menu-bg">
+      <div class="bg-panel first"></div>
+      <div class="bg-panel second"></div>
+      <div class="bg-panel"></div>
+    </div>
+    <div class="menu-inner">
+      <ul class="menu-list">
+        <li class="menu-list-item">
+          <a href="index.html" class="menu-link">
+            <p class="menu-link-heading">Home</p>
+            <p class="eyebrow">00</p>
+            <div class="menu-link-bg"></div>
+          </a>
+        </li>
+        <li class="menu-list-item">
+          <a href="#" class="menu-link">
+            <p class="menu-link-heading">Work</p>
+            <p class="eyebrow">01</p>
+            <div class="menu-link-bg"></div>
+          </a>
+        </li>
+        <li class="menu-list-item">
+          <a href="services.html" class="menu-link">
+            <p class="menu-link-heading">Services</p>
+            <p class="eyebrow">02</p>
+            <div class="menu-link-bg"></div>
+          </a>
+        </li>
+        <li class="menu-list-item">
+          <a href="about.html" class="menu-link">
+            <p class="menu-link-heading">About</p>
+            <p class="eyebrow">03</p>
+            <div class="menu-link-bg"></div>
+          </a>
+        </li>
+        <li class="menu-list-item">
+          <a href="contact.html" class="menu-link">
+            <p class="menu-link-heading">Contact</p>
+            <p class="eyebrow">04</p>
+            <div class="menu-link-bg"></div>
+          </a>
+        </li>
+      </ul>
+      <div class="menu-details">
+        <p data-menu-fade="" class="p-small">Follow the obsession</p>
+        <div class="socials-row">
+          <a data-menu-fade="" href="#" class="p-large text-link">Instagram</a>
+          <a data-menu-fade="" href="#" class="p-large text-link">LinkedIn</a>
+          <a data-menu-fade="" href="#" class="p-large text-link">Awwwards</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- X close button inside the menu panel -->
+  <button id="nav-close-btn" aria-label="Close menu"
+    style="position:absolute;top:1.2em;right:1.5em;z-index:10002;background:transparent;border:none;width:2.8em;height:2.8em;display:flex;align-items:center;justify-content:center;color:#c4a46b;cursor:pointer;">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <line x1="2" y1="2" x2="20" y2="20"/>
+      <line x1="20" y1="2" x2="2" y2="20"/>
+    </svg>
+  </button>
+</div>
+
+
+
+
+<!-- ═══════════════════════════════════════
+     PAGE HERO
+═══════════════════════════════════════ -->
+<section class="page-hero">
+  <div class="hero-ring-wrap">
+    <div class="hero-ring"><div class="hero-ring-dot"></div></div>
+    <div class="hero-ring"></div>
+    <div class="hero-ring"></div>
+  </div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-content">
+    <div class="hero-top">
+      <div>
+        <div class="hero-eyecap rv"><span class="cap">Capabilities</span></div>
+        <p class="hero-kicker rv d1">Six weapons, sharpened to different edges.<br>One studio obsessed with using every one of them perfectly.</p>
+      </div>
+      <div class="hero-breadcrumb rv d1">
+        <a href="index.html">Home</a>
+        <span class="hero-breadcrumb-sep">/</span>
+        <span>Services</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="hero-hed-wrap rv d1"><span class="hero-hed fill">What</span></div>
+      <div class="hero-hed-wrap rv d2"><span class="hero-hed gold">we do</span></div>
+      <div class="hero-hed-wrap rv d3"><span class="hero-hed outline">& how.</span></div>
+    </div>
+
+    <div class="hero-bottom rv d4">
+      <div class="hero-bottom-left">
+        <div>
+          <div class="hero-stat-val">6<sup>Services</sup></div>
+          <div class="hero-stat-label">Complete offerings</div>
+        </div>
+        <div>
+          <div class="hero-stat-val">3<sup>Modes</sup></div>
+          <div class="hero-stat-label">Engagement styles</div>
+        </div>
+        <div>
+          <div class="hero-stat-val">1<sup>Standard</sup></div>
+          <div class="hero-stat-label">Uncompromising craft</div>
+        </div>
+      </div>
+      <p class="hero-scroll rv d5">Scroll to explore</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SERVICE INDEX — sticky scrollspy nav
+═══════════════════════════════════════ -->
+<nav class="svc-index" id="svc-index" aria-label="Services navigation">
+  <a href="#svc-01" class="svc-index-item" data-target="svc-01">Brand Identity</a>
+  <a href="#svc-02" class="svc-index-item" data-target="svc-02">Web Design</a>
+  <a href="#svc-03" class="svc-index-item" data-target="svc-03">Motion &amp; 3D</a>
+  <a href="#svc-04" class="svc-index-item" data-target="svc-04">Strategy</a>
+  <a href="#svc-05" class="svc-index-item" data-target="svc-05">Campaigns</a>
+  <a href="#svc-06" class="svc-index-item" data-target="svc-06">Creative Direction</a>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     SERVICE 01 — BRAND IDENTITY
+═══════════════════════════════════════ -->
+<section class="svc-block" id="svc-01" data-svc-section>
+  <div class="svc-block-body">
+    <div class="svc-block-ghost">01</div>
+    <div class="svc-block-top">
+      <p class="svc-block-num rv">Service 01</p>
+      <h2 class="svc-block-name rv d1">Brand<br>Identity</h2>
+      <p class="svc-block-tagline rv d2">A promise made visible.</p>
+      <p class="svc-block-desc rv d3">A brand is not a logo. It's a belief system you've given visual form. We build complete brand architectures from the ground up — the kind that make your competitors feel like they're playing an entirely different game. From naming through final guidelines, we create identities that don't just represent who you are. They make people feel something about you before you've said a word.</p>
+      <div class="svc-block-tags rv d3">
+        <span class="tag">Brand Strategy</span><span class="tag">Naming</span>
+        <span class="tag">Visual Identity</span><span class="tag">Typography</span>
+        <span class="tag">Colour Systems</span><span class="tag">Guidelines</span>
+        <span class="tag">Tone of Voice</span><span class="tag">Motion Identity</span>
+      </div>
+    </div>
+    <div class="svc-block-mid">
+      <p class="svc-block-deliverables-label rv">What you'll receive</p>
+      <div class="svc-deliverables rv d1">
+        <div class="svc-deliverable">Brand strategy & positioning deck</div>
+        <div class="svc-deliverable">Naming & verbal identity</div>
+        <div class="svc-deliverable">Primary & secondary mark suite</div>
+        <div class="svc-deliverable">Full typography system</div>
+        <div class="svc-deliverable">Colour world & usage rules</div>
+        <div class="svc-deliverable">Iconography & illustration style</div>
+        <div class="svc-deliverable">Photography direction</div>
+        <div class="svc-deliverable">Motion identity principles</div>
+        <div class="svc-deliverable">Brand guidelines (100–200pp)</div>
+        <div class="svc-deliverable">Handoff files (all formats)</div>
+      </div>
+      <div class="svc-outcome rv d2">
+        <p class="svc-outcome-label">What you'll feel</p>
+        <p class="svc-outcome-text">You'll walk into a room and people will <em>know</em>. Not because you told them, but because everything about how your brand presents itself whispers authority — even before you speak.</p>
+      </div>
+    </div>
+    <div class="svc-block-bottom rv d3">
+      <div class="svc-starting">
+        <span class="svc-starting-label">Engagements from</span>
+        <span class="svc-starting-price">$45,000</span>
+      </div>
+      <a href="#contact" class="btn-gold">Start the conversation ↗</a>
+    </div>
+  </div>
+  <div class="svc-block-visual sv1">
+    <div class="svc-art">
+      <div class="svc-art-inner"></div>
+      <div class="svc-art-cross-h"></div>
+      <div class="svc-art-cross-v"></div>
+    </div>
+    <span class="svc-visual-label">Brand Identity</span>
+    <span class="svc-visual-index">01</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SERVICE 02 — WEB DESIGN & BUILD
+═══════════════════════════════════════ -->
+<section class="svc-block" id="svc-02" data-svc-section>
+  <div class="svc-block-visual sv2">
+    <div class="svc-art">
+      <div class="svc-art-inner"></div>
+      <div class="svc-art-h2"></div>
+      <div class="svc-art-h3"></div>
+    </div>
+    <span class="svc-visual-label">Web Design & Build</span>
+    <span class="svc-visual-index">02</span>
+  </div>
+  <div class="svc-block-body">
+    <div class="svc-block-ghost">02</div>
+    <div class="svc-block-top">
+      <p class="svc-block-num rv">Service 02</p>
+      <h2 class="svc-block-name rv d1">Web<br>Design<br>&amp; Build</h2>
+      <p class="svc-block-tagline rv d2">Engineering the feeling of luxury.</p>
+      <p class="svc-block-desc rv d3">We build websites the way a watchmaker builds a timepiece — every component intentional, every interaction choreographed, every millisecond of load time earned. Our builds feel like luxury because they are. Fast, beautiful, pixel-obsessive, and engineered to convert. Visitors don't just browse them — they believe them.</p>
+      <div class="svc-block-tags rv d3">
+        <span class="tag">UX Research</span><span class="tag">UI Design</span>
+        <span class="tag">Prototyping</span><span class="tag">Webflow</span>
+        <span class="tag">React / Next.js</span><span class="tag">GSAP</span>
+        <span class="tag">Three.js</span><span class="tag">Performance</span>
+      </div>
+    </div>
+    <div class="svc-block-mid">
+      <p class="svc-block-deliverables-label rv">What you'll receive</p>
+      <div class="svc-deliverables rv d1">
+        <div class="svc-deliverable">UX research & user flows</div>
+        <div class="svc-deliverable">Information architecture</div>
+        <div class="svc-deliverable">Full UI design system</div>
+        <div class="svc-deliverable">Interaction design & prototypes</div>
+        <div class="svc-deliverable">Custom animation system</div>
+        <div class="svc-deliverable">Webflow or React development</div>
+        <div class="svc-deliverable">Performance optimisation</div>
+        <div class="svc-deliverable">CMS integration & training</div>
+        <div class="svc-deliverable">SEO-ready architecture</div>
+        <div class="svc-deliverable">90-day post-launch support</div>
+      </div>
+      <div class="svc-outcome rv d2">
+        <p class="svc-outcome-label">What you'll feel</p>
+        <p class="svc-outcome-text">The moment your new site goes live, something shifts. Your sales team starts sending the URL without being asked. Your investors notice. Your <em>competitors</em> notice.</p>
+      </div>
+    </div>
+    <div class="svc-block-bottom rv d3">
+      <div class="svc-starting">
+        <span class="svc-starting-label">Engagements from</span>
+        <span class="svc-starting-price">$35,000</span>
+      </div>
+      <a href="#contact" class="btn-gold">Start the conversation ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SERVICE 03 — MOTION & 3D
+═══════════════════════════════════════ -->
+<section class="svc-block" id="svc-03" data-svc-section>
+  <div class="svc-block-body">
+    <div class="svc-block-ghost">03</div>
+    <div class="svc-block-top">
+      <p class="svc-block-num rv">Service 03</p>
+      <h2 class="svc-block-name rv d1">Motion<br>&amp; 3D</h2>
+      <p class="svc-block-tagline rv d2">Movement is meaning.</p>
+      <p class="svc-block-desc rv d3">The way something moves tells you more about a brand than its logo ever will. Our motion department speaks fluent GSAP, Three.js, and Cinema 4D — creating micro-interactions that feel inevitable, brand films that linger in the chest, and 3D environments that make people lean closer to their screen. We don't add motion to designs. We design through motion.</p>
+      <div class="svc-block-tags rv d3">
+        <span class="tag">GSAP</span><span class="tag">Three.js</span>
+        <span class="tag">After Effects</span><span class="tag">Cinema 4D</span>
+        <span class="tag">Spline</span><span class="tag">Lottie</span>
+        <span class="tag">Brand Film</span><span class="tag">Product Viz</span>
+      </div>
+    </div>
+    <div class="svc-block-mid">
+      <p class="svc-block-deliverables-label rv">What you'll receive</p>
+      <div class="svc-deliverables rv d1">
+        <div class="svc-deliverable">UI motion system & guidelines</div>
+        <div class="svc-deliverable">Brand film production</div>
+        <div class="svc-deliverable">Interactive 3D web experience</div>
+        <div class="svc-deliverable">Product visualisation</div>
+        <div class="svc-deliverable">Loading & transition sequences</div>
+        <div class="svc-deliverable">Social motion content suite</div>
+        <div class="svc-deliverable">Lottie animations (UI-ready)</div>
+        <div class="svc-deliverable">Motion brand guidelines</div>
+      </div>
+      <div class="svc-outcome rv d2">
+        <p class="svc-outcome-label">What you'll feel</p>
+        <p class="svc-outcome-text">Other agencies will start studying your website. Candidates will mention your animations in interview. People will screenshot your <em>hover states</em> and post them to Twitter.</p>
+      </div>
+    </div>
+    <div class="svc-block-bottom rv d3">
+      <div class="svc-starting">
+        <span class="svc-starting-label">Engagements from</span>
+        <span class="svc-starting-price">$28,000</span>
+      </div>
+      <a href="#contact" class="btn-gold">Start the conversation ↗</a>
+    </div>
+  </div>
+  <div class="svc-block-visual sv3">
+    <div class="svc-art">
+      <div class="svc-art-inner"></div>
+    </div>
+    <span class="svc-visual-label">Motion & 3D</span>
+    <span class="svc-visual-index">03</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SERVICE 04 — DIGITAL STRATEGY
+═══════════════════════════════════════ -->
+<section class="svc-block" id="svc-04" data-svc-section>
+  <div class="svc-block-visual sv4">
+    <div class="svc-art">
+      <div class="svc-art-dot"></div>
+      <div class="svc-art-ring"></div>
+    </div>
+    <span class="svc-visual-label">Digital Strategy</span>
+    <span class="svc-visual-index">04</span>
+  </div>
+  <div class="svc-block-body">
+    <div class="svc-block-ghost">04</div>
+    <div class="svc-block-top">
+      <p class="svc-block-num rv">Service 04</p>
+      <h2 class="svc-block-name rv d1">Digital<br>Strategy</h2>
+      <p class="svc-block-tagline rv d2">Intuition informed by data.</p>
+      <p class="svc-block-desc rv d3">Intuition without evidence is just expensive guessing. We interrogate your market with the discipline of a researcher and the instincts of a creative director — then we build the map that makes your growth feel like gravity, not effort. Strategy isn't a document we hand you. It's the invisible architecture that makes everything else work harder.</p>
+      <div class="svc-block-tags rv d3">
+        <span class="tag">Market Research</span><span class="tag">Positioning</span>
+        <span class="tag">Analytics</span><span class="tag">CRO</span>
+        <span class="tag">SEO Strategy</span><span class="tag">Content</span>
+        <span class="tag">Roadmapping</span><span class="tag">KPIs</span>
+      </div>
+    </div>
+    <div class="svc-block-mid">
+      <p class="svc-block-deliverables-label rv">What you'll receive</p>
+      <div class="svc-deliverables rv d1">
+        <div class="svc-deliverable">Competitive landscape audit</div>
+        <div class="svc-deliverable">Audience research & personas</div>
+        <div class="svc-deliverable">Brand positioning framework</div>
+        <div class="svc-deliverable">Digital growth roadmap</div>
+        <div class="svc-deliverable">SEO & content strategy</div>
+        <div class="svc-deliverable">Conversion rate optimisation</div>
+        <div class="svc-deliverable">Analytics setup & dashboards</div>
+        <div class="svc-deliverable">Quarterly performance reviews</div>
+      </div>
+      <div class="svc-outcome rv d2">
+        <p class="svc-outcome-label">What you'll feel</p>
+        <p class="svc-outcome-text">Clarity. That rare sensation of knowing exactly what to do next, and <em>why</em> — without the paralysis of having too many options and too little conviction.</p>
+      </div>
+    </div>
+    <div class="svc-block-bottom rv d3">
+      <div class="svc-starting">
+        <span class="svc-starting-label">Engagements from</span>
+        <span class="svc-starting-price">$22,000</span>
+      </div>
+      <a href="#contact" class="btn-gold">Start the conversation ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SERVICE 05 — CAMPAIGNS
+═══════════════════════════════════════ -->
+<section class="svc-block" id="svc-05" data-svc-section>
+  <div class="svc-block-body">
+    <div class="svc-block-ghost">05</div>
+    <div class="svc-block-top">
+      <p class="svc-block-num rv">Service 05</p>
+      <h2 class="svc-block-name rv d1">Campaign<br>Creation</h2>
+      <p class="svc-block-tagline rv d2">Ideas that cut through everything.</p>
+      <p class="svc-block-desc rv d3">Most campaigns disappear 24 hours after they run. Ours don't. We build ideas sharp enough to cut through cultural noise — and compelling enough to stay in circulation long after the media spend is gone. From the concept that makes your board say "we can't" to the execution that makes your audience say "they did." We live for that gap.</p>
+      <div class="svc-block-tags rv d3">
+        <span class="tag">Campaign Concept</span><span class="tag">Creative Direction</span>
+        <span class="tag">Social Content</span><span class="tag">OOH Design</span>
+        <span class="tag">Experiential</span><span class="tag">Editorial</span>
+        <span class="tag">Influencer Frameworks</span><span class="tag">Activation</span>
+      </div>
+    </div>
+    <div class="svc-block-mid">
+      <p class="svc-block-deliverables-label rv">What you'll receive</p>
+      <div class="svc-deliverables rv d1">
+        <div class="svc-deliverable">3 campaign concepts (full creative)</div>
+        <div class="svc-deliverable">Chosen concept developed fully</div>
+        <div class="svc-deliverable">Social content production suite</div>
+        <div class="svc-deliverable">Out-of-home design files</div>
+        <div class="svc-deliverable">Experiential / activation brief</div>
+        <div class="svc-deliverable">Influencer creative framework</div>
+        <div class="svc-deliverable">Launch timing & rollout strategy</div>
+        <div class="svc-deliverable">Campaign performance tracking</div>
+      </div>
+      <div class="svc-outcome rv d2">
+        <p class="svc-outcome-label">What you'll feel</p>
+        <p class="svc-outcome-text">Six months later, people will still be referencing it. Not in a case study — in <em>conversation</em>. That's the difference between a campaign and a cultural moment.</p>
+      </div>
+    </div>
+    <div class="svc-block-bottom rv d3">
+      <div class="svc-starting">
+        <span class="svc-starting-label">Engagements from</span>
+        <span class="svc-starting-price">$38,000</span>
+      </div>
+      <a href="#contact" class="btn-gold">Start the conversation ↗</a>
+    </div>
+  </div>
+  <div class="svc-block-visual sv5">
+    <div class="svc-art">
+      <div class="svc-art-inner"></div>
+      <div class="svc-art-v"></div>
+    </div>
+    <span class="svc-visual-label">Campaign Creation</span>
+    <span class="svc-visual-index">05</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SERVICE 06 — CREATIVE DIRECTION
+═══════════════════════════════════════ -->
+<section class="svc-block" id="svc-06" data-svc-section>
+  <div class="svc-block-visual sv6">
+    <div class="svc-art">
+      <div class="svc-art-inner"></div>
+    </div>
+    <span class="svc-visual-label">Creative Direction</span>
+    <span class="svc-visual-index">06</span>
+  </div>
+  <div class="svc-block-body">
+    <div class="svc-block-ghost">06</div>
+    <div class="svc-block-top">
+      <p class="svc-block-num rv">Service 06</p>
+      <h2 class="svc-block-name rv d1">Creative<br>Direction</h2>
+      <p class="svc-block-tagline rv d2">The highest-leverage thing we do.</p>
+      <p class="svc-block-desc rv d3">Some brands don't need an agency. They need a creative mind inside the room. We offer senior-level creative direction on a retained or fractional basis — attending strategy sessions, reviewing in-house creative, elevating your team's ambitions. The brands that work with us this way rarely stop. Because once you know what excellent looks like, settling for anything else becomes physically impossible.</p>
+      <div class="svc-block-tags rv d3">
+        <span class="tag">Retained</span><span class="tag">Fractional</span>
+        <span class="tag">Embedded</span><span class="tag">Advisory</span>
+        <span class="tag">Team Mentorship</span><span class="tag">Brand Audits</span>
+        <span class="tag">Brief Review</span><span class="tag">Vendor Vetting</span>
+      </div>
+    </div>
+    <div class="svc-block-mid">
+      <p class="svc-block-deliverables-label rv">What you'll receive</p>
+      <div class="svc-deliverables rv d1">
+        <div class="svc-deliverable">Monthly creative strategy sessions</div>
+        <div class="svc-deliverable">Brief review & direction (unlimited)</div>
+        <div class="svc-deliverable">Team workshops & upskilling</div>
+        <div class="svc-deliverable">Creative vendor vetting</div>
+        <div class="svc-deliverable">Brand consistency oversight</div>
+        <div class="svc-deliverable">Quarterly creative audits</div>
+        <div class="svc-deliverable">Slack access to senior CD</div>
+        <div class="svc-deliverable">Annual brand health report</div>
+      </div>
+      <div class="svc-outcome rv d2">
+        <p class="svc-outcome-label">What you'll feel</p>
+        <p class="svc-outcome-text">Your team will start producing work they're <em>proud of</em>. Not just work that gets approved. There's a difference, and most teams have forgotten what that difference feels like.</p>
+      </div>
+    </div>
+    <div class="svc-block-bottom rv d3">
+      <div class="svc-starting">
+        <span class="svc-starting-label">Retained from</span>
+        <span class="svc-starting-price">$12,000 <span style="font-size:.55em;color:var(--cream-dim);font-family:'PType Text',sans-serif;font-weight:400;text-transform:none;letter-spacing:0">/month</span></span>
+      </div>
+      <a href="#contact" class="btn-gold">Start the conversation ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     ENGAGEMENT MODELS
+═══════════════════════════════════════ -->
+<section class="engage-section">
+  <div class="engage-top">
+    <div>
+      <span class="cap rv" style="display:flex;margin-bottom:.7em">How we work</span>
+      <h2 class="engage-hed disp rv d1">Three ways<br>to work<br>with us.</h2>
+    </div>
+    <p class="engage-note rv d2">Not every engagement looks the same. Pick the model that fits your ambition — or ask us to design something bespoke.</p>
+  </div>
+
+  <div class="engage-grid">
+    <div class="engage-card rv">
+      <div class="engage-card-icon">◈</div>
+      <div>
+        <h3 class="engage-type">Project</h3>
+        <p class="engage-desc">A defined scope, a clear outcome, a fixed timeline. Best for launches, rebrands, or campaign builds where the brief is clear and the ambition is high.</p>
+      </div>
+      <ul class="engage-list">
+        <li class="engage-list-item">Fixed scope & deliverables</li>
+        <li class="engage-list-item">Dedicated project team</li>
+        <li class="engage-list-item">Milestone-based payments</li>
+        <li class="engage-list-item">30-day post-launch support</li>
+        <li class="engage-list-item">Full IP transfer on completion</li>
+      </ul>
+      <div class="engage-from">
+        <p class="engage-from-label">Projects from</p>
+        <p class="engage-from-price">$22,000 <small>per project</small></p>
+      </div>
+    </div>
+
+    <div class="engage-card featured rv d2">
+      <div class="engage-card-tag">Most Popular</div>
+      <div class="engage-card-icon">⬡</div>
+      <div>
+        <h3 class="engage-type">Retainer</h3>
+        <p class="engage-desc">An ongoing creative partnership. We're embedded in your brand's life — always available, always aligned, always raising the standard. The highest-leverage engagement we offer.</p>
+      </div>
+      <ul class="engage-list">
+        <li class="engage-list-item">Dedicated senior team</li>
+        <li class="engage-list-item">Unlimited creative requests</li>
+        <li class="engage-list-item">Priority turnaround (48h)</li>
+        <li class="engage-list-item">Monthly strategy sessions</li>
+        <li class="engage-list-item">Quarterly brand audits</li>
+        <li class="engage-list-item">Slack & phone access</li>
+      </ul>
+      <div class="engage-from">
+        <p class="engage-from-label">Retainers from</p>
+        <p class="engage-from-price">$18,000 <small>/month</small></p>
+      </div>
+    </div>
+
+    <div class="engage-card rv d4">
+      <div class="engage-card-icon">◉</div>
+      <div>
+        <h3 class="engage-type">Advisory</h3>
+        <p class="engage-desc">Strategic guidance and senior creative input without full execution. Ideal for in-house teams that want a seasoned perspective at the table — without the full agency price tag.</p>
+      </div>
+      <ul class="engage-list">
+        <li class="engage-list-item">4× monthly advisory sessions</li>
+        <li class="engage-list-item">Brief review & written feedback</li>
+        <li class="engage-list-item">Creative vendor introductions</li>
+        <li class="engage-list-item">Access to our resource library</li>
+        <li class="engage-list-item">Annual brand health report</li>
+      </ul>
+      <div class="engage-from">
+        <p class="engage-from-label">Advisory from</p>
+        <p class="engage-from-price">$8,500 <small>/month</small></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     THE DIFFERENCE
+═══════════════════════════════════════ -->
+<section class="diff-section">
+  <div class="diff-left">
+    <div>
+      <span class="cap rv" style="margin-bottom:1em;display:flex">Why Veil</span>
+      <h2 class="diff-big rv d1">
+        The work<br>should<br>make you<br><em>nervous.</em>
+      </h2>
+    </div>
+    <blockquote class="diff-quote rv d2">
+      "If your agency never pushes back, never shows you something that makes your stomach drop with possibility — find a new agency. That discomfort is where growth lives."
+    </blockquote>
+  </div>
+  <div class="diff-right">
+    <div class="diff-row rv">
+      <div class="diff-row-icon">◈</div>
+      <div class="diff-row-body">
+        <h3 class="diff-row-title">We say no more than we say yes.</h3>
+        <p class="diff-row-text">We take on around 14 projects per year. This isn't scarcity theatre — it's how we maintain the quality that justifies everything else. When we say yes to you, we mean it entirely.</p>
+      </div>
+    </div>
+    <div class="diff-row rv d1">
+      <div class="diff-row-icon">⬡</div>
+      <div class="diff-row-body">
+        <h3 class="diff-row-title">Senior talent on every brief.</h3>
+        <p class="diff-row-text">No juniors doing the work while seniors do the pitching. The people who present the concepts are the people who made them. Always.</p>
+      </div>
+    </div>
+    <div class="diff-row rv d2">
+      <div class="diff-row-icon">◉</div>
+      <div class="diff-row-body">
+        <h3 class="diff-row-title">Uncomfortable honesty is the service.</h3>
+        <p class="diff-row-text">We'll tell you when your brief is wrong. When your timeline is delusional. When the safe option is, in fact, the most dangerous one. You're not paying us to agree with you.</p>
+      </div>
+    </div>
+    <div class="diff-row rv d3">
+      <div class="diff-row-icon">◇</div>
+      <div class="diff-row-body">
+        <h3 class="diff-row-title">Obsession is our operating system.</h3>
+        <p class="diff-row-text">We've turned down clients. We've redone work at our own cost because it wasn't good enough. We've missed sleep over kerning. This is not a healthy way to run a business. It's an exceptional way to make great work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FAQ
+═══════════════════════════════════════ -->
+<section class="faq-section" id="faq">
+  <div class="faq-top">
+    <div>
+      <span class="cap rv" style="margin-bottom:.7em;display:flex">Questions</span>
+      <h2 class="faq-hed rv d1">The things<br>everyone<br>wants to<br>ask.</h2>
+    </div>
+    <p class="faq-intro rv d2">We've answered the questions we hear most often. If yours isn't here, it probably means it deserves a real conversation — and we'd welcome that.</p>
+  </div>
+
+  <div class="faq-list">
+    <div class="faq-item rv" data-faq>
+      <div class="faq-q">
+        <p class="faq-q-text">How long does a typical project take?</p>
+        <div class="faq-q-icon">+</div>
+      </div>
+      <div class="faq-body">
+        <div class="faq-body-inner">
+          <p class="faq-body-text">Brand identity projects typically run 10–16 weeks. Web design and build projects run 12–20 weeks depending on scope and complexity. Campaign creation usually takes 6–10 weeks from brief to launch-ready assets. Retainer and advisory engagements begin within two weeks of contract signing.<br><br>We don't rush. That said, we're not precious about timelines — if you have a hard deadline, tell us upfront. We'll design the process around it, not around our preferences.</p>
+          <div class="faq-body-aside">
+            <p class="faq-aside-label">Quick guide</p>
+            <p class="faq-aside-text">Brand Identity: 10–16 weeks · Web Build: 12–20 weeks · Campaign: 6–10 weeks · Retainer: ongoing</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item rv d1" data-faq>
+      <div class="faq-q">
+        <p class="faq-q-text">Do you work with startups or only established brands?</p>
+        <div class="faq-q-icon">+</div>
+      </div>
+      <div class="faq-body">
+        <div class="faq-body-inner">
+          <p class="faq-body-text">We work with both, but what matters to us isn't the size of the company — it's the ambition of the people running it. We've built brand identities for pre-revenue startups that had more conviction than Fortune 500 companies we've declined. If you have a clear vision, the hunger to do something genuinely exceptional, and a budget that reflects that seriousness, we want to talk.</p>
+          <div class="faq-body-aside">
+            <p class="faq-aside-label">What we look for</p>
+            <p class="faq-aside-text">Strong point of view. Openness to being challenged. A budget that signals commitment. Everything else is secondary.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item rv d2" data-faq>
+      <div class="faq-q">
+        <p class="faq-q-text">What does your pricing include?</p>
+        <div class="faq-q-icon">+</div>
+      </div>
+      <div class="faq-body">
+        <div class="faq-body-inner">
+          <p class="faq-body-text">All pricing includes the full senior team, all revision rounds (we work until it's right, not until the revision count runs out), all final files in every format you'll need, and a defined period of post-project support. We don't nickel-and-dime on extra concepts or minor scope changes. What we do charge for is genuine scope expansion — things that are clearly different from what we agreed to make together.<br><br>Stock photography, licensed fonts, third-party hosting, and development tools are billed at cost with no markup.</p>
+          <div class="faq-body-aside">
+            <p class="faq-aside-label">What's always included</p>
+            <p class="faq-aside-text">Senior team · Unlimited revisions · All final files · Post-project support · No hidden fees</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item rv d3" data-faq>
+      <div class="faq-q">
+        <p class="faq-q-text">Can we combine services?</p>
+        <div class="faq-q-icon">+</div>
+      </div>
+      <div class="faq-body">
+        <div class="faq-body-inner">
+          <p class="faq-body-text">Yes, and honestly the most transformative work we do happens when we're working across multiple disciplines simultaneously. A brand identity and a website built together share a coherence that's almost impossible to achieve when they're designed separately by different teams. Our most successful long-term clients started with a full-suite engagement: brand, web, and motion — all designed as a single unified system.</p>
+          <div class="faq-body-aside">
+            <p class="faq-aside-label">Most common combination</p>
+            <p class="faq-aside-text">Brand Identity + Web Build + Motion System. One team, one vision, built as a single unified system.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item rv d4" data-faq>
+      <div class="faq-q">
+        <p class="faq-q-text">How do we get started?</p>
+        <div class="faq-q-icon">+</div>
+      </div>
+      <div class="faq-body">
+        <div class="faq-body-inner">
+          <p class="faq-body-text">Send us an email with a brief paragraph on what you're working on and what you're hoping to achieve. We'll respond within 48 hours. If it sounds like a fit, we'll schedule a 30-minute introductory call — no pitch decks, no presentations, just a real conversation about your brand and your ambitions. From there, we'll send a proposal within a week.<br><br>We deliberately keep the process light at the front end. The best client relationships start with a conversation, not a form.</p>
+          <div class="faq-body-aside">
+            <p class="faq-aside-label">The process</p>
+            <p class="faq-aside-text">Email us → 48h response → 30min call → 1-week proposal → kick off</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CTA
+═══════════════════════════════════════ -->
+<section class="svc-cta" id="contact">
+  <div class="svc-cta-glow"></div>
+  <div class="svc-cta-top">
+    <span class="cap rv">Start the work</span>
+    <span class="svc-cta-avail rv d1">
+      <span class="avail-dot"></span>
+      Accepting briefs — Q1 2025
+    </span>
+  </div>
+  <div class="svc-cta-main">
+    <div class="svc-cta-hed rv d1">
+      <div class="w1">The brief</div>
+      <div class="w2">is waiting</div>
+      <div class="w3">for you.</div>
+    </div>
+  </div>
+  <div class="svc-cta-bottom">
+    <div class="svc-cta-contacts rv d2">
+      <div>
+        <p class="svc-cta-contact-label">New business</p>
+        <p class="svc-cta-contact-val">hello@veil.studio</p>
+      </div>
+      <div>
+        <p class="svc-cta-contact-label">Phone</p>
+        <p class="svc-cta-contact-val">+1 (212) 555 0191</p>
+      </div>
+      <div>
+        <p class="svc-cta-contact-label">Studios</p>
+        <p class="svc-cta-contact-val">NY · Paris · Tokyo</p>
+      </div>
+    </div>
+    <div class="svc-cta-btns rv d3">
+      <a href="mailto:hello@veil.studio" class="btn-gold">Send us a brief ↗</a>
+      <a href="index.html" class="btn-outline">Back to home</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div>
+      <div class="footer-wordmark">Veil<br>Studio</div>
+      <p class="footer-tagline">Where brands stop being seen and start being felt. New York, Paris, Tokyo — since 2016.</p>
+    </div>
+    <div>
+      <p class="footer-col-head">Navigate</p>
+      <ul class="footer-links">
+        <li><a href="index.html" class="footer-link">Home</a></li>
+        <li><a href="#" class="footer-link">Work</a></li>
+        <li><a href="#" class="footer-link active">Services</a></li>
+        <li><a href="#" class="footer-link">Process</a></li>
+        <li><a href="#contact" class="footer-link">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-head">Services</p>
+      <ul class="footer-links">
+        <li><a href="#svc-01" class="footer-link">Brand Identity</a></li>
+        <li><a href="#svc-02" class="footer-link">Web Design & Build</a></li>
+        <li><a href="#svc-03" class="footer-link">Motion & 3D</a></li>
+        <li><a href="#svc-04" class="footer-link">Digital Strategy</a></li>
+        <li><a href="#svc-05" class="footer-link">Campaign Creation</a></li>
+        <li><a href="#svc-06" class="footer-link">Creative Direction</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-head">Follow</p>
+      <ul class="footer-links">
+        <li><a href="#" class="footer-link">Instagram</a></li>
+        <li><a href="#" class="footer-link">LinkedIn</a></li>
+        <li><a href="#" class="footer-link">Awwwards</a></li>
+        <li><a href="#" class="footer-link">Dribbble</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-base">
+    <p class="footer-copy">© 2024 Veil Studio LLC. All rights reserved.</p>
+    <div class="footer-legal">
+      <a href="#" class="footer-legal-link">Privacy Policy</a>
+      <a href="#" class="footer-legal-link">Terms</a>
+      <a href="#" class="footer-legal-link">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════ -->
+
+
+
+    <script  src="./script.js"></script>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     EXTERNAL LIBRARIES
+     · GSAP 3.12.5 — animation engine
+     · CustomEase  — custom easing curves
+     · ScrollTrigger — scroll-based animations
+     · SplitText  — character/word splitting (home only)
+═══════════════════════════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="js/shared.js"></script>
+<script src="js/service.js"></script>
+
+</body>
+</html>

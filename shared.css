@@ -1,0 +1,713 @@
+/* ═══════════════════════════════════════════════════════════════
+   VEIL STUDIO — shared.css
+   ───────────────────────────────────────────────────────────────
+   Applies to: ALL pages (index.html, about.html, services.html, contact.html)
+   
+   Table of contents:
+   01. DESIGN TOKENS    — CSS custom properties / variables
+   02. RESET            — Box model normalisation
+   03. FONTS            — @font-face declarations
+   04. BODY BASE        — Colour, cursor, grain overlay
+   05. TYPOGRAPHY       — Shared type utilities (.cap, .disp, etc.)
+   06. HEADER / NAV BAR — .tt-header, .tt-nav, .tt-logo, links
+   07. HAMBURGER        — Mobile trigger button + line animations
+   08. NAV MENU         — Slide-in full-screen overlay
+   09. BUTTONS          — .btn-primary, .btn-ghost, .btn-gold, .btn-outline
+   10. SCROLL REVEAL    — .rv / .in animation system
+   11. FOOTER           — .site-footer shared layout
+   12. MEDIA QUERIES    — Global breakpoints (nav hiding, etc.)
+═══════════════════════════════════════════════════════════════ */
+
+
+/* ─────────────────────────────────────────────────────────────
+   01. DESIGN TOKENS
+   All brand colours, spacing, and easing defined as CSS vars.
+   Change here → updates everywhere automatically.
+───────────────────────────────────────────────────────────── */
+:root {
+  /* Background scale */
+  --bg:           #0c0b09;
+  --bg-mid:       #131210;
+  --bg-lift:      #1c1a17;
+  --bg-high:      #242018;
+
+  /* Gold (primary accent) */
+  --gold:         #c4a46b;
+  --gold-lt:      #d4b87c;
+  --gold-glow:    rgba(196,164,107,.07);
+  --gold-border:  rgba(196,164,107,.22);
+  --gold-faint:   rgba(196,164,107,.1);
+
+  /* Cream (primary text) */
+  --cream:        #f0e6d3;
+  --cream-mid:    rgba(240,230,211,.55);
+  --cream-dim:    rgba(240,230,211,.32);
+  --cream-ghost:  rgba(240,230,211,.08);
+
+  /* Rule lines */
+  --rule:         rgba(240,230,211,.08);
+  --rule-mid:     rgba(240,230,211,.13);
+
+  /* Red (used by about/contact for accents) */
+  --red:          #c4504a;
+  --red-dim:      rgba(196,80,74,.18);
+
+  /* Easing curves */
+  --cubic:        cubic-bezier(.65,.01,.05,.99);
+  --cubic-default:cubic-bezier(.65,.01,.05,.99);
+  --ease-out:     cubic-bezier(.16,1,.3,1);
+
+  /* Layout */
+  --gap:               1.5rem;
+  --container-padding: 2rem;
+  --size-container:    90em;
+  --menu-padding:      2em;
+
+  /* Legacy compatibility aliases (some pages reference these) */
+  --color-primary:     #c4a46b;
+  --color-dark:        #0c0b09;
+  --color-neutral-100: #f0e6d3;
+  --color-neutral-200: #2a2720;
+  --color-neutral-300: #f0e6d3;
+  --color-neutral-800: #f0e6d3;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   02. RESET
+   Minimal box-model normalisation. No aggressive CSS resets
+   that would break the existing component styles.
+───────────────────────────────────────────────────────────── */
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+
+
+/* ─────────────────────────────────────────────────────────────
+   03. FONTS
+   All four faces loaded from hosted assets.
+   PType Display  = Manuka Condensed Black (display headlines)
+   PType Text     = Söhne (body + UI)
+   PP Neue Corp   = PP Neue Corp Tight Ultrabold (large headings)
+───────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: "PType Display";
+  src: url("https://assets.website-files.com/60e4912ee7c15fb303f4c588/60e491f57f25e15bc971a03a_manuka-condensed-web-black.woff") format("woff");
+  font-weight: 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PType Text";
+  src: url("https://assets.website-files.com/60e4912ee7c15fb303f4c588/60e492c541078e283f2bf759_soehne-web-kraftig.woff") format("woff");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PType Text";
+  src: url("https://assets.website-files.com/60e4912ee7c15fb303f4c588/60e492c5ed8ba9d6d959a06b_soehne-web-buch.woff") format("woff");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PP Neue Corp Tight";
+  src: url("https://cdn.prod.website-files.com/673af51dea86ab95d124c3ee/673b0f5784f7060c0ac05534_PPNeueCorp-TightUltrabold.otf") format("opentype");
+  font-weight: 700;
+  font-display: swap;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   04. BODY BASE
+   Dark background, cream text, custom SVG cursor, film grain.
+   NOTE: body { perspective } was intentionally removed — it
+   breaks position:fixed on all descendants (nav-menu bug).
+───────────────────────────────────────────────────────────── */
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: "PType Text", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2;
+  overflow-x: hidden;
+  cursor: url("https://cdn.prod.website-files.com/6708f85ff3d3cba6aff436fb/671251b239d7aeb290a31ac5_cursor-default%402x.svg") 2 0, auto;
+}
+
+p  { margin: 0; }
+a  { text-decoration: none; color: inherit; }
+a, button {
+  cursor: url("https://cdn.prod.website-files.com/6708f85ff3d3cba6aff436fb/671251b212e6b71494aa67ff_cursor-pointer%402x.svg") 12 0, pointer;
+}
+ul { list-style: none; }
+
+/* Film grain overlay — fixed to viewport, sits above everything */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9990;
+  opacity: .025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   05. TYPOGRAPHY — shared utilities
+───────────────────────────────────────────────────────────── */
+.cap {
+  font-size: .62em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: .9em;
+}
+.cap::before {
+  content: '';
+  display: block;
+  width: 2em;
+  height: 1px;
+  background: var(--gold);
+  opacity: .55;
+  flex-shrink: 0;
+}
+
+.disp {
+  font-family: "PP Neue Corp Tight", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: .85;
+  letter-spacing: -.02em;
+}
+
+.gold  { color: var(--gold); }
+.ghost { -webkit-text-stroke: 1px var(--cream); color: transparent; }
+
+.p-small { font-size: .875em; font-family: Arial, Helvetica; color: var(--cream-mid); }
+.p-large { font-size: 1em; }
+
+
+/* ─────────────────────────────────────────────────────────────
+   06. HEADER / NAV BAR
+   Sticky bar at top. z-index:10001 keeps it above nav-menu
+   overlay (z-index:9999) so the hamburger is always clickable.
+───────────────────────────────────────────────────────────── */
+.tt-header {
+  position: sticky;
+  top: 0; left: 0; right: 0;
+  z-index: 10001;
+  background: rgba(12,11,9,.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--rule);
+}
+
+.tt-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 3.5em;
+  padding: 0 2em;
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Left nav links */
+.tt-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 1.8em;
+  flex: 1;
+}
+.tt-nav-left a, .tt-nav-right-links a {
+  font-size: .68em;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-weight: 600;
+  color: rgba(240,230,211,.45);
+  transition: color .25s;
+  position: relative;
+  padding: .2em 0;
+}
+.tt-nav-left a:hover, .tt-nav-right-links a:hover  { color: var(--cream); }
+.tt-nav-left a.tt-active, .tt-nav-right-links a.tt-active { color: var(--gold); }
+
+/* Underline on hover / active */
+.tt-nav-left a::after, .tt-nav-right-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -.1em; left: 0;
+  width: 100%; height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .4s var(--cubic);
+}
+.tt-nav-left a:hover::after, .tt-nav-right-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.tt-nav-left a.tt-active::after, .tt-nav-right-links a.tt-active::after {
+  transform: scaleX(1);
+}
+
+/* Centre logo — absolute so it doesn't affect flex layout */
+.tt-logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "PP Neue Corp Tight", sans-serif;
+  font-size: 1.15em;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--cream);
+  white-space: nowrap;
+  line-height: 1;
+  transition: color .25s;
+}
+.tt-logo:hover { color: var(--gold); }
+
+.tt-logo-mark {
+  display: inline-block;
+  width: .9em; height: .9em;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: .3em; margin-bottom: .1em;
+  position: relative; overflow: hidden;
+  font-size: .85em;
+}
+.tt-logo-mark::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 50%; height: 50%;
+  border-top: 1.5px solid currentColor;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+/* Right nav */
+.tt-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.8em;
+  justify-content: flex-end;
+  flex: 1;
+}
+.tt-nav-right-links { display: flex; align-items: center; gap: 1.8em; }
+
+.tt-nav-cta {
+  font-size: .65em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  padding: .55em 1.4em;
+  border-radius: 2em;
+  background: var(--gold);
+  color: var(--bg);
+  transition: background .3s, transform .3s var(--cubic);
+  white-space: nowrap;
+}
+.tt-nav-cta:hover { background: var(--gold-lt); transform: translateY(-1px); }
+
+
+/* ─────────────────────────────────────────────────────────────
+   07. HAMBURGER BUTTON
+   Hidden on desktop, shown on mobile via media query below.
+   Inline styles on the element itself also enforce visibility
+   to defeat any external stylesheet overrides.
+───────────────────────────────────────────────────────────── */
+.menu-button, .hamburger-btn {
+  display: none; /* shown via media query + inline style */
+  gap: 0;
+  background: transparent;
+  border: none;
+  color: var(--cream);
+  align-items: center;
+  justify-content: center;
+  padding: .75em;
+  margin: -.75em -.75em -.75em 0;
+}
+
+.menu-button-text { display: none !important; }
+
+.hamburger {
+  width: 1.6em; height: 1.15em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+}
+.hamburger-line {
+  display: block;
+  height: 2px; width: 100%;
+  background: currentColor;
+  border-radius: 2px;
+  transform-origin: center;
+  transition: transform .35s var(--ease-out), opacity .25s var(--ease-out);
+}
+
+/* X animation when menu is open — driven by aria-expanded */
+.hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(1) {
+  transform: translateY(.43em) rotate(45deg);
+}
+.hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+.hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(3) {
+  transform: translateY(-.43em) rotate(-45deg);
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   08. NAV MENU (SLIDE-IN OVERLAY)
+   
+   CRITICAL ARCHITECTURE NOTE:
+   The .nav-menu starts as a <body> child in the HTML.
+   shared.js moves it to the very END of <body> at runtime via
+   document.body.appendChild(nav) and applies position:fixed
+   via inline style. This escapes all CSS stacking contexts
+   (backdrop-filter, transform, perspective) that would confine
+   position:fixed to a sub-viewport area.
+   
+   DO NOT add position/transform to .nav-menu here — let JS do it.
+───────────────────────────────────────────────────────────── */
+.nav-menu {
+  --menu-padding: 2em;
+  display: none; /* JS sets to block when open */
+  /* position:fixed applied by JS as inline style */
+}
+
+/* Semi-transparent backdrop behind the menu panel */
+.overlay {
+  z-index: 0;
+  background: rgba(12,11,9,.75);
+  width: 100%; height: 100%;
+  position: absolute; inset: 0;
+  backdrop-filter: blur(4px);
+}
+
+/* The slide-in panel itself (35em wide, from right) */
+.menu {
+  display: flex;
+  padding-bottom: var(--menu-padding);
+  padding-top: calc(3 * var(--menu-padding));
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 35em; height: 100%;
+  margin-left: auto;
+  position: relative;
+  overflow: auto;
+}
+
+.menu-bg { z-index: 0; position: absolute; inset: 0; }
+.menu-inner {
+  z-index: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+  display: flex;
+  position: relative;
+  overflow: auto;
+}
+
+/* Three staggered background panels (gold → dark-lift → bg) */
+.bg-panel {
+  z-index: 0;
+  background: var(--bg);
+  border-top-left-radius: 1.25em;
+  border-bottom-left-radius: 1.25em;
+  position: absolute; inset: 0;
+}
+.bg-panel.first  { background: var(--gold); }
+.bg-panel.second { background: var(--bg-lift); }
+
+/* Menu list items */
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+}
+.menu-list-item { position: relative; overflow: hidden; }
+
+.menu-link-heading {
+  z-index: 1;
+  text-shadow: 0 1em 0 var(--bg-lift);
+  text-transform: uppercase;
+  font-family: "PP Neue Corp Tight", Arial, sans-serif;
+  font-size: 5.625em;
+  font-weight: 700;
+  line-height: .75;
+  transition: transform .55s cubic-bezier(.65,.05,0,1);
+  position: relative;
+  color: var(--cream);
+}
+.menu-link {
+  padding: .75em 0 .75em var(--menu-padding);
+  gap: .75em;
+  width: 100%;
+  text-decoration: none;
+  display: flex;
+}
+.eyebrow { z-index: 1; color: var(--gold); text-transform: uppercase; font-weight: 400; position: relative; }
+
+.menu-link-bg {
+  z-index: 0;
+  background: var(--gold);
+  transform-origin: 50% 100%;
+  transition: transform .55s cubic-bezier(.65,.05,0,1);
+  position: absolute; inset: 0;
+  transform: scale3d(1,0,1);
+}
+.menu-link:hover .menu-link-bg { transform: scale3d(1,1,1); }
+
+.menu-details {
+  padding-left: var(--menu-padding);
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+  gap: 1.25em;
+}
+.socials-row { display: flex; gap: 1.5em; }
+.text-link { text-decoration: none; position: relative; color: var(--cream); }
+
+
+/* ─────────────────────────────────────────────────────────────
+   09. BUTTONS
+   Shared button styles used across all pages.
+───────────────────────────────────────────────────────────── */
+
+/* Gold filled (primary CTA) */
+.btn-gold, .btn-gold2 {
+  display: inline-flex;
+  align-items: center;
+  gap: .7em;
+  background: var(--gold);
+  color: var(--bg);
+  font-family: "PP Neue Corp Tight", sans-serif;
+  font-size: .92em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  padding: 1.2em 2.6em;
+  border-radius: 3em;
+  border: none;
+  transition: transform .4s var(--cubic), box-shadow .4s, background .3s;
+  position: relative;
+  overflow: hidden;
+}
+.btn-gold:hover, .btn-gold2:hover {
+  background: var(--gold-lt);
+  box-shadow: 0 20px 56px rgba(196,164,107,.3);
+  transform: translateY(-2px);
+}
+
+/* Ghost / outline */
+.btn-outline, .btn-outline2 {
+  display: inline-flex;
+  align-items: center;
+  gap: .7em;
+  border: 1px solid var(--gold-border);
+  color: var(--gold);
+  font-family: "PP Neue Corp Tight", sans-serif;
+  font-size: .92em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  padding: 1.2em 2.6em;
+  border-radius: 3em;
+  background: transparent;
+  transition: border-color .4s, background .4s, color .4s;
+}
+.btn-outline:hover, .btn-outline2:hover {
+  border-color: var(--gold);
+  background: var(--gold-faint);
+  color: var(--cream);
+}
+
+/* Standard filled (used by home CTA section) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: .7em;
+  background: var(--gold);
+  color: var(--bg);
+  font-size: .75em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  padding: .9em 2.4em;
+  border-radius: 3em;
+  border: none;
+  transition: background .3s, transform .3s var(--cubic);
+}
+.btn-primary:hover { background: var(--gold-lt); transform: translateY(-2px); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: .7em;
+  font-size: .75em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  padding: .9em 2.4em;
+  border-radius: 3em;
+  border: 1px solid var(--gold-border);
+  color: var(--gold);
+  background: transparent;
+  transition: border-color .3s, background .3s, color .3s;
+}
+.btn-ghost:hover { border-color: var(--gold); background: var(--gold-faint); color: var(--cream); }
+
+/* Brief/file button (contact page) */
+.btn-file {
+  display: inline-flex;
+  align-items: center;
+  gap: .7em;
+  font-family: "PP Neue Corp Tight", sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  padding: 1em 2.8em;
+  border-radius: 3em;
+  background: var(--gold);
+  color: var(--bg);
+  border: none;
+  transition: background .3s, transform .3s;
+}
+.btn-file:hover { background: var(--gold-lt); transform: translateY(-2px); }
+
+/* CTA two-button row */
+.cta-btns-two { display: flex; gap: 1em; flex-wrap: wrap; padding: 0 2em 3em; }
+
+
+/* ─────────────────────────────────────────────────────────────
+   10. SCROLL REVEAL SYSTEM
+   Elements start invisible (.rv), get .in added by
+   IntersectionObserver in shared.js when they enter viewport.
+   Delay variants: .d1 through .d5
+───────────────────────────────────────────────────────────── */
+.rv {
+  opacity: 0;
+  transform: translateY(2.5em);
+  transition: opacity .85s var(--ease-out), transform .85s var(--ease-out);
+}
+.rv.in {
+  opacity: 1 !important;
+  transform: none !important;
+}
+.d1 { transition-delay: .05s; }
+.d2 { transition-delay: .15s; }
+.d3 { transition-delay: .25s; }
+.d4 { transition-delay: .35s; }
+.d5 { transition-delay: .45s; }
+
+
+/* ─────────────────────────────────────────────────────────────
+   11. FOOTER — shared across all pages
+───────────────────────────────────────────────────────────── */
+.site-footer {
+  background: var(--bg-mid);
+  border-top: 1px solid var(--rule);
+  padding: 5em 4em 3em;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 4em;
+  margin-bottom: 4em;
+}
+.footer-wordmark, .footer-wm {
+  font-family: "PP Neue Corp Tight", sans-serif;
+  font-size: 2.5em;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: .9;
+  color: var(--cream);
+  margin-bottom: .6em;
+}
+.footer-tagline, .footer-tag {
+  font-size: .8em;
+  color: var(--cream-dim);
+  line-height: 1.6;
+  max-width: 24em;
+}
+.footer-col-head, .footer-col-hed {
+  font-size: .6em;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  color: var(--cream-dim);
+  font-weight: 600;
+  margin-bottom: 1.2em;
+}
+.footer-links { display: flex; flex-direction: column; gap: .7em; }
+.footer-link, .fl {
+  font-size: .8em;
+  color: var(--cream-dim);
+  transition: color .25s;
+}
+.footer-link:hover, .fl:hover { color: var(--cream); }
+.footer-link.active, .fl.active { color: var(--gold); }
+.footer-base, .footer-grid > div:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2.5em;
+  border-top: 1px solid var(--rule);
+  flex-wrap: wrap;
+  gap: 1em;
+}
+.footer-copy { font-size: .65em; text-transform: uppercase; letter-spacing: .12em; color: var(--cream-dim); }
+.footer-legal { display: flex; gap: 2em; }
+.footer-legal-link, .footer-legal a { font-size: .65em; text-transform: uppercase; letter-spacing: .12em; color: var(--cream-dim); transition: color .2s; }
+.footer-legal-link:hover, .footer-legal a:hover { color: var(--gold); }
+
+/* Contact page footer variant */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 4em;
+  padding-bottom: 3em;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   12. GLOBAL MEDIA QUERIES
+───────────────────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  /* Hide desktop nav links; show hamburger button */
+  .tt-nav-left, .tt-nav-right-links, .tt-nav-cta { display: none; }
+  .hamburger-btn, .menu-button { display: flex !important; }
+}
+
+@media (max-width: 991px) {
+  .tt-nav { padding: 0 1.5em; }
+}
+
+@media (max-width: 767px) {
+  /* Mobile: full-width menu panel */
+  .menu { width: 100%; }
+  .bg-panel { border-top-left-radius: 0; border-bottom-left-radius: 0; }
+  .nav-menu { --menu-padding: 1em; }
+
+  /* Footer stacks on mobile */
+  .footer-top, .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5em; }
+}
+
+@media (max-width: 479px) {
+  .footer-top, .footer-grid { grid-template-columns: 1fr; }
+}
