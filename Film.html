@@ -1,0 +1,1792 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEIL — Film Production / The Frame Is the Argument</title>
+    
+  </head>
+  <body>
+  
+  <!-- ════════════════════════════════════════════
+       PRELOADER — FILM LEADER COUNTDOWN
+  ════════════════════════════════════════════ -->
+  <div id="preloader">
+    <div class="pre-filmstrip" aria-hidden="true" id="pre-filmstrip"></div>
+    <div class="pre-leader">
+      <div class="pre-count" id="pre-count">5</div>
+      <div class="pre-frame-data" id="pre-frame-data">
+        <div class="pre-frame-item">Frame rate <span>24fps</span></div>
+        <div class="pre-frame-item">Codec <span>ProRes 4444</span></div>
+        <div class="pre-frame-item">Colour <span>ACES 1.3</span></div>
+        <div class="pre-frame-item">Resolution <span>6K RAW</span></div>
+      </div>
+      <div class="pre-action" id="pre-action">
+        <span class="pa-dim">The frame</span><br>
+        <span>is the</span><br>
+        <span class="pa-gold">argument.</span>
+      </div>
+    </div>
+    <div class="pre-track"><div class="pre-fill" id="pre-fill"></div></div>
+    <div class="pre-bar-row">
+      <span class="pre-svc-name">Film Production — Veil Studio</span>
+      <span class="pre-status" id="pre-status">Loading…</span>
+    </div>
+  </div>
+  
+  <!-- ════════════════════════════════════════════
+       ╔══════════════════════════════════════════╗
+       ║   TAKETHAT.COM NAV — EXACT REPRODUCTION  ║
+       ║                                          ║
+       ║  • Split nav: 2 links left | centered    ║
+       ║    wordmark logo | 2 links + CTA right   ║
+       ║  • Fixed, dark, backdrop-blur            ║
+       ║  • Underline hover state on links        ║
+       ║  • Pill CTA on the right                 ║
+       ║  • ≤1200px: links hide, hamburger shows  ║
+       ║  • Hamburger: CSS 3-line ═ → ✕ animated  ║
+       ║  • Mobile overlay: full-screen dark,     ║
+       ║    large stacked links, stagger in       ║
+       ╚══════════════════════════════════════════╝
+  ════════════════════════════════════════════ -->
+  <!-- ════════════════════════════════════════════
+       ╔══════════════════════════════════════════╗
+       ║   nav    ║ header
+       ╚══════════════════════════════════════════╝
+  ════════════════════════════════════════════ -->
+  
+  
+  <header class="tt-header" id="tt-header">
+    <nav class="tt-nav">
+  
+      <!-- LEFT LINKS -->
+      <ul class="tt-nav-left">
+        <li><a href="veil-landing.html">Work</a></li>
+        <li><a href="veil-services-v2.html" class="tt-active">Services</a></li>
+      </ul>
+  
+      <!-- CENTER LOGO — absolute centered -->
+      <a href="veil-landing.html" class="tt-logo">
+        <span class="tt-logo-mark" aria-hidden="true"></span>
+        VEIL
+      </a>
+  
+      <!-- RIGHT LINKS + CTA -->
+      <div class="tt-nav-right">
+        <ul class="tt-nav-right-links">
+          <li><a href="veil-about.html">About</a></li>
+          <li><a href="veil-contact.html">Contact</a></li>
+        </ul>
+        <a href="veil-contact.html" class="tt-nav-cta">File a Brief</a>
+      </div>
+      <button class="menu-button hamburger-btn" type="button" data-menu-toggle="" aria-label="Open menu" aria-expanded="false" style="display:flex !important;align-items:center;justify-content:center;background:transparent;border:none;cursor:pointer;padding:.75em;margin-right:-.5em;color:#c4a46b;z-index:10002;position:relative;">
+        <span class="hamburger" aria-hidden="true" style="display:flex;flex-direction:column;justify-content:space-between;width:1.6em;height:1.15em;pointer-events:none;">
+          <span class="hamburger-line" style="display:block;height:2px;width:100%;background:currentColor;border-radius:2px;transition:transform .35s,opacity .25s;"></span>
+          <span class="hamburger-line" style="display:block;height:2px;width:100%;background:currentColor;border-radius:2px;transition:transform .35s,opacity .25s;"></span>
+          <span class="hamburger-line" style="display:block;height:2px;width:100%;background:currentColor;border-radius:2px;transition:transform .35s,opacity .25s;"></span>
+        </span>
+      </button>
+      
+    </nav>
+  </header>
+  
+  <!-- FULL-SCREEN MOBILE MENU OVERLAY — direct <body> child, outside all stacking contexts -->
+  <div data-nav="closed" class="nav-menu">
+    <div data-menu-toggle="" class="overlay"></div>
+    <nav class="menu">
+      <div class="menu-bg">
+        <div class="bg-panel first"></div><div class="bg-panel second"></div><div class="bg-panel"></div>
+      </div>
+      <div class="menu-inner">
+        <ul class="menu-list">
+          <li class="menu-list-item"><a href="veil-v3.html"    class="menu-link"><p class="menu-link-heading">Home</p>    <p class="eyebrow">00</p><div class="menu-link-bg"></div></a></li>
+          <li class="menu-list-item"><a href="#"               class="menu-link"><p class="menu-link-heading">Work</p>    <p class="eyebrow">01</p><div class="menu-link-bg"></div></a></li>
+          <li class="menu-list-item"><a href="#"               class="menu-link"><p class="menu-link-heading">Services</p><p class="eyebrow">02</p><div class="menu-link-bg"></div></a></li>
+          <li class="menu-list-item"><a href="veil-about.html" class="menu-link"><p class="menu-link-heading">About</p>   <p class="eyebrow">03</p><div class="menu-link-bg"></div></a></li>
+          <li class="menu-list-item"><a href="#complaint"      class="menu-link"><p class="menu-link-heading">Contact</p> <p class="eyebrow">04</p><div class="menu-link-bg"></div></a></li>
+        </ul>
+        <div class="menu-details">
+          <p data-menu-fade="" class="p-small">Follow the obsession</p>
+          <div class="socials-row">
+            <a data-menu-fade="" href="#" class="p-large text-link">Instagram</a>
+            <a data-menu-fade="" href="#" class="p-large text-link">LinkedIn</a>
+            <a data-menu-fade="" href="#" class="p-large text-link">Awwwards</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  
+  
+  
+  
+  <!-- ════════════════════════════════════════════
+       ╔══════════════════════════════════════════╗
+       ║   end     ║
+       ╚══════════════════════════════════════════╝
+  ════════════════════════════════════════════ -->
+  
+  <!-- ════════════════════════════════════════════
+       HERO — ARGUMENT + STORYBOARD FRAMES
+  ════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+  
+    <div class="hero-left">
+      <div class="hero-bc rv">
+        <a href="veil-landing.html">Home</a><span class="hero-bc-sep">/</span>
+        <a href="veil-services-v2.html">Services</a><span class="hero-bc-sep">/</span>
+        <span>Film Production</span>
+      </div>
+      <div>
+        <span class="hero-exhibit rv d1">Exhibit C — Count III of VI</span>
+        <span class="hero-svc rv d2">Film<br>Production</span>
+        <span class="hero-tag rv d3">Movement is meaning.</span>
+        <p class="hero-arg rv d3">
+          <strong>Every brand film ever made began as an argument about what the brand is.</strong> Most ended as an exercise in production value — technically excellent, emotionally inert. The cinematography is impeccable. The grade is exquisite. The music is exactly right. And the audience finishes watching and feels precisely nothing. This is the failure we were built to refuse.
+        </p>
+        <p class="hero-arg rv d4" style="margin-top:-1.2em">
+          The frame is not a container for content. The frame is an argument. Every cut is a sentence. <strong>The way something moves tells you more about a brand than its logo ever will</strong> — and we refuse to let that argument be made carelessly.
+        </p>
+      </div>
+      <div class="hero-stats rv d5">
+        <div class="hero-stat">
+          <span class="hero-stat-val"><span data-count="38">0</span><span>+</span></span>
+          <span class="hero-stat-label">Films produced</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-val">1<span> Voice note</span></span>
+          <span class="hero-stat-label">"I got chills"</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-val">1,800<span> ms</span></span>
+          <span class="hero-stat-label">One easing argument</span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="hero-right rv d2">
+      <div class="sb-stage">
+        <div class="sb-frame"><span class="sb-frame-n">01</span></div>
+        <div class="sb-frame"><span class="sb-frame-n">02</span></div>
+        <div class="sb-frame"><span class="sb-frame-n">03</span></div>
+        <div class="sb-frame"><span class="sb-frame-n">04</span></div>
+        <div class="sb-frame"><span class="sb-frame-n">05</span></div>
+        <div class="sb-frame"><span class="sb-frame-n">06</span></div>
+        <div class="sb-play-indicator"><div class="sb-play-icon"></div></div>
+      </div>
+      <div class="sb-annotation rv d5">
+        <span class="sb-annotation-text">Storyboard — Film Brief VL-C-001</span>
+        <span class="sb-annotation-fps"><span class="dot-live"></span>24fps · ProRes · 6K</span>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ════════════════════════════════════════════
+       DIAGNOSIS — 6 FAILURE MODES
+  ════════════════════════════════════════════ -->
+  <section class="sec-diagnosis" id="diagnosis">
+    <div class="diagnosis-header">
+      <div class="sec-header-split">
+        <div>
+          <div class="sec-lbl-row rv">
+            <span class="sec-lbl-num">I</span><span class="sec-lbl-rule"></span><span>The Diagnosis</span>
+          </div>
+          <h2 class="sec-hed rv d1">Six reasons<br>brand film<br><em>fails.</em></h2>
+        </div>
+        <p class="sec-note rv d2"><strong>Before we touch a camera, we identify which of these failures we're solving.</strong> Every brand film we have ever seen from a non-specialist agency had at least three. The ones made in-house almost always had all six. The diagnostic is not a service. It's a precondition for doing the work at all.</p>
+      </div>
+    </div>
+  
+    <div class="diag-grid">
+      <div class="diag-card rv">
+        <div class="diag-head"><span class="diag-id">SCAN-C01</span><div class="diag-sev"><span class="diag-sev-dot"></span>Critical</div></div>
+        <div class="diag-failure">Production value without emotional logic</div>
+        <p class="diag-desc">Shot on RED, graded in LA, mixed at Abbey Road. <em>And the viewer feels nothing.</em> Production value is not a substitute for argument. Expensive ingredients do not automatically make a meal worth eating. Most brand films are technically impeccable and emotionally absent because nobody asked what the film was supposed to make the viewer feel, and why.</p>
+        <div class="diag-refusal"><span class="diag-ref-lbl">Our refusal</span><p>Before the shot list, we write the emotional logic. What should the viewer feel at the 30-second mark? At the cut to black? If we cannot answer precisely, we are not ready to shoot.</p></div>
+      </div>
+      <div class="diag-card rv d1">
+        <div class="diag-head"><span class="diag-id">SCAN-C02</span><div class="diag-sev"><span class="diag-sev-dot"></span>Critical</div></div>
+        <div class="diag-failure">Default easing and motion design</div>
+        <p class="diag-desc">The easing curve that came with After Effects. The transition that every motion designer uses on Thursday afternoon when they need to move between two shots and haven't thought about it. <em>Default motion is invisible at best and brand-destroying at worst.</em> It communicates nothing specific about this brand because it was not designed to. It was simply there.</p>
+        <div class="diag-refusal"><span class="diag-ref-lbl">Our refusal</span><p>Every film we produce has a motion identity: a specific easing curve, a transition logic, a camera movement vocabulary — designed for this brand and never recycled.</p></div>
+      </div>
+      <div class="diag-card rv d2">
+        <div class="diag-head"><span class="diag-id">SCAN-C03</span><div class="diag-sev diag-sev"><span class="diag-sev-dot"></span>Critical</div></div>
+        <div class="diag-failure">Wrong framerate for the brand</div>
+        <p class="diag-desc">24fps is cinematic, deliberate, weighted. 60fps is hyperreal, intimate, immediate. The choice communicates before a single shot is composed. <em>Most brands use whatever the camera defaulted to.</em> A $180,000 luxury car shot at 60fps feels like a consumer test drive video. The framerate is a design decision and it must be made intentionally.</p>
+        <div class="diag-refusal"><span class="diag-ref-lbl">Our refusal</span><p>Frame rate, shutter angle, and optical grade are defined in the creative brief — with the reasoning attached — before a single production decision is made.</p></div>
+      </div>
+      <div class="diag-card rv d3">
+        <div class="diag-head"><span class="diag-id">SCAN-C04</span><div class="diag-sev warn"><span class="diag-sev-dot"></span>Common</div></div>
+        <div class="diag-failure">Music chosen from a sync library</div>
+        <p class="diag-desc">The music bed from a library that 4,000 other brand videos have used. It fills the silence, it doesn't contradict the visuals, and <em>it doesn't belong to this brand any more than it belongs to a competitor.</em> Sync library music is the sonic equivalent of stock photography — technically adequate and completely generic.</p>
+        <div class="diag-refusal"><span class="diag-ref-lbl">Our refusal</span><p>Score or commission. Every film we produce has music written or selected with the same rigour as the visual brief. The tone, tempo, and instrumentation are brand decisions.</p></div>
+      </div>
+      <div class="diag-card rv d4">
+        <div class="diag-head"><span class="diag-id">SCAN-C05</span><div class="diag-sev warn"><span class="diag-sev-dot"></span>Common</div></div>
+        <div class="diag-failure">Made for the brief, not the screen</div>
+        <p class="diag-desc">A 90-second brand film optimised for a desktop website, delivered to a social media team who crops it to 9:16 for a reel, losing the entire visual argument in the process. <em>Nobody planned for where it would actually be watched.</em> The primary screen is now a phone held vertically. Films not designed for that context are films that don't work in practice.</p>
+        <div class="diag-refusal"><span class="diag-ref-lbl">Our refusal</span><p>Every film is delivered in all required formats — widescreen, square, vertical — each cut individually for its platform, not cropped from the master.</p></div>
+      </div>
+      <div class="diag-card rv d5">
+        <div class="diag-head"><span class="diag-id">SCAN-C06</span><div class="diag-sev"><span class="diag-sev-dot"></span>Critical</div></div>
+        <div class="diag-failure">No continuity with the brand system</div>
+        <p class="diag-desc">The film looks nothing like the website. The grade contradicts the colour system. The typography in the end card uses a different typeface than the brand guidelines specify. <em>The film has become a standalone object rather than part of a system.</em> When a brand film exists outside the visual system, it doesn't strengthen the brand — it confuses it.</p>
+        <div class="diag-refusal"><span class="diag-ref-lbl">Our refusal</span><p>We work from the brand system. If the brand system doesn't exist yet, we build the film and the system together. They are the same argument made in two different languages.</p></div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- PUNCH I -->
+  <div class="punch rv">
+    <div class="punch-text">
+      <span class="pt-dim">The way something moves</span><br>
+      <span class="pt-cream">tells you more about a brand</span><br>
+      <span class="pt-gold">than its logo ever will.</span>
+    </div>
+  </div>
+  
+  <!-- ════════════════════════════════════════════
+       ANATOMY — WHAT A VEIL FILM CONTAINS
+  ════════════════════════════════════════════ -->
+  <section class="sec-anatomy" id="anatomy">
+    <div class="anatomy-header">
+      <div class="sec-header-split">
+        <div>
+          <div class="sec-lbl-row rv"><span class="sec-lbl-num">II</span><span class="sec-lbl-rule"></span><span>The Anatomy</span></div>
+          <h2 class="sec-hed rv d1">What a Veil<br>film actually<br><em>contains.</em></h2>
+        </div>
+        <p class="sec-note rv d2">Not a production service. A sustained argument made in light and time. Each layer below is mandatory — the technical and the strategic inseparable. <strong>Click any layer to open it.</strong></p>
+      </div>
+    </div>
+  
+    <div class="anatomy-layers">
+  
+      <div class="anat-layer rv" data-layer>
+        <div class="anat-head">
+          <div class="anat-num">01</div>
+          <div><div class="anat-name">Creative Strategy</div><div class="anat-sub">The argument before the shot list</div></div>
+          <div class="anat-toggle">Expand <span class="anat-icon">+</span></div>
+        </div>
+        <div class="anat-body"><div class="anat-inner">
+          <div></div>
+          <p class="anat-desc">The creative strategy document defines the emotional logic of the film before the first conversation about cameras. <strong>What should the viewer feel? When? Why?</strong> Not "excited" or "inspired" — those are not emotions, they are approximations. The strategy names a specific feeling, a specific moment in the film where it must land, and the specific visual and sonic arguments that will produce it. This document precedes everything else. Without it, production is expensive guessing.</p>
+          <div class="anat-items">
+            <div class="anat-item">Emotional logic map — frame by frame</div>
+            <div class="anat-item">Visual argument brief</div>
+            <div class="anat-item">Sound direction principles</div>
+            <div class="anat-item">Brand system integration plan</div>
+            <div class="anat-item">Distribution format matrix</div>
+          </div>
+        </div></div>
+      </div>
+  
+      <div class="anat-layer rv" data-layer>
+        <div class="anat-head">
+          <div class="anat-num">02</div>
+          <div><div class="anat-name">Pre-Production</div><div class="anat-sub">Storyboard, location, cast, motion identity</div></div>
+          <div class="anat-toggle">Expand <span class="anat-icon">+</span></div>
+        </div>
+        <div class="anat-body"><div class="anat-inner">
+          <div></div>
+          <p class="anat-desc">Pre-production is where the film is actually made. The shoot is execution. <strong>By the time we arrive on location, every frame has been considered, every cut has been argued.</strong> The storyboard is not a courtesy document — it is the film in static form, with every visual decision justified. The motion identity (easing, camera vocabulary, transition logic) is designed in pre-production, not discovered in post. The cast, the locations, the light quality — all are specified against the emotional brief, not assembled from availability.</p>
+          <div class="anat-items">
+            <div class="anat-item">Full frame-by-frame storyboard</div>
+            <div class="anat-item">Custom motion identity specification</div>
+            <div class="anat-item">Camera, lens &amp; framerate decisions with rationale</div>
+            <div class="anat-item">Location &amp; cast brief against brand criteria</div>
+            <div class="anat-item">Music brief — score or sync specification</div>
+          </div>
+        </div></div>
+      </div>
+  
+      <div class="anat-layer rv" data-layer>
+        <div class="anat-head">
+          <div class="anat-num">03</div>
+          <div><div class="anat-name">Production</div><div class="anat-sub">On set, on argument, without deviation</div></div>
+          <div class="anat-toggle">Expand <span class="anat-icon">+</span></div>
+        </div>
+        <div class="anat-body"><div class="anat-inner">
+          <div></div>
+          <p class="anat-desc">Riku Nakamura (Tokyo) or a director of equivalent obsessiveness leads the shoot. <strong>Every setup is checked against the emotional brief, not just the shot list.</strong> The shot list is a minimum standard. The emotional brief is the actual goal. When the two diverge on the day — when the light is different, when the location has changed, when the cast performance is unexpected — the emotional brief wins. We have never compromised a shot to make a schedule. We have extended a schedule to make a shot.</p>
+          <div class="anat-items">
+            <div class="anat-item">Senior director on set throughout</div>
+            <div class="anat-item">On-set colour management (DIT)</div>
+            <div class="anat-item">6K RAW or equivalent acquisition</div>
+            <div class="anat-item">Multiple coverage options per scene</div>
+            <div class="anat-item">Same-day review against emotional brief</div>
+          </div>
+        </div></div>
+      </div>
+  
+      <div class="anat-layer rv" data-layer>
+        <div class="anat-head">
+          <div class="anat-num">04</div>
+          <div><div class="anat-name">Post-Production</div><div class="anat-sub">Edit, grade, sound, motion — the argument in final form</div></div>
+          <div class="anat-toggle">Expand <span class="anat-icon">+</span></div>
+        </div>
+        <div class="anat-body"><div class="anat-inner">
+          <div></div>
+          <p class="anat-desc">The edit is where the argument is made. Every cut is a sentence. The pacing — the specific duration of each shot before the cut — is a design decision with the same weight as a typeface choice. <strong>We have re-edited a film the night before delivery because the cut at 01:12 was 18 frames too long and the emotional argument was landing 1.2 seconds late.</strong> The grade follows the colour system. The end card typography matches the brand guidelines. Motion graphics are drawn from the motion identity. Nothing in the film contradicts the brand system it belongs to.</p>
+          <div class="anat-items">
+            <div class="anat-item">Editor who works from the emotional brief</div>
+            <div class="anat-item">DaVinci Resolve colour grade — calibrated to brand system</div>
+            <div class="anat-item">Original score or licensed sync (specified in pre-pro)</div>
+            <div class="anat-item">Motion graphics from brand motion identity</div>
+            <div class="anat-item">Three rounds of review (no additional charge)</div>
+          </div>
+        </div></div>
+      </div>
+  
+      <div class="anat-layer rv" data-layer>
+        <div class="anat-head">
+          <div class="anat-num">05</div>
+          <div><div class="anat-name">Multi-Format Delivery</div><div class="anat-sub">Master, widescreen, square, vertical — each cut individually</div></div>
+          <div class="anat-toggle">Expand <span class="anat-icon">+</span></div>
+        </div>
+        <div class="anat-body"><div class="anat-inner">
+          <div></div>
+          <p class="anat-desc"><strong>Cropping a 16:9 film to 9:16 destroys the visual argument.</strong> Every composition designed for widescreen becomes a close-up of the wrong part of the frame. We deliver all required formats as individual edits — the vertical cut is not the master cropped, it is a separate piece of editorial thinking that makes the same argument in a different aspect ratio. Each platform version is reviewed against the emotional brief independently before delivery.</p>
+          <div class="anat-items">
+            <div class="anat-item">Broadcast master (ProRes 4444 or higher)</div>
+            <div class="anat-item">Web-optimised H.264 and H.265</div>
+            <div class="anat-item">Instagram / TikTok vertical cut (9:16)</div>
+            <div class="anat-item">Square format (1:1)</div>
+            <div class="anat-item">15s and 30s cut-downs for paid media</div>
+          </div>
+        </div></div>
+      </div>
+  
+    </div>
+  </section>
+  
+  <!-- ════════════════════════════════════════════
+       PROOF — THE AUTOMOTIVE CASE
+  ════════════════════════════════════════════ -->
+  <section class="sec-proof" id="proof">
+    <div class="proof-header">
+      <div class="sec-header-split">
+        <div>
+          <div class="sec-lbl-row rv"><span class="sec-lbl-num">III</span><span class="sec-lbl-rule"></span><span>The Proof</span></div>
+          <h2 class="sec-hed rv d1">What the<br>refusal<br><em>produced.</em></h2>
+        </div>
+        <p class="sec-note rv d2"><strong>One case, told in full.</strong> The inciting incident — a $180,000 car moving through syrup — the specific technical refusals, the easing argument made in writing to the client, and the voice note received at 11pm on launch day. Real numbers. Real timeline. Real shivers.</p>
+      </div>
+    </div>
+  
+    <div class="proof-incident rv d1">
+      <p class="proof-incident-text">"A luxury automotive client had a website with a brand film. Shot on RED in Monaco. Graded at a facility in Soho. Voiced by exactly the right accent. It loaded as a 2-second fade and played at a frame rate that made their $180,000 car look like it was moving through syrup. The entire production cost seven times what the motion design cost. The motion design was the problem. <em>The movement told the wrong story about everything else — the car, the brand, the price, the promise.</em> We couldn't let that stand."</p>
+    </div>
+  
+    <div class="proof-phases">
+      <div class="proof-phase rv">
+        <p class="phase-step">Phase 1 — Week 1–2</p>
+        <h3 class="phase-name">The Technical Argument</h3>
+        <p class="phase-body">We wrote a document. One page. Titled "Why Your Car Looks Slow." It explained the easing curve, the frame rate, the shutter angle, and the optical grade — and what each one was communicating versus what it should communicate. <em>The client read it at 9am. By 10am they had cancelled their relationship with the previous motion studio.</em></p>
+      </div>
+      <div class="proof-phase rv d1">
+        <p class="phase-step">Phase 2 — Weeks 3–8</p>
+        <h3 class="phase-name">The Motion System</h3>
+        <p class="phase-body">New motion identity. Custom easing curve — cubic-bezier(.65,.01,.05,.99) — derived from the physics of the car at speed. New camera vocabulary: handheld-stabilised at 60fps for close-detail, locked-off at 24fps for hero shots. <em>A storyboard that justified every cut with the emotional brief before a single frame was reshot.</em> New grade. New score — four bars of original composition, licensed in perpetuity.</p>
+      </div>
+      <div class="proof-phase rv d2">
+        <p class="phase-step">Phase 3 — Launch</p>
+        <h3 class="phase-name">The Voice Note</h3>
+        <p class="phase-body">The CMO sent a voice note at 11pm on launch day. The exact words were four: <em>"I actually got chills."</em> The film won Awwwards Site of the Month two weeks after launch. The easing curve argument — which the previous studio had dismissed as excessive — was cited in the Awwwards jury notes as the defining characteristic of the work.</p>
+      </div>
+    </div>
+  
+    <div class="proof-outcomes">
+      <div class="outcome-cell rv">
+        <div class="outcome-num">4<span class="unit"> words</span></div>
+        <div class="outcome-label">The voice note</div>
+        <p class="outcome-note">"I actually got chills." CMO, 11pm launch day. This is the metric we optimise for.</p>
+      </div>
+      <div class="outcome-cell rv d1">
+        <div class="outcome-num">1<span class="unit"> page</span></div>
+        <div class="outcome-label">That changed everything</div>
+        <p class="outcome-note">"Why Your Car Looks Slow" — one technical document that replaced a studio relationship and a motion system in under 24 hours.</p>
+      </div>
+      <div class="outcome-cell rv d2">
+        <div class="outcome-num">2<span class="unit"> weeks</span></div>
+        <div class="outcome-label">To Awwwards win</div>
+        <p class="outcome-note">Site of the Month. The easing curve was cited specifically in the jury notes. One easing argument, vindicated in writing.</p>
+      </div>
+      <div class="outcome-cell rv d3">
+        <div class="outcome-num">1,800<span class="unit"> ms</span></div>
+        <div class="outcome-label">The easing difference</div>
+        <p class="outcome-note">The gap between the original fade and the redesigned motion. 1.8 seconds. The gap between feeling nothing and getting chills.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- PUNCH II -->
+  <div class="punch rv">
+    <div class="punch-text">
+      <span class="pt-out">Movement is the only argument</span><br>
+      <span class="pt-cream">that bypasses the thinking mind.</span><br>
+      <span class="pt-gold">Use it with precision or not at all.</span>
+    </div>
+  </div>
+  
+  <!-- ════════════════════════════════════════════
+       PROCESS
+  ════════════════════════════════════════════ -->
+  <section class="sec-process" id="process">
+    <div class="process-header">
+      <div class="sec-header-split">
+        <div>
+          <div class="sec-lbl-row rv"><span class="sec-lbl-num">IV</span><span class="sec-lbl-rule"></span><span>The Process</span></div>
+          <h2 class="sec-hed rv d1">Four phases.<br>One person<br><em>in charge.</em></h2>
+        </div>
+        <p class="sec-note rv d2"><strong>Riku Nakamura, Motion Director.</strong> Every film produced through Veil has a single creative director across all four phases. This is not a production handoff — strategy to agency to production company to post house. One mind, one argument, four phases. The work is better for it and you always know who is responsible.</p>
+      </div>
+    </div>
+  
+    <div class="process-rows">
+      <div class="proc-row rv">
+        <div class="proc-phase">Phase 1<span class="proc-phase-lbl">Weeks 1–2</span></div>
+        <div>
+          <h4 class="proc-title">Strategy &amp; Creative Brief</h4>
+          <p class="proc-desc">The emotional logic document. The brand system audit. The motion identity specification. The format matrix. <em>By the end of Phase 1, we know what the film needs to make the viewer feel and why — precisely.</em> No storyboard is drawn until the emotional brief is approved. This phase exists to prevent the most expensive mistake in film production: starting the shoot without knowing what the film is for.</p>
+        </div>
+        <div class="proc-team">
+          <p class="proc-team-lbl">In the room</p>
+          <div class="proc-member">Riku Nakamura, Motion Director</div>
+          <div class="proc-member">Elena Brandt, Strategy Director</div>
+          <div class="proc-member">Client creative director or CMO</div>
+        </div>
+      </div>
+      <div class="proc-row rv">
+        <div class="proc-phase">Phase 2<span class="proc-phase-lbl">Weeks 3–5</span></div>
+        <div>
+          <h4 class="proc-title">Pre-Production</h4>
+          <p class="proc-desc">Full storyboard with emotional annotations. Location and talent brief drawn from the creative strategy — not a mood board. Camera, lens, framerate, and easing decisions in writing with full rationale. <em>The film exists on paper before we spend a single production day.</em> Schedule is built around what the film needs, not what would be convenient.</p>
+        </div>
+        <div class="proc-team">
+          <p class="proc-team-lbl">In the room</p>
+          <div class="proc-member">Riku Nakamura — director</div>
+          <div class="proc-member">DP (selected for brand fit)</div>
+          <div class="proc-member">Production designer</div>
+          <div class="proc-member">Music supervisor</div>
+        </div>
+      </div>
+      <div class="proc-row rv">
+        <div class="proc-phase">Phase 3<span class="proc-phase-lbl">Weeks 6–8</span></div>
+        <div>
+          <h4 class="proc-title">Production &amp; Post</h4>
+          <p class="proc-desc">Shoot. Same-day review against emotional brief. Cut. Review. Grade to brand colour system. Score or sync. Motion graphics from brand motion identity. <em>We have re-edited the night before delivery. We are not going to apologise for it and we have never been asked to.</em> Three rounds of review included. Delivery in all required formats, each individually cut for its platform.</p>
+        </div>
+        <div class="proc-team">
+          <p class="proc-team-lbl">In the room</p>
+          <div class="proc-member">Full production crew on shoot</div>
+          <div class="proc-member">Riku — on set throughout</div>
+          <div class="proc-member">Colourist — calibrated to brand</div>
+          <div class="proc-member">Sound engineer / composer</div>
+        </div>
+      </div>
+      <div class="proc-row rv">
+        <div class="proc-phase">Phase 4<span class="proc-phase-lbl">Delivery</span></div>
+        <div>
+          <h4 class="proc-title">Delivery &amp; Motion Handover</h4>
+          <p class="proc-desc">All formats. Broadcast master, web-optimised, all social cuts individually edited. The motion identity specification document — <em>so that every future motion design decision made by any future designer working on this brand has the reasoning they need.</em> Thirty days of direct access for questions, corrections, and cut revisions.</p>
+        </div>
+        <div class="proc-team">
+          <p class="proc-team-lbl">In the room</p>
+          <div class="proc-member">Riku — delivery session</div>
+          <div class="proc-member">Client media / content team</div>
+          <div class="proc-member">30-day support window</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ════════════════════════════════════════════
+       DELIVERABLES MANIFEST
+  ════════════════════════════════════════════ -->
+  <section class="sec-deliverables" id="deliverables">
+    <div class="deliv-header">
+      <div class="sec-header-split">
+        <div>
+          <div class="sec-lbl-row rv"><span class="sec-lbl-num">V</span><span class="sec-lbl-rule"></span><span>The Deliverables</span></div>
+          <h2 class="sec-hed rv d1">Filed.<br>Stamped.<br><em>Delivered.</em></h2>
+        </div>
+        <p class="sec-note rv d2">Every item on this manifest is included in every film production engagement. <strong>There are no optional extras, no upsell formats, no "social cut package."</strong> This is the film as it needs to exist to function across every surface a brand touches.</p>
+      </div>
+    </div>
+    <div class="manifest rv d1">
+      <div class="manifest-head">
+        <span class="manifest-title">Deliverables Manifest — Film Production Engagement</span>
+        <span class="manifest-stamp">Filed: VL-FP-001 · Version 1.0 · Final</span>
+      </div>
+      <div class="manifest-grid">
+        <div class="manifest-item">
+          <span class="manifest-id">C-01</span>
+          <div><div class="manifest-name">Broadcast Master</div><p class="manifest-desc">ProRes 4444 or RAW, full resolution, all versions. <em>Archived in perpetuity at the studio. If you lose the master in five years, we still have it.</em></p></div>
+        </div>
+        <div class="manifest-item">
+          <span class="manifest-id">C-02</span>
+          <div><div class="manifest-name">Web-optimised delivery</div><p class="manifest-desc">H.264 and H.265 at all required bitrates for website, email, and presentation use. Colour-managed to sRGB and Display P3.</p></div>
+        </div>
+        <div class="manifest-item">
+          <span class="manifest-id">C-03</span>
+          <div><div class="manifest-name">Vertical cut (9:16)</div><p class="manifest-desc">Not a crop. A separately edited version for Instagram Reels, TikTok, and YouTube Shorts — <em>with its own compositional logic for the vertical frame.</em></p></div>
+        </div>
+        <div class="manifest-item">
+          <span class="manifest-id">C-04</span>
+          <div><div class="manifest-name">Square cut (1:1)</div><p class="manifest-desc">Instagram feed, LinkedIn, and any square-format application. Separately cut. The visual argument holds at 1:1.</p></div>
+        </div>
+        <div class="manifest-item">
+          <span class="manifest-id">C-05</span>
+          <div><div class="manifest-name">15s and 30s cut-downs</div><p class="manifest-desc">For paid media and broadcast. Each is a complete argument in its shorter duration — not the master truncated but a separately considered distillation. <em>The 15-second version is harder to make than the master.</em></p></div>
+        </div>
+        <div class="manifest-item">
+          <span class="manifest-id">C-06</span>
+          <div><div class="manifest-name">Motion Identity Specification</div><p class="manifest-desc">The easing curve, camera vocabulary, transition logic, and timing values used in this film — documented for use by any future designer. This is the motion DNA of the brand, derived from this engagement.</p></div>
+        </div>
+        <div class="manifest-item">
+          <span class="manifest-id">C-07</span>
+          <div><div class="manifest-name">Music licence documentation</div><p class="manifest-desc">All licensing agreements, broadcast rights, and usage terms. Original compositions assigned in full. Sync licences cleared for all territories required by the distribution plan.</p></div>
+        </div>
+        <div class="manifest-item">
+          <span class="manifest-id">C-08</span>
+          <div><div class="manifest-name">30-day post-delivery support</div><p class="manifest-desc">Direct access to Riku for cut revisions, format questions, and distribution guidance. If the film needs a new cut for an unexpected platform, we make it without billing separately.</p></div>
+        </div>
+      </div>
+      <div class="manifest-foot">
+        <p class="manifest-note">Every item above is included in every engagement. No item is an optional add-on. Formats not listed above can be added to the scope at briefing stage.</p>
+        <span class="manifest-count">8 Deliverables · All included · No exceptions</span>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ════════════════════════════════════════════
+       TESTIMONY — "I ACTUALLY GOT CHILLS"
+  ════════════════════════════════════════════ -->
+  <section class="sec-testimony">
+    <div class="testimony-wrap">
+      <span class="testimony-ref rv">Deposition C-03 — Film Production engagement, Automotive client 2022</span>
+      <p class="testimony-q rv d1">You received a voice note at 11pm on launch day. What did it say?</p>
+      <div class="testimony-quote rv d2">
+        "I actually <em>got chills.</em> I've launched twelve films in this role. That has never happened before."
+      </div>
+      <div class="testimony-witness rv d3">
+        <div>
+          <p class="testimony-name">CMO, Luxury Automotive Brand</p>
+          <p class="testimony-title">Europe · Film Production, 2022 · Awwwards Site of the Month</p>
+        </div>
+        <a href="veil-contact.html" class="btn-outline">File your brief ↗</a>
+      </div>
+      <div class="testimony-wm">C</div>
+    </div>
+  </section>
+  
+  <!-- ════════════════════════════════════════════
+       INVESTMENT
+  ════════════════════════════════════════════ -->
+  <section class="sec-investment" id="investment">
+    <div class="investment-layout">
+      <div class="inv-left">
+        <div>
+          <div class="sec-lbl-row rv" style="border-bottom:none;padding-bottom:0;margin-bottom:1.2em">
+            <span class="sec-lbl-num">VI</span><span class="sec-lbl-rule"></span><span>The Investment</span>
+          </div>
+          <h2 class="inv-hed rv d1">The cost of<br>making it<br><em>feel right.</em></h2>
+        </div>
+        <div class="rv d2">
+          <span class="inv-from">Engagements from</span>
+          <div class="inv-price">$28,000</div>
+          <p class="inv-caveat">This covers a single-film engagement with full pre-production, production, and post. <em>Production costs (crew, locations, talent) are in addition and quoted separately based on scope. What this price covers is the thinking — the creative strategy, the motion identity, the editorial, the grade, and the delivery.</em> The production cost is the cost of executing the argument correctly.</p>
+        </div>
+      </div>
+      <div class="inv-right rv d2">
+        <p class="inv-compare-lbl">The cost of doing it without the argument vs. with it</p>
+        <div class="compare-row">
+          <div class="compare-cell bad">
+            <span class="compare-head">Standard production approach</span>
+            A production company. A director. A shoot. An edit. Delivered on time and on budget. The easing came with After Effects. The grade came from a preset. The music came from a library. The viewer feels nothing specific because nothing specific was designed to be felt.
+          </div>
+          <div class="compare-cell good">
+            <span class="compare-head">The Veil approach</span>
+            A film designed from the emotional brief. Every technical decision argued against the creative strategy. An easing curve that belongs to this brand. A grade that belongs to this brand. A cut that makes someone get chills at 11pm on launch day.
+          </div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell bad">
+            <span class="compare-head">What you actually get</span>
+            A technically accomplished film that looks like a slightly better version of what your competitors made last year. Reviewed favourably at the internal presentation. Forgotten by the audience in 48 hours.
+          </div>
+          <div class="compare-cell good">
+            <span class="compare-head">What you actually get</span>
+            A film the audience shares without being asked to. A motion identity the brand owns. Jury notes that cite the easing curve specifically. A CMO voice note you screenshot and send to the board.
+          </div>
+        </div>
+        <div class="inv-footnote">
+          <strong>On production costs:</strong> The engagement fee covers all creative, strategic, and post-production work. <em>Production costs — crew, equipment, locations, talent — are budgeted separately and transparently. We have never charged a mark-up on production costs. We are not a production company. We are the argument. The production company executes it.</em>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ════════════════════════════════════════════
+       ADJACENT SERVICES
+  ════════════════════════════════════════════ -->
+  <section class="sec-adjacent">
+    <div class="adj-header">
+      <h2 class="adj-hed rv">The other five<br><em>counts.</em></h2>
+    </div>
+    <div class="adj-grid">
+      <a href="veil-brand-identity.html" class="adj-card rv">
+        <span class="adj-num">Count I</span>
+        <span class="adj-name">Brand Identity</span>
+        <span class="adj-from">From $45,000</span>
+        <span class="adj-arrow">→</span>
+      </a>
+      <a href="veil-services-v2.html#ex-02" class="adj-card rv d1">
+        <span class="adj-num">Count II</span>
+        <span class="adj-name">Web Design<br>&amp; Build</span>
+        <span class="adj-from">From $35,000</span>
+        <span class="adj-arrow">→</span>
+      </a>
+      <a href="veil-services-v2.html#ex-04" class="adj-card rv d2">
+        <span class="adj-num">Count IV</span>
+        <span class="adj-name">Digital<br>Strategy</span>
+        <span class="adj-from">From $22,000</span>
+        <span class="adj-arrow">→</span>
+      </a>
+      <a href="veil-services-v2.html#ex-05" class="adj-card rv d3">
+        <span class="adj-num">Count V</span>
+        <span class="adj-name">Campaign<br>Creation</span>
+        <span class="adj-from">From $38,000</span>
+        <span class="adj-arrow">→</span>
+      </a>
+      <a href="veil-services-v2.html#ex-06" class="adj-card rv d4">
+        <span class="adj-num">Count VI</span>
+        <span class="adj-name">Creative<br>Direction</span>
+        <span class="adj-from">From $12,000/mo</span>
+        <span class="adj-arrow">→</span>
+      </a>
+    </div>
+  </section>
+  
+  <!-- ════════════════════════════════════════════
+       CTA
+  ════════════════════════════════════════════ -->
+  <section class="sec-cta">
+    <div class="cta-glow"></div>
+    <div class="cta-inner rv">
+      <p class="cta-pre">What we need from you</p>
+      <div class="cta-headline">
+        <div class="ch-cream">One</div>
+        <div class="ch-gold">sentence.</div>
+        <div class="ch-out">That's all.</div>
+      </div>
+      <p class="cta-sub">Tell us what your film is supposed to make the viewer feel. Not "excited" — <strong>specifically what, at exactly what moment, and why.</strong> If you can answer that question, we can build the argument around it. If you can't, that's where we start.</p>
+      <div class="cta-btns">
+        <a href="veil-contact.html" class="btn-gold">File a film production brief ↗</a>
+        <a href="veil-services-v2.html" class="btn-outline">All six services</a>
+      </div>
+    </div>
+    <div class="cta-bottom">
+      <div class="cta-contacts rv">
+        <div><span class="cta-c-lbl">Direct</span><span class="cta-c-val">hello@veil.studio</span></div>
+        <div><span class="cta-c-lbl">Phone</span><span class="cta-c-val">+1 (212) 555 0191</span></div>
+        <div><span class="cta-c-lbl">Timeline</span><span class="cta-c-val">Response within 48 hrs</span></div>
+      </div>
+      <p style="font-size:.65em;color:var(--cream-dim);max-width:28ch;text-align:right;line-height:1.6">
+        Engagements from $28,000 + production · Typical duration 6–10 weeks · All formats included
+      </p>
+    </div>
+  </section>
+  
+  <!-- ════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-wm">Veil<br>Studio</div>
+        <p class="footer-tag">We exist because doing less was unacceptable. New York, Paris, Tokyo — since 2016.</p>
+      </div>
+      <div>
+        <p class="footer-col-hed">Navigate</p>
+        <ul class="footer-links">
+          <li><a href="veil-landing.html"     class="fl">Home</a></li>
+          <li><a href="#"                      class="fl">Work</a></li>
+          <li><a href="veil-services-v2.html" class="fl active">Services</a></li>
+          <li><a href="veil-about.html"        class="fl">About</a></li>
+          <li><a href="veil-contact.html"      class="fl">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-hed">All Six Services</p>
+        <ul class="footer-links">
+          <li><a href="veil-brand-identity.html"      class="fl">Brand Identity</a></li>
+          <li><a href="veil-services-v2.html#ex-02"  class="fl">Web Design</a></li>
+          <li><a href="#"                             class="fl active">Film Production</a></li>
+          <li><a href="veil-services-v2.html#ex-04"  class="fl">Strategy</a></li>
+          <li><a href="veil-services-v2.html#ex-05"  class="fl">Campaigns</a></li>
+          <li><a href="veil-services-v2.html#ex-06"  class="fl">Creative Direction</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-hed">Follow</p>
+        <ul class="footer-links">
+          <li><a href="#" class="fl">Instagram</a></li>
+          <li><a href="#" class="fl">LinkedIn</a></li>
+          <li><a href="#" class="fl">Awwwards</a></li>
+          <li><a href="#" class="fl">Dribbble</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <p class="footer-copy">© 2024 Veil Studio LLC. All rights reserved.</p>
+      <div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a></div>
+    </div>
+  </footer>
+  <!-- ════════════════════════════════════════════
+       SCRIPTS
+  ════════════════════════════════════════════ -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+  <script>
+  gsap.registerPlugin(CustomEase);
+  CustomEase.create("main","0.65,0.01,0.05,0.99");
+  gsap.defaults({ease:"main",duration:.7});
+  gsap.set(".nav-menu",{display:"none"});
+  
+  
+  </script>
+  
+  </body>
+  </html>
+
+  <style>
+    /* ═══════════════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════════════ */
+:root{
+  --bg:#0c0b09;--bg-mid:#131210;--bg-lift:#1c1a17;--bg-high:#242018;
+  --gold:#c4a46b;--gold-lt:#d4b87c;
+  --gold-border:rgba(196,164,107,.22);--gold-faint:rgba(196,164,107,.09);
+  --cream:#f0e6d3;--cream-mid:rgba(240,230,211,.55);
+  --cream-dim:rgba(240,230,211,.3);--cream-ghost:rgba(240,230,211,.06);
+  --rule:rgba(240,230,211,.08);--rule-mid:rgba(240,230,211,.13);
+  --red:#c4504a;--red-dim:rgba(196,80,74,.14);
+  --amber:rgba(196,140,60,.8);
+  --cubic:cubic-bezier(.65,.01,.05,.99);--ease-out:cubic-bezier(.16,1,.3,1);
+}
+
+/* ═══════════════════════════════════════════════
+   RESET
+═══════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--cream);
+  font-family:"PType Text","Helvetica Neue",sans-serif;
+  font-size:16px;line-height:1.2;overflow-x:hidden;
+  cursor:url("https://cdn.prod.website-files.com/6708f85ff3d3cba6aff436fb/671251b239d7aeb290a31ac5_cursor-default%402x.svg") 2 0,auto;
+}
+p{margin:0}a{text-decoration:none;color:inherit}
+a,button{cursor:url("https://cdn.prod.website-files.com/6708f85ff3d3cba6aff436fb/671251b212e6b71494aa67ff_cursor-pointer%402x.svg") 12 0,pointer}
+ul{list-style:none}
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.022;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:160px;
+}
+
+/* ═══════════════════════════════════════════════
+   FONTS
+═══════════════════════════════════════════════ */
+@font-face{font-family:"PType Display";src:url("https://assets.website-files.com/60e4912ee7c15fb303f4c588/60e491f57f25e15bc971a03a_manuka-condensed-web-black.woff") format("woff");font-weight:900;font-display:swap}
+@font-face{font-family:"PType Text";src:url("https://assets.website-files.com/60e4912ee7c15fb303f4c588/60e492c541078e283f2bf759_soehne-web-kraftig.woff") format("woff");font-weight:600;font-display:swap}
+@font-face{font-family:"PType Text";src:url("https://assets.website-files.com/60e4912ee7c15fb303f4c588/60e492c5ed8ba9d6d959a06b_soehne-web-buch.woff") format("woff");font-weight:400;font-display:swap}
+@font-face{font-family:"PP Neue Corp Tight";src:url("https://cdn.prod.website-files.com/673af51dea86ab95d124c3ee/673b0f5784f7060c0ac05534_PPNeueCorp-TightUltrabold.otf") format("opentype");font-weight:700;font-display:swap}
+
+
+
+
+
+
+/* ═══════════════════════════════════════════════
+   ╔════════════════════════════════════════════╗
+   ║  TAKETHAT.COM NAV — EXACT STRUCTURAL MATCH ║
+   ║  Split nav: left links | center logo       ║
+   ║  | right links + CTA pill                  ║
+   ║  Hamburger → full-screen dark overlay      ║
+   ╚════════════════════════════════════════════╝
+═══════════════════════════════════════════════ */
+.tt-header{
+  position:sticky;
+  top:0;left:0;right:0;z-index:10001;
+  background:rgba(12,11,9,.92);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--rule);
+}
+/* The nav bar row */
+.tt-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  height:3.5em;padding:0 2em;position:relative;
+  max-width:100%;margin:0 auto;
+}
+/* Left nav links */
+.tt-nav-left{
+  display:flex;align-items:center;gap:1.8em;
+  flex:1;
+}
+.tt-nav-left a,.tt-nav-right-links a{
+  font-size:.68em;text-transform:uppercase;letter-spacing:.14em;font-weight:600;
+  color:rgba(240,230,211,.45);
+  transition:color .25s;position:relative;padding:.2em 0;
+}
+.tt-nav-left a:hover,.tt-nav-right-links a:hover{color:var(--cream)}
+.tt-nav-left a.tt-active,.tt-nav-right-links a.tt-active{color:var(--gold)}
+/* Underline on hover */
+.tt-nav-left a::after,.tt-nav-right-links a::after{
+  content:'';position:absolute;bottom:-.1em;left:0;width:100%;height:1px;
+  background:var(--gold);transform:scaleX(0);transform-origin:right;
+  transition:transform .4s var(--cubic);
+}
+.tt-nav-left a:hover::after,.tt-nav-right-links a:hover::after{transform:scaleX(1);transform-origin:left}
+.tt-nav-left a.tt-active::after,.tt-nav-right-links a.tt-active::after{transform:scaleX(1)}
+
+/* Center logo — absolute center within the bar */
+.tt-logo{
+  position:absolute;left:50%;transform:translateX(-50%);
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:1.15em;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--cream);transition:color .25s;
+  white-space:nowrap;line-height:1;
+}
+.tt-logo:hover{color:var(--gold)}
+/* Logo mark — the V monogram */
+.tt-logo-mark{
+  display:inline-block;width:.9em;height:.9em;
+  border:1.5px solid currentColor;border-radius:50%;
+  vertical-align:middle;margin-right:.3em;margin-bottom:.1em;
+  position:relative;overflow:hidden;font-size:.85em;
+}
+.tt-logo-mark::after{
+  content:'';position:absolute;
+  bottom:0;left:50%;transform:translateX(-50%);
+  width:50%;height:50%;border-top:1.5px solid currentColor;
+  clip-path:polygon(0 0,100% 0,50% 100%);
+}
+
+/* Right nav — links + CTA */
+.tt-nav-right{
+  display:flex;align-items:center;gap:1.8em;justify-content:flex-end;flex:1;
+}
+.tt-nav-right-links{display:flex;align-items:center;gap:1.8em}
+/* CTA pill button */
+.tt-nav-cta{
+  font-size:.65em;font-weight:600;text-transform:uppercase;letter-spacing:.14em;
+  padding:.55em 1.4em;border-radius:2em;
+  background:var(--gold);color:var(--bg);
+  transition:background .3s,transform .3s var(--cubic);white-space:nowrap;
+}
+.tt-nav-cta:hover{background:var(--gold-lt);transform:translateY(-1px)}
+
+/* Hamburger button — CSS three-line icon, right-aligned, mobile only */
+.tt-hamburger{
+  display:none;flex-direction:column;justify-content:center;gap:.28em;
+  width:2.4em;height:2.4em;background:none;border:none;
+  padding:.4em;cursor:pointer;position:relative;z-index:201;
+}
+.tt-hamburger span{
+  display:block;width:100%;height:1.5px;background:var(--cream);border-radius:1px;
+  transition:transform .4s var(--cubic),opacity .3s,width .3s var(--cubic);
+  transform-origin:center;
+}
+/* X state when open */
+.tt-hamburger.open span:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.tt-hamburger.open span:nth-child(2){opacity:0;width:0}
+.tt-hamburger.open span:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+
+/* ═══════════════════════════════════════════════
+   MOBILE MENU OVERLAY — Full screen dark
+   Exact TakeThat.com pattern: full-screen dark
+   overlay, links centered, large type, CTA pill at bottom
+═══════════════════════════════════════════════ */
+.tt-mobile-menu{
+  position:fixed;inset:0;z-index:199;
+  background:rgba(10,9,7,.98);
+  display:flex;flex-direction:column;
+  padding:6em 2.5em 3em;
+  /* Hidden state */
+  opacity:0;pointer-events:none;
+  transform:translateY(-1em);
+  transition:opacity .45s var(--cubic),transform .45s var(--cubic);
+}
+.tt-mobile-menu.open{opacity:1;pointer-events:auto;transform:none}
+/* Nav items */
+.tt-mobile-links{
+  display:flex;flex-direction:column;gap:0;flex:1;justify-content:center;
+}
+.tt-mobile-link{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1em 0;border-bottom:1px solid var(--rule);
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:clamp(2.5rem,10vw,4.5rem);font-weight:700;text-transform:uppercase;
+  letter-spacing:-.02em;line-height:1;
+  color:rgba(240,230,211,.35);
+  transition:color .3s;
+  overflow:hidden;
+  opacity:0;transform:translateY(20px);
+  transition:color .3s,opacity .5s var(--ease-out),transform .5s var(--ease-out);
+}
+.tt-mobile-menu.open .tt-mobile-link{opacity:1;transform:none}
+/* Stagger each link */
+.tt-mobile-menu.open .tt-mobile-link:nth-child(1){transition-delay:.05s}
+.tt-mobile-menu.open .tt-mobile-link:nth-child(2){transition-delay:.10s}
+.tt-mobile-menu.open .tt-mobile-link:nth-child(3){transition-delay:.15s}
+.tt-mobile-menu.open .tt-mobile-link:nth-child(4){transition-delay:.20s}
+.tt-mobile-menu.open .tt-mobile-link:nth-child(5){transition-delay:.25s}
+.tt-mobile-link:hover,.tt-mobile-link.tt-active{color:var(--cream)}
+.tt-mobile-link-num{font-size:.3em;color:var(--gold);font-family:"PType Text",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.2em;align-self:center}
+/* Mobile CTA at bottom */
+.tt-mobile-bottom{
+  padding-top:2em;display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid var(--rule);flex-wrap:wrap;gap:1.5em;
+  opacity:0;transform:translateY(12px);
+  transition:opacity .5s var(--ease-out) .3s,transform .5s var(--ease-out) .3s;
+}
+.tt-mobile-menu.open .tt-mobile-bottom{opacity:1;transform:none}
+.tt-mobile-tagline{font-size:.65em;text-transform:uppercase;letter-spacing:.18em;color:var(--cream-dim);font-weight:600}
+.tt-mobile-cta{
+  font-size:.68em;font-weight:600;text-transform:uppercase;letter-spacing:.14em;
+  padding:.7em 1.8em;border-radius:2em;
+  background:var(--gold);color:var(--bg);
+}
+
+
+@media screen and (max-width:1200px){
+  /* Hide desktop nav items, show hamburger */
+  .tt-nav-left,.tt-nav-right-links,.tt-nav-cta{display:none}
+  .tt-hamburger,.menu-button.hamburger-btn{display:flex}
+}
+
+@media screen and (max-width:991px){
+  .tt-nav{padding:0 1.5em}
+}
+
+
+
+
+/* Replace plus icon + text with hamburger */
+.hamburger-btn{
+  display:flex !important;
+  gap:0;
+  color:var(--cream);
+  cursor:pointer;
+  background:transparent;
+  border:none;
+  padding:.75em;
+  margin:-.75em -.75em -.75em 0;
+}
+
+/* hide old stacked Menu/Close text if it still exists anywhere */
+.menu-button-text{display:none !important;}
+
+.hamburger{
+  width:1.6em;
+  height:1.2em;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  pointer-events:none;
+}
+
+.hamburger-line{
+  height:2px;
+  width:100%;
+  background:currentColor;
+  border-radius:2px;
+  transform-origin:center;
+  display:block;
+  transition:transform .35s var(--ease-out), opacity .25s var(--ease-out);
+}
+
+/* Animate to X when open */
+.nav-menu[data-nav="open"] ~ * .hamburger-line{}
+
+/* safer: drive by aria-expanded on the button */
+.hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(1){
+  transform:translateY(.43em) rotate(45deg);
+}
+.hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(2){
+  opacity:0;
+}
+.hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(3){
+  transform:translateY(-.43em) rotate(-45deg);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.cloneable {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: relative;
+    --menu-padding: 2em;
+}
+.nav-menu{z-index:100;width:100%;height:100vh;display:block;position:fixed;inset:0}
+.overlay{z-index:0;background:rgba(12,11,9,.75);width:100%;height:100%;position:absolute;inset:0;backdrop-filter:blur(4px)}
+.menu{padding-bottom:var(--menu-padding);padding-top:calc(3*var(--menu-padding));flex-flow:column;justify-content:space-between;align-items:flex-start;width:35em;height:100%;margin-left:auto;position:relative;overflow:auto}
+.menu-bg{z-index:0;position:absolute;inset:0}
+.menu-inner{z-index:1;flex-flow:column;justify-content:space-between;align-items:flex-start;height:100%;display:flex;position:relative;overflow:auto}
+.bg-panel{z-index:0;background:var(--bg);border-top-left-radius:1.25em;border-bottom-left-radius:1.25em;position:absolute;inset:0}
+.bg-panel.first{background:var(--gold)}.bg-panel.second{background:var(--bg-lift)}
+.menu-list{flex-flow:column;width:100%;margin-bottom:0;padding:0;list-style:none;display:flex}
+.menu-list-item{position:relative;overflow:hidden}
+.menu-link-heading{z-index:1;text-shadow:0 1em 0 var(--bg-lift);text-transform:uppercase;font-family:"PP Neue Corp Tight",Arial,sans-serif;font-size:5.625em;font-weight:700;line-height:.75;transition:transform .55s cubic-bezier(.65,.05,0,1);position:relative;color:var(--cream)}
+.menu-link{padding:.75em 0 .75em var(--menu-padding);gap:.75em;width:100%;text-decoration:none;display:flex}
+.eyebrow{z-index:1;color:var(--gold);text-transform:uppercase;font-weight:400;position:relative}
+.menu-link-bg{z-index:0;background:var(--gold);transform-origin:50% 100%;transition:transform .55s cubic-bezier(.65,.05,0,1);position:absolute;inset:0;transform:scale3d(1,0,1)}
+.menu-details{padding-left:var(--menu-padding);flex-flow:column;justify-content:flex-start;align-items:flex-start;display:flex;gap:1.25em}
+.p-small{font-size:.875em;font-family:Arial,Helvetica;color:var(--cream-mid)}
+.socials-row{display:flex;gap:1.5em}
+.text-link{position:relative;color:var(--cream)}
+
+@media(hover:hover){
+  .menu-button:hover .icon-wrap{transform:rotate(90deg)}
+  .menu-link:hover .menu-link-heading{transform:translate(0,-1em);transition-delay:.1s}
+  .menu-link:hover .menu-link-bg{transform:scale(1,1)}
+  .text-link::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--gold);transform-origin:right;transform:scaleX(0);transition:transform .5s var(--cubic)}
+  .text-link:hover::after{transform-origin:left;transform:scaleX(1)}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ═══════════════════════════════════════════════
+   ATOMS
+═══════════════════════════════════════════════ */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease-out),transform .9s var(--ease-out)}
+.rv.in{opacity:1!important;transform:none!important}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+.d4{transition-delay:.32s}.d5{transition-delay:.40s}.d6{transition-delay:.48s}
+.tw-cursor{display:inline-block;width:.07em;height:.88em;background:var(--gold);vertical-align:middle;margin-left:.04em;animation:blink-c .9s step-end infinite}
+@keyframes blink-c{0%,100%{opacity:1}50%{opacity:0}}
+.dot-live{width:.5em;height:.5em;background:var(--gold);border-radius:50%;display:inline-block;animation:blink-d 2s ease-in-out infinite}
+@keyframes blink-d{0%,100%{opacity:1}50%{opacity:.18}}
+
+/* ═══════════════════════════════════════════════
+   PRELOADER — FILM LEADER COUNTDOWN
+═══════════════════════════════════════════════ */
+#preloader{
+  position:fixed;inset:0;z-index:10000;background:var(--bg);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:4em;overflow:hidden;
+}
+.pre-leader{
+  flex:1;display:flex;flex-direction:column;justify-content:center;
+  align-items:flex-start;padding-bottom:2em;
+}
+/* The big frame count number */
+.pre-count{
+  font-family:"PType Display",sans-serif;
+  font-size:clamp(10rem,22vw,22rem);font-weight:900;
+  letter-spacing:-.05em;line-height:.85;color:var(--cream);
+  transition:opacity .2s,transform .3s var(--cubic);
+  position:relative;
+}
+.pre-count.flash{opacity:.12}
+.pre-frame-data{
+  display:flex;gap:3em;margin-top:1.5em;flex-wrap:wrap;
+}
+.pre-frame-item{
+  font-size:.6em;text-transform:uppercase;letter-spacing:.18em;color:var(--cream-dim);font-weight:600;
+  display:flex;flex-direction:column;gap:.2em;
+}
+.pre-frame-item span{color:var(--gold)}
+/* The final "ACTION" reveal */
+.pre-action{
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:clamp(4rem,10vw,12rem);font-weight:700;text-transform:uppercase;
+  letter-spacing:-.025em;line-height:.82;color:var(--cream);
+  opacity:0;transition:opacity .5s var(--ease-out);
+  position:absolute;top:50%;left:4em;transform:translateY(-50%);
+}
+.pre-action.show{opacity:1}
+.pre-action .pa-gold{color:var(--gold)}
+.pre-action .pa-dim{color:rgba(240,230,211,.22)}
+.pre-track{width:100%;height:1px;background:var(--rule)}
+.pre-fill{height:100%;width:0%;background:var(--gold);transition:width .1s linear}
+.pre-bar-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:1em;flex-wrap:wrap;gap:.8em;
+}
+.pre-svc-name{font-family:"PP Neue Corp Tight",sans-serif;font-size:.72em;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--cream-dim)}
+.pre-status{font-size:.55em;text-transform:uppercase;letter-spacing:.2em;color:rgba(196,164,107,.38);font-weight:600}
+/* Film strip decorative lines */
+.pre-filmstrip{
+  position:absolute;top:0;right:4em;bottom:0;width:1.5em;
+  display:flex;flex-direction:column;gap:0;
+}
+.pre-filmstrip-frame{
+  flex:1;border-left:1px solid var(--rule);border-right:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);opacity:.3;
+}
+.pre-filmstrip-hole{
+  width:.6em;height:.6em;border:1px solid var(--rule);border-radius:.1em;
+  margin:.2em auto;
+}
+
+/* ═══════════════════════════════════════════════
+   HERO — SPLIT: ARGUMENT / STORYBOARD FRAMES
+═══════════════════════════════════════════════ */
+.hero{
+  min-height:100vh;display:grid;grid-template-columns:1fr 1fr;
+  border-bottom:1px solid var(--rule);position:relative;overflow:hidden;
+  padding-top:3.5em; /* nav height */
+}
+.hero-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 60% 45%,rgba(196,164,107,.065) 0%,transparent 55%);z-index:0}
+/* Left: the argument */
+.hero-left{
+  padding:5em 4em 4em;border-right:1px solid var(--rule);
+  display:flex;flex-direction:column;justify-content:space-between;
+  position:relative;z-index:1;
+}
+.hero-bc{
+  font-size:.58em;text-transform:uppercase;letter-spacing:.18em;color:var(--cream-dim);
+  display:flex;align-items:center;gap:.7em;margin-bottom:2.5em;
+}
+.hero-bc a:hover{color:var(--gold);transition:color .3s}
+.hero-bc-sep{opacity:.28}
+.hero-exhibit{font-family:"PType Display",sans-serif;font-size:1.1em;font-weight:900;letter-spacing:-.02em;color:rgba(196,164,107,.3);margin-bottom:.8em;display:block}
+.hero-svc{
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:clamp(3.5rem,8vw,11rem);font-weight:700;text-transform:uppercase;
+  line-height:.75;letter-spacing:-.03em;color:var(--cream);margin-bottom:.3em;display:block;
+}
+.hero-tag{
+  font-family:"PP Neue Corp Tight",sans-serif;
+  font-size:clamp(1rem,1.7vw,1.6rem);font-weight:700;text-transform:uppercase;
+  color:var(--gold);letter-spacing:-.005em;margin-bottom:2.5em;display:block;
+}
+.hero-arg{font-size:.9em;line-height:1.82;color:var(--cream-mid);max-width:46ch;margin-bottom:2em}
+.hero-arg strong{color:var(--cream);font-weight:600}
+/* Stats bar */
+.hero-stats{display:flex;gap:0;border-top:1px solid var(--rule);padding-top:2em;flex-wrap:wrap;margin-top:auto}
+.hero-stat{padding-right:2.5em;border-right:1px solid var(--rule);margin-right:2.5em;flex-shrink:0}
+.hero-stat:last-child{border-right:none;padding-right:0;margin-right:0}
+.hero-stat-val{font-family:"PType Display",sans-serif;font-size:2.2em;font-weight:900;letter-spacing:-.04em;color:var(--cream);line-height:1;display:block}
+.hero-stat-val span{font-family:"PType Text",sans-serif;font-size:.38em;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.06em;vertical-align:middle}
+.hero-stat-label{font-size:.55em;text-transform:uppercase;letter-spacing:.16em;color:var(--cream-dim);display:block;margin-top:.2em}
+
+/* Right: the storyboard */
+.hero-right{
+  position:relative;z-index:1;background:var(--bg-mid);
+  display:flex;flex-direction:column;
+}
+/* Storyboard grid — 3×2 frames */
+.sb-stage{flex:1;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);background:var(--rule);gap:1px;position:relative}
+.sb-frame{background:var(--bg);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+/* CSS art — each frame gets a unique atmospheric treatment */
+.sb-frame:nth-child(1){background:radial-gradient(ellipse at 30% 70%,#1e1408 0%,#0c0b09 100%)}
+.sb-frame:nth-child(1)::before{content:'';position:absolute;width:1px;height:55%;background:linear-gradient(180deg,transparent,rgba(196,164,107,.2),transparent);left:40%}
+.sb-frame:nth-child(1)::after{content:'';position:absolute;width:1px;height:55%;background:linear-gradient(180deg,transparent,rgba(196,164,107,.12),transparent);left:55%}
+.sb-frame:nth-child(2){background:radial-gradient(ellipse at 60% 40%,#0e0f18 0%,#0c0b09 100%)}
+.sb-frame:nth-child(2)::before{content:'';position:absolute;width:50%;height:50%;border-radius:50%;border:1px solid rgba(196,164,107,.18);right:8%;top:12%}
+.sb-frame:nth-child(3){background:radial-gradient(ellipse at 50% 80%,#1a1008 0%,#0c0b09 100%)}
+.sb-frame:nth-child(3)::before{content:'';position:absolute;inset:20%;border:1px solid rgba(196,164,107,.14)}
+.sb-frame:nth-child(4){background:radial-gradient(ellipse at 80% 30%,#0c1018 0%,#0c0b09 100%)}
+.sb-frame:nth-child(4)::before{content:'';position:absolute;width:40%;height:40%;border-radius:50%;left:10%;bottom:10%;background:rgba(196,164,107,.04);border:1px solid rgba(196,164,107,.16)}
+.sb-frame:nth-child(5){background:radial-gradient(ellipse at 20% 60%,#1a1208 0%,#0c0b09 100%)}
+.sb-frame:nth-child(5)::before{content:'';position:absolute;width:60%;height:1px;background:linear-gradient(90deg,transparent,rgba(196,164,107,.22),transparent);top:40%}
+.sb-frame:nth-child(5)::after{content:'';position:absolute;width:.5em;height:.5em;background:var(--gold);border-radius:50%;top:calc(40% - .25em);left:30%;box-shadow:0 0 16px rgba(196,164,107,.45)}
+.sb-frame:nth-child(6){background:radial-gradient(ellipse at 50% 50%,#221508 0%,#0c0b09 100%)}
+.sb-frame:nth-child(6)::before{content:'';position:absolute;width:5em;height:5em;border-radius:50%;border:1px solid rgba(196,164,107,.22);box-shadow:inset 0 0 24px rgba(196,164,107,.08)}
+/* Frame numbers */
+.sb-frame-n{position:absolute;bottom:.5em;left:.7em;font-size:.42em;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:rgba(196,164,107,.35)}
+/* Hover state for frames */
+.sb-frame{transition:background .5s var(--cubic)}
+.sb-frame:hover{opacity:.88}
+/* Overlay the "SCENE" indicator on first frame */
+.sb-frame:nth-child(1) .sb-frame-n::before{content:'SCENE ';color:rgba(196,80,74,.5)}
+/* Play indicator */
+.sb-play-indicator{
+  position:absolute;top:1em;right:1em;z-index:2;
+  width:2.2em;height:2.2em;border:1px solid var(--rule-mid);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(12,11,9,.7);
+  opacity:0;transition:opacity .5s;
+}
+.sb-stage:hover .sb-play-indicator{opacity:1}
+.sb-play-icon{width:0;height:0;border-style:solid;border-width:.4em 0 .4em .65em;border-color:transparent transparent transparent var(--gold);margin-left:.1em}
+/* Annotation bar */
+.sb-annotation{
+  padding:1.5em 3em;border-top:1px solid var(--rule);background:var(--bg);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1em;
+}
+.sb-annotation-text{font-size:.62em;text-transform:uppercase;letter-spacing:.16em;color:var(--cream-dim);font-weight:600}
+.sb-annotation-fps{font-size:.62em;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);display:flex;align-items:center;gap:.5em;font-weight:600}
+
+/* ═══════════════════════════════════════════════
+   SECTION SHARED PRIMITIVES
+═══════════════════════════════════════════════ */
+.sec-lbl-row{display:flex;align-items:center;gap:1.2em;padding-bottom:2em;font-size:.56em;font-weight:600;text-transform:uppercase;letter-spacing:.22em;color:rgba(196,164,107,.4);border-bottom:1px solid var(--rule);margin-bottom:3.5em}
+.sec-lbl-num{font-family:"PType Display",sans-serif;font-size:1.5em;font-weight:900;line-height:1;letter-spacing:-.04em}
+.sec-lbl-rule{flex:1;height:1px;background:var(--rule)}
+.sec-hed{font-family:"PP Neue Corp Tight",sans-serif;font-size:clamp(3rem,6vw,8rem);font-weight:700;text-transform:uppercase;line-height:.82;letter-spacing:-.025em}
+.sec-hed em{font-style:normal;color:var(--gold)}
+.sec-note{font-size:.875em;line-height:1.82;color:var(--cream-mid);max-width:40ch}
+.sec-note strong{color:var(--cream)}
+.sec-header-split{display:grid;grid-template-columns:1fr 1fr;gap:5em;align-items:end}
+
+/* ═══════════════════════════════════════════════
+   DIAGNOSIS — 6 FAILURE MODES IN BRAND FILM
+═══════════════════════════════════════════════ */
+.sec-diagnosis{border-bottom:1px solid var(--rule)}
+.diagnosis-header{padding:6em 4em 5em;border-bottom:1px solid var(--rule)}
+.diag-grid{display:grid;grid-template-columns:repeat(3,1fr);background:var(--rule);gap:1px}
+.diag-card{background:var(--bg);padding:2.8em;display:flex;flex-direction:column;gap:1.4em;position:relative;overflow:hidden;transition:background .5s var(--cubic)}
+.diag-card:hover{background:var(--bg-lift)}
+.diag-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:1.2em;border-bottom:1px solid var(--rule)}
+.diag-id{font-family:"PType Display",sans-serif;font-size:.9em;font-weight:900;letter-spacing:-.02em;color:rgba(196,164,107,.3)}
+.diag-sev{display:flex;align-items:center;gap:.5em;font-size:.5em;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:rgba(196,80,74,.7)}
+.diag-sev-dot{width:.55em;height:.55em;border-radius:50%;background:var(--red)}
+.diag-sev.warn{color:var(--amber)}.diag-sev.warn .diag-sev-dot{background:var(--amber)}
+.diag-failure{font-family:"PP Neue Corp Tight",sans-serif;font-size:1.35em;font-weight:700;text-transform:uppercase;line-height:.88;color:var(--cream)}
+.diag-desc{font-size:.82em;line-height:1.72;color:var(--cream-mid)}
+.diag-desc em{font-style:normal;color:var(--cream);font-weight:600}
+.diag-refusal{background:rgba(196,164,107,.05);border:1px solid var(--gold-border);border-radius:.3em;padding:1em 1.2em}
+.diag-ref-lbl{font-size:.48em;text-transform:uppercase;letter-spacing:.16em;color:var(--gold);font-weight:600;display:block;margin-bottom:.35em}
+.diag-refusal p{font-size:.8em;line-height:1.6;color:var(--cream-dim)}
+
+/* ═══════════════════════════════════════════════
+   TYPOGRAPHY PUNCH
+═══════════════════════════════════════════════ */
+.punch{padding:7em 4em;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.punch::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(196,164,107,.04) 0%,transparent 60%)}
+.punch-text{font-family:"PP Neue Corp Tight",sans-serif;font-size:clamp(2.5rem,5.5vw,7.5rem);font-weight:700;text-transform:uppercase;line-height:.84;letter-spacing:-.025em;text-align:center;position:relative;z-index:1}
+.pt-cream{color:var(--cream)}.pt-gold{color:var(--gold)}.pt-out{color:transparent;-webkit-text-stroke:1.5px rgba(240,230,211,.15)}.pt-dim{color:rgba(240,230,211,.2)}
+
+/* ═══════════════════════════════════════════════
+   ANATOMY — WHAT A VEIL FILM CONTAINS
+═══════════════════════════════════════════════ */
+.sec-anatomy{border-bottom:1px solid var(--rule)}
+.anatomy-header{padding:6em 4em 5em;border-bottom:1px solid var(--rule)}
+.anatomy-layers{display:flex;flex-direction:column;gap:0}
+.anat-layer{border-bottom:1px solid var(--rule);transition:background .4s var(--cubic)}
+.anat-layer:hover{background:rgba(28,26,23,.5)}
+.anat-head{display:grid;grid-template-columns:4.5em 1fr 12em;gap:2.5em;padding:2.5em 4em;align-items:center;cursor:pointer}
+.anat-num{font-family:"PType Display",sans-serif;font-size:3em;font-weight:900;letter-spacing:-.05em;line-height:1;color:rgba(240,230,211,.07);transition:color .4s}
+.anat-layer:hover .anat-num{color:rgba(240,230,211,.12)}
+.anat-name{font-family:"PP Neue Corp Tight",sans-serif;font-size:clamp(1.4rem,2.2vw,2.2rem);font-weight:700;text-transform:uppercase;line-height:.88;color:var(--cream)}
+.anat-sub{font-size:.68em;color:var(--gold);margin-top:.2em}
+.anat-toggle{display:flex;align-items:center;justify-content:flex-end;gap:.8em;font-size:.56em;text-transform:uppercase;letter-spacing:.16em;color:var(--cream-dim);font-weight:600}
+.anat-icon{width:1.8em;height:1.8em;border:1px solid var(--rule-mid);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3em;color:var(--gold);transition:transform .5s var(--cubic),border-color .3s}
+.anat-layer.open .anat-icon{transform:rotate(45deg);border-color:var(--gold)}
+.anat-body{max-height:0;overflow:hidden;transition:max-height .7s var(--cubic)}
+.anat-layer.open .anat-body{max-height:600px}
+.anat-inner{padding:0 4em 3em;display:grid;grid-template-columns:4.5em 1fr 1fr;gap:2.5em}
+.anat-desc{font-size:.875em;line-height:1.82;color:var(--cream-mid);grid-column:2}
+.anat-desc strong{color:var(--cream)}
+.anat-items{border-left:1px solid var(--rule);padding-left:2em;display:flex;flex-direction:column;gap:.4em}
+.anat-item{font-size:.78em;color:var(--cream-mid);padding:.35em 0;border-bottom:1px solid var(--rule);display:flex;align-items:flex-start;gap:.7em}
+.anat-item:last-child{border-bottom:none}
+.anat-item::before{content:'→';color:var(--gold);font-size:.85em;flex-shrink:0}
+
+/* ═══════════════════════════════════════════════
+   PROOF — THE AUTOMOTIVE CASE STUDY
+═══════════════════════════════════════════════ */
+.sec-proof{border-bottom:1px solid var(--rule)}
+.proof-header{padding:6em 4em 5em;border-bottom:1px solid var(--rule)}
+.proof-incident{
+  background:var(--bg-mid);border-bottom:1px solid var(--rule);padding:3.5em 4em;position:relative;
+}
+.proof-incident::before{content:'INCITING INCIDENT';position:absolute;top:0;left:4em;font-size:.47em;font-weight:600;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);background:var(--bg-mid);padding:.3em .6em;transform:translateY(-50%);border:1px solid var(--gold-border);border-radius:.2em}
+.proof-incident-text{font-size:1em;line-height:1.82;color:var(--cream-mid);font-style:italic;max-width:72ch}
+.proof-incident-text em{font-style:normal;color:var(--cream);font-weight:600}
+/* Phase timeline */
+.proof-phases{display:grid;grid-template-columns:repeat(3,1fr);background:var(--rule);gap:1px;border-bottom:1px solid var(--rule)}
+.proof-phase{background:var(--bg);padding:3em 2.5em;display:flex;flex-direction:column;gap:1.2em;position:relative;overflow:hidden;transition:background .4s}
+.proof-phase:hover{background:var(--bg-lift)}
+.proof-phase::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--cubic)}
+.proof-phase:hover::before{transform:scaleX(1)}
+.phase-step{font-size:.5em;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);font-weight:600}
+.phase-name{font-family:"PP Neue Corp Tight",sans-serif;font-size:1.4em;font-weight:700;text-transform:uppercase;line-height:.88;color:var(--cream)}
+.phase-body{font-size:.8em;line-height:1.72;color:var(--cream-mid)}
+.phase-body em{font-style:normal;color:var(--cream)}
+/* Outcome row */
+.proof-outcomes{display:grid;grid-template-columns:repeat(4,1fr);background:var(--rule);gap:1px}
+.outcome-cell{background:var(--bg-lift);padding:2.8em 2.5em;display:flex;flex-direction:column;gap:.6em}
+.outcome-num{font-family:"PType Display",sans-serif;font-size:clamp(2.5rem,4vw,4.5rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--cream)}
+.outcome-num .unit{font-family:"PType Text",sans-serif;font-size:.38em;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.06em}
+.outcome-label{font-size:.58em;text-transform:uppercase;letter-spacing:.16em;color:var(--gold);font-weight:600}
+.outcome-note{font-size:.75em;line-height:1.6;color:var(--cream-dim)}
+
+/* ═══════════════════════════════════════════════
+   PROCESS — PRE / PRODUCTION / POST
+═══════════════════════════════════════════════ */
+.sec-process{border-bottom:1px solid var(--rule)}
+.process-header{padding:6em 4em 5em;border-bottom:1px solid var(--rule)}
+.process-rows{display:flex;flex-direction:column}
+.proc-row{display:grid;grid-template-columns:10em 1fr 1fr;gap:3em;padding:2.8em 4em;border-bottom:1px solid var(--rule);align-items:start;position:relative;transition:background .4s}
+.proc-row:last-child{border-bottom:none}
+.proc-row:hover{background:rgba(28,26,23,.4)}
+.proc-row::after{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--gold);transform:scaleY(0);transform-origin:top;transition:transform .55s var(--cubic)}
+.proc-row:hover::after{transform:scaleY(1)}
+.proc-phase{font-family:"PP Neue Corp Tight",sans-serif;font-size:1.2em;font-weight:700;text-transform:uppercase;line-height:.88;color:var(--cream)}
+.proc-phase-lbl{font-size:.5em;text-transform:uppercase;letter-spacing:.16em;color:var(--gold);display:block;margin-top:.2em}
+.proc-title{font-family:"PP Neue Corp Tight",sans-serif;font-size:1.35em;font-weight:700;text-transform:uppercase;line-height:.9;color:var(--cream);margin-bottom:.5em}
+.proc-desc{font-size:.82em;line-height:1.75;color:var(--cream-mid)}
+.proc-desc em{font-style:normal;color:var(--cream)}
+.proc-team{border-left:1px solid var(--rule);padding-left:2em}
+.proc-team-lbl{font-size:.52em;text-transform:uppercase;letter-spacing:.16em;color:var(--gold);font-weight:600;margin-bottom:.35em}
+.proc-member{font-size:.8em;color:var(--cream-dim);padding:.3em 0;border-bottom:1px solid var(--rule);display:flex;align-items:flex-start;gap:.6em}
+.proc-member:last-child{border-bottom:none}
+.proc-member::before{content:'—';color:var(--gold);font-size:.85em}
+
+/* ═══════════════════════════════════════════════
+   DELIVERABLES MANIFEST
+═══════════════════════════════════════════════ */
+.sec-deliverables{border-bottom:1px solid var(--rule)}
+.deliv-header{padding:6em 4em 4em;border-bottom:1px solid var(--rule)}
+.manifest{border:1px solid var(--rule-mid);border-radius:.4em;overflow:hidden;margin:4em;background:var(--bg-mid)}
+.manifest-head{display:flex;align-items:center;justify-content:space-between;padding:1.4em 2.2em;border-bottom:1px solid var(--rule);background:var(--bg-lift);flex-wrap:wrap;gap:1em}
+.manifest-title{font-size:.58em;font-weight:600;text-transform:uppercase;letter-spacing:.2em;color:var(--gold)}
+.manifest-stamp{font-size:.58em;text-transform:uppercase;letter-spacing:.12em;color:var(--cream-dim)}
+.manifest-grid{display:grid;grid-template-columns:repeat(2,1fr);background:var(--rule);gap:1px}
+.manifest-item{background:var(--bg-mid);padding:2.5em;display:flex;gap:1.5em;align-items:start;transition:background .4s}
+.manifest-item:hover{background:var(--bg-lift)}
+.manifest-id{font-family:"PType Display",sans-serif;font-size:1em;font-weight:900;letter-spacing:-.02em;color:rgba(196,164,107,.3);flex-shrink:0}
+.manifest-name{font-family:"PP Neue Corp Tight",sans-serif;font-size:1.15em;font-weight:700;text-transform:uppercase;line-height:.9;color:var(--cream);margin-bottom:.4em}
+.manifest-desc{font-size:.8em;line-height:1.65;color:var(--cream-mid)}
+.manifest-desc em{font-style:normal;color:var(--cream)}
+.manifest-foot{padding:1.5em 2.2em;border-top:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1em}
+.manifest-note{font-size:.62em;color:var(--cream-dim);max-width:40ch;line-height:1.6;font-style:italic}
+.manifest-count{font-size:.58em;text-transform:uppercase;letter-spacing:.14em;color:var(--gold);font-weight:600}
+
+/* ═══════════════════════════════════════════════
+   TESTIMONY — FULL WIDTH
+═══════════════════════════════════════════════ */
+.sec-testimony{border-bottom:1px solid var(--rule);background:var(--bg-mid)}
+.testimony-wrap{padding:7em 4em;position:relative;overflow:hidden}
+.testimony-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(196,164,107,.05) 0%,transparent 55%)}
+.testimony-ref{font-size:.56em;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);font-weight:600;display:block;margin-bottom:2em;position:relative;z-index:1}
+.testimony-q{font-size:.65em;text-transform:uppercase;letter-spacing:.18em;color:var(--cream-dim);font-weight:600;margin-bottom:1.5em;display:flex;align-items:center;gap:.6em;position:relative;z-index:1}
+.testimony-q::before{content:'Q';color:var(--gold);font-size:1.2em}
+.testimony-quote{font-family:"PP Neue Corp Tight",sans-serif;font-size:clamp(2rem,4.5vw,6rem);font-weight:700;text-transform:uppercase;line-height:.84;letter-spacing:-.02em;color:var(--cream);max-width:22ch;margin-bottom:2.5em;position:relative;z-index:1}
+.testimony-quote em{font-style:normal;color:var(--gold)}
+.testimony-witness{position:relative;z-index:1;padding-top:2em;border-top:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2em}
+.testimony-name{font-family:"PP Neue Corp Tight",sans-serif;font-size:1.4em;font-weight:700;text-transform:uppercase;color:var(--cream)}
+.testimony-title{font-size:.65em;text-transform:uppercase;letter-spacing:.12em;color:var(--gold)}
+.testimony-wm{position:absolute;right:-.03em;bottom:-.05em;font-family:"PType Display",sans-serif;font-size:clamp(8rem,18vw,22rem);font-weight:900;text-transform:uppercase;color:rgba(240,230,211,.02);pointer-events:none;user-select:none;letter-spacing:-.04em}
+
+/* ═══════════════════════════════════════════════
+   INVESTMENT
+═══════════════════════════════════════════════ */
+.sec-investment{border-bottom:1px solid var(--rule)}
+.investment-layout{display:grid;grid-template-columns:1fr 1fr;min-height:50vh}
+.inv-left{padding:6em 4em;border-right:1px solid var(--rule);display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.inv-left::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 70%,rgba(196,164,107,.04) 0%,transparent 60%);pointer-events:none}
+.inv-hed{font-family:"PP Neue Corp Tight",sans-serif;font-size:clamp(2.5rem,5vw,6.5rem);font-weight:700;text-transform:uppercase;line-height:.82;letter-spacing:-.025em;color:var(--cream)}
+.inv-hed em{font-style:normal;color:var(--gold)}
+.inv-price-block{margin-top:auto}
+.inv-from{font-size:.58em;text-transform:uppercase;letter-spacing:.18em;color:var(--cream-dim);display:block;margin-bottom:.3em;font-weight:600}
+.inv-price{font-family:"PType Display",sans-serif;font-size:clamp(4rem,7vw,8rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--cream)}
+.inv-caveat{font-size:.75em;line-height:1.7;color:var(--cream-dim);margin-top:.7em;max-width:30ch}
+.inv-caveat em{font-style:normal;color:var(--cream-mid)}
+.inv-right{padding:6em 4em;display:flex;flex-direction:column;gap:0}
+.inv-compare-lbl{font-size:.55em;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);font-weight:600;margin-bottom:1.5em}
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border-bottom:1px solid var(--rule)}
+.compare-row:first-of-type{border-top:1px solid var(--rule)}
+.compare-cell{background:var(--bg);padding:1.6em 1.8em;font-size:.82em;line-height:1.6;color:var(--cream-mid)}
+.compare-cell.bad{background:var(--red-dim)}.compare-cell.bad .compare-head{color:rgba(196,80,74,.7)}
+.compare-cell.good{background:rgba(196,164,107,.04)}.compare-cell.good .compare-head{color:var(--gold)}
+.compare-head{font-size:.7em;text-transform:uppercase;letter-spacing:.14em;font-weight:600;display:block;margin-bottom:.3em}
+.inv-footnote{margin-top:2em;padding:1.5em 1.8em;background:var(--bg-lift);border:1px solid var(--rule-mid);border-radius:.35em;font-size:.8em;line-height:1.72;color:var(--cream-dim)}
+.inv-footnote em{font-style:normal;color:var(--cream-mid)}
+.inv-footnote strong{color:var(--cream)}
+
+/* ═══════════════════════════════════════════════
+   ADJACENT SERVICES
+═══════════════════════════════════════════════ */
+.sec-adjacent{border-bottom:1px solid var(--rule)}
+.adj-header{padding:5em 4em 4em;border-bottom:1px solid var(--rule)}
+.adj-hed{font-family:"PP Neue Corp Tight",sans-serif;font-size:clamp(2.5rem,5vw,6rem);font-weight:700;text-transform:uppercase;line-height:.82;letter-spacing:-.025em}
+.adj-hed em{font-style:normal;color:var(--gold)}
+.adj-grid{display:grid;grid-template-columns:repeat(5,1fr);background:var(--rule);gap:1px}
+.adj-card{background:var(--bg);padding:2.5em 2.2em;display:flex;flex-direction:column;gap:1em;text-decoration:none;transition:background .45s var(--cubic);position:relative;overflow:hidden}
+.adj-card:hover{background:var(--bg-lift)}
+.adj-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);transform:scaleX(0);transform-origin:left;transition:transform .55s var(--cubic)}
+.adj-card:hover::after{transform:scaleX(1)}
+.adj-num{font-size:.5em;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);font-weight:600}
+.adj-name{font-family:"PP Neue Corp Tight",sans-serif;font-size:1.3em;font-weight:700;text-transform:uppercase;line-height:.88;color:var(--cream)}
+.adj-from{font-size:.65em;text-transform:uppercase;letter-spacing:.12em;color:var(--cream-dim)}
+.adj-arrow{font-size:.72em;color:var(--gold);opacity:0;transform:translateX(-6px);transition:opacity .3s,transform .3s var(--cubic);margin-top:auto}
+.adj-card:hover .adj-arrow{opacity:1;transform:none}
+
+/* ═══════════════════════════════════════════════
+   CTA
+═══════════════════════════════════════════════ */
+.sec-cta{min-height:55vh;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.cta-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 65% 40%,rgba(196,164,107,.07) 0%,transparent 52%),radial-gradient(ellipse at 20% 80%,rgba(196,164,107,.04) 0%,transparent 50%)}
+.cta-inner{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8em 4em;text-align:center;position:relative;z-index:1;gap:2.5em}
+.cta-pre{font-size:.6em;text-transform:uppercase;letter-spacing:.22em;color:var(--cream-dim);display:flex;align-items:center;gap:1em;font-weight:600}
+.cta-pre::before,.cta-pre::after{content:'';display:block;width:4em;height:1px;background:var(--rule-mid)}
+.cta-headline{font-family:"PP Neue Corp Tight",sans-serif;font-size:clamp(3.5rem,8vw,11rem);font-weight:700;text-transform:uppercase;line-height:.79;letter-spacing:-.03em}
+.ch-cream{color:var(--cream)}.ch-gold{color:var(--gold)}.ch-out{color:transparent;-webkit-text-stroke:2.5px rgba(240,230,211,.16)}
+.cta-sub{font-size:.9em;line-height:1.82;color:var(--cream-mid);max-width:44ch}
+.cta-sub strong{color:var(--cream)}
+.cta-btns{display:flex;gap:1.2em;align-items:center;flex-wrap:wrap;justify-content:center}
+.btn-gold{display:inline-flex;align-items:center;gap:.7em;background:var(--gold);color:var(--bg);font-family:"PP Neue Corp Tight",sans-serif;font-size:.92em;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:1.2em 2.6em;border-radius:3em;border:none;transition:transform .4s var(--cubic),box-shadow .4s,background .3s;position:relative;overflow:hidden}
+.btn-gold::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 30%,rgba(255,255,255,.1) 50%,transparent 70%);transform:translateX(-100%);transition:transform .6s var(--cubic)}
+.btn-gold:hover{background:var(--gold-lt);box-shadow:0 20px 56px rgba(196,164,107,.3);transform:translateY(-2px)}
+.btn-gold:hover::before{transform:translateX(100%)}
+.btn-outline{display:inline-flex;align-items:center;gap:.7em;border:1px solid var(--gold-border);color:var(--gold);font-family:"PP Neue Corp Tight",sans-serif;font-size:.92em;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:1.2em 2.6em;border-radius:3em;background:transparent;transition:border-color .4s,background .4s,color .4s}
+.btn-outline:hover{border-color:var(--gold);background:var(--gold-faint);color:var(--cream)}
+.cta-bottom{padding:2.5em 4em;border-top:1px solid var(--rule);position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5em}
+.cta-contacts{display:flex;gap:4em;flex-wrap:wrap}
+.cta-c-lbl{font-size:.52em;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);font-weight:600;display:block;margin-bottom:.25em}
+.cta-c-val{font-size:.9em;font-weight:600;color:var(--cream)}
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════ */
+.site-footer{background:#070605;padding:5em 4em 2.5em;border-top:1px solid var(--rule)}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:4em;padding-bottom:4em;border-bottom:1px solid var(--rule)}
+.footer-wm{font-family:"PP Neue Corp Tight",sans-serif;font-size:4em;font-weight:700;text-transform:uppercase;line-height:.82;letter-spacing:-.025em;color:var(--cream)}
+.footer-tag{font-size:.78em;line-height:1.72;color:var(--cream-dim);max-width:24ch;margin-top:.8em}
+.footer-col-hed{font-size:.56em;font-weight:600;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);margin-bottom:1.4em}
+.footer-links{display:flex;flex-direction:column;gap:.55em}
+.fl{font-size:.85em;color:var(--cream-dim);transition:color .3s}
+.fl:hover{color:var(--cream)}.fl.active{color:var(--gold)}
+.footer-base{display:flex;justify-content:space-between;align-items:center;padding-top:2em;flex-wrap:wrap;gap:1em}
+.footer-copy{font-size:.66em;color:rgba(240,230,211,.17)}
+.footer-legal{display:flex;gap:2em}
+.footer-legal a{font-size:.66em;color:rgba(240,230,211,.17);transition:color .3s}
+.footer-legal a:hover{color:rgba(240,230,211,.48)}
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-right{min-height:55vh}
+  .diag-grid{grid-template-columns:1fr 1fr}
+  .proof-phases{grid-template-columns:1fr 1fr}
+  .proof-outcomes{grid-template-columns:1fr 1fr}
+  .investment-layout{grid-template-columns:1fr}
+  .inv-left{border-right:none;border-bottom:1px solid var(--rule)}
+  .adj-grid{grid-template-columns:repeat(3,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .anat-inner{grid-template-columns:4.5em 1fr}
+  .anat-items{grid-column:2;border-left:none;padding-left:0;border-top:1px solid var(--rule);padding-top:1em}
+  .sec-header-split{grid-template-columns:1fr}
+  
+  
+  
+  
+  
+  
+}
+@media screen and (max-width:991px){
+  .hero-left,.sb-annotation{padding-left:2.5em;padding-right:2.5em}
+  .diagnosis-header,.anatomy-header,.punch,.proof-header,.process-header{padding-left:2.5em;padding-right:2.5em}
+  .deliv-header,.adj-header,.cta-inner,.cta-bottom,.testimony-wrap{padding-left:2.5em;padding-right:2.5em}
+  .sec-investment .inv-left,.inv-right{padding-left:2.5em;padding-right:2.5em}
+  .anat-head,.anat-inner{padding-left:2.5em;padding-right:2.5em}
+  .proc-row{padding-left:2.5em;padding-right:2.5em}
+  .proof-incident{padding-left:2.5em;padding-right:2.5em}
+  .manifest{margin:2.5em}
+  
+  
+ 
+  .menu{width:100%;padding-top:calc(6*var(--menu-padding))}
+  .bg-panel{border-radius:0}
+  .menu-link-heading{font-size:4em}
+  .menu-list-item{height:4.5em}
+}  
+
+@media screen and (max-width:767px){
+  .hero-left,.sb-annotation{padding-left:1.5em;padding-right:1.5em}
+  .diagnosis-header,.anatomy-header,.punch,.proof-header,.process-header{padding-left:1.5em;padding-right:1.5em}
+  .deliv-header,.adj-header,.cta-inner,.cta-bottom,.testimony-wrap{padding-left:1.5em;padding-right:1.5em}
+  .sec-investment .inv-left,.inv-right{padding-left:1.5em;padding-right:1.5em}
+  .anat-head,.anat-inner{padding-left:1.5em;padding-right:1.5em}
+  .proc-row{padding-left:1.5em;padding-right:1.5em;grid-template-columns:1fr}
+  .proc-team{border-left:none;padding-left:0;border-top:1px solid var(--rule);padding-top:1em}
+  .proof-incident{padding-left:1.5em;padding-right:1.5em}
+  .manifest{margin:1.5em}.manifest-grid{grid-template-columns:1fr}
+  .diag-grid{grid-template-columns:1fr}
+  .proof-phases,.proof-outcomes{grid-template-columns:1fr}
+  .adj-grid{grid-template-columns:1fr 1fr}
+  .cta-btns{flex-direction:column;align-items:stretch}
+  .btn-gold,.btn-outline{width:100%;justify-content:center}
+  .compare-row{grid-template-columns:1fr}
+  .punch{padding:5em 1.5em}
+  .site-footer{padding:4em 1.5em 2em}
+  .footer-grid{grid-template-columns:1fr;gap:2.5em}
+  .anat-head{grid-template-columns:3em 1fr;gap:1.5em}
+  .anat-toggle{display:none}
+}
+@media screen and (max-width:479px){
+  .hero-svc{font-size:clamp(3rem,12vw,5rem)}
+  .adj-grid{grid-template-columns:1fr}
+  .punch-text{font-size:clamp(2rem,9vw,3.5rem)}
+  .testimony-quote{font-size:clamp(1.8rem,7vw,3rem)}
+}
+  </style>
+
+
+<script>
+
+/* ─── Easing ──────────────────────────────────── */
+function ease(t){return 1-Math.pow(1-t,4)}
+const CUBIC = 'cubic-bezier(.65,.01,.05,.99)';
+
+/* ─── Preloader — film leader countdown ──────── */
+(function(){
+  const loader  = document.getElementById("preloader");
+  const countEl = document.getElementById("pre-count");
+  const fill    = document.getElementById("pre-fill");
+  const status  = document.getElementById("pre-status");
+  const action  = document.getElementById("pre-action");
+  // Build film strip holes
+  const strip = document.getElementById("pre-filmstrip");
+  if(strip){for(let i=0;i<20;i++){const h=document.createElement("div");h.className="pre-filmstrip-hole";strip.appendChild(h);if(i%4===3){const f=document.createElement("div");f.className="pre-filmstrip-frame";strip.appendChild(f)}}}
+
+  let count=5;
+  function tick(){
+    if(count<=0){ return toAction(); }
+    countEl.style.opacity=1;countEl.style.transform="none";
+    countEl.textContent=count;
+    fill.style.width=((6-count)/6*75)+"%";
+    status.textContent=count>1?`${count} frames…`:"Last frame…";
+    // flash
+    setTimeout(()=>{countEl.style.opacity=".1";},200);
+    count--;
+    setTimeout(tick,320);
+  }
+
+  function toAction(){
+    fill.style.width="88%";
+    countEl.style.display="none";
+    document.getElementById("pre-frame-data").style.opacity="0";
+    action.classList.add("show");
+    fill.style.width="100%";
+    status.textContent="Loading complete";
+    setTimeout(fadeOut,900);
+  }
+
+  function fadeOut(){
+    loader.style.transition="opacity .7s ease";
+    loader.style.opacity="0";
+    setTimeout(()=>{
+      loader.style.display="none";
+      // trigger rv
+      document.querySelectorAll(".rv").forEach(el=>io.observe(el));
+    },700);
+  }
+
+  setTimeout(tick,500);
+})();
+
+
+/* ─── Scroll reveals ──────────────────────────── */
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}
+  });
+},{threshold:.05,rootMargin:"0px 0px -48px 0px"});
+
+/* ─── Count-up ────────────────────────────────── */
+(function(){
+  function countUp(el){
+    const target=+el.dataset.count,dur=1600,t0=performance.now();
+    (function tick(now){
+      const p=Math.min((now-t0)/dur,1),v=ease(p);
+      el.textContent=Math.floor(v*target);
+      if(p<1)requestAnimationFrame(tick);
+    })(t0);
+  }
+  const cIo=new IntersectionObserver(e=>{e.forEach(v=>{
+    if(v.isIntersecting){countUp(v.target);cIo.unobserve(v.target);}
+  });},{threshold:.5});
+  document.querySelectorAll("[data-count]").forEach(el=>cIo.observe(el));
+})();
+
+/* ─── Anatomy accordion ───────────────────────── */
+document.querySelectorAll("[data-layer]").forEach(layer=>{
+  layer.querySelector(".anat-head").addEventListener("click",()=>{
+    const isOpen=layer.classList.contains("open");
+    document.querySelectorAll("[data-layer].open").forEach(l=>{
+      l.classList.remove("open");l.querySelector(".anat-icon").textContent="+";
+    });
+    if(!isOpen){layer.classList.add("open");layer.querySelector(".anat-icon").textContent="×";}
+  });
+});
+
+/* ─── Magnetic buttons ────────────────────────── */
+document.querySelectorAll(".btn-gold,.btn-outline,.tt-nav-cta,.tt-mobile-cta").forEach(el=>{
+  el.addEventListener("mousemove",e=>{
+    const r=el.getBoundingClientRect();
+    el.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.22}px,${(e.clientY-r.top-r.height/2)*.22}px)`;
+  });
+  el.addEventListener("mouseleave",()=>{el.style.transform="";});
+});
+
+
+
+
+
+  /* ── SCROLL NAV (FIXED ERROR) ───────────── */
+  (function(){
+    const pillWrap  = document.querySelector('.pill-nav-wrap');
+    const scrollBtn = document.getElementById('scroll-menu-btn');
+
+    if(!pillWrap || !scrollBtn) return;
+
+    const THRESHOLD = 80;
+
+    function onScroll(){
+      const past = window.scrollY > THRESHOLD;
+      pillWrap.classList.toggle('scrolled', past);
+      scrollBtn.classList.toggle('visible', past);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive:true });
+    onScroll();
+  })();
+
+
+  /* ── SIMPLE MOBILE MENU (SAFE) ───────────── */
+  (function(){
+    const hamburger  = document.getElementById("tt-hamburger");
+    const mobileMenu = document.getElementById("tt-mobile-menu");
+
+    if(!hamburger || !mobileMenu) return;
+
+    let isOpen = false;
+
+    function open(){
+      isOpen = true;
+      hamburger.classList.add("open");
+      mobileMenu.classList.add("open");
+      document.body.style.overflow="hidden";
+    }
+
+    function close(){
+      isOpen = false;
+      hamburger.classList.remove("open");
+      mobileMenu.classList.remove("open");
+      document.body.style.overflow="";
+    }
+
+    hamburger.addEventListener("click",()=> isOpen ? close() : open());
+
+    document.addEventListener("keydown",e=>{
+      if(e.key==="Escape" && isOpen) close();
+    });
+  })();
+
+
+/* ── MAIN GSAP MENU (UNIFIED) ───────────── */
+  (function(){
+    const nav = document.querySelector(".nav-menu");
+    if(!nav) return;
+
+    const overlay = nav.querySelector(".overlay");
+    const menu    = nav.querySelector(".menu");
+    const panels  = nav.querySelectorAll(".bg-panel");
+    const links   = nav.querySelectorAll(".menu-link");
+    const fades   = nav.querySelectorAll("[data-menu-fade]");
+    const toggles = document.querySelectorAll("[data-menu-toggle]");
+    const btn     = document.querySelector(".menu-button");
+
+    if(!overlay || !menu || !btn) return;
+
+    const txts = btn.querySelectorAll("p");
+    const icon = btn.querySelector(".menu-button-icon");
+
+    const tl = gsap.timeline({ paused: true });
+
+    tl
+      .set(nav,{display:"block"})
+      .fromTo(menu,{xPercent:120},{xPercent:0,duration:.6})
+      .fromTo(overlay,{autoAlpha:0},{autoAlpha:1},"<")
+      .fromTo(panels,{xPercent:101},{xPercent:0,stagger:.1},"<")
+      .fromTo(links,{yPercent:140},{yPercent:0,stagger:.05},"<+=.2")
+      .fromTo(fades,{autoAlpha:0,y:30},{autoAlpha:1,y:0,stagger:.05},"<");
+
+    function open(){
+      nav.setAttribute("data-nav","open");
+      btn.setAttribute("aria-expanded","true");
+      tl.play(0);
+    }
+
+    function close(){
+      nav.setAttribute("data-nav","closed");
+      btn.setAttribute("aria-expanded","false");
+      tl.reverse();
+    }
+
+    toggles.forEach(t => {
+      t.addEventListener("click", () => {
+        nav.getAttribute("data-nav") === "open" ? close() : open();
+      });
+    });
+
+    document.addEventListener("keydown", e => {
+      if(e.key === "Escape" && nav.getAttribute("data-nav") === "open"){
+        close();
+      }
+    });
+
+    gsap.set(nav,{display:"none"});
+  })();
+
+
+</script>
